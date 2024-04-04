@@ -1,0 +1,57 @@
+@startuml uml
+
+skinparam class {
+    BackgroundColor LightYellow
+    BorderColor Black
+    ArrowColor Black
+}
+
+class Users {
+    +id INTEGER
+    +username TEXT
+    +password TEXT
+    +email TEXT
+    +is_admin BOOLEAN
+}
+
+class Items {
+    +id INTEGER
+    +seller_id INTEGER
+    +category_id INTEGER
+    +brand TEXT
+    +model TEXT
+    +size TEXT
+    +condition TEXT
+    +description TEXT
+    +price REAL
+    +image_paths TEXT
+}
+
+class Categories {
+    +id INTEGER
+    +name TEXT
+}
+
+class Transactions {
+    +id INTEGER
+    +buyer_id INTEGER
+    +item_id INTEGER
+    +purchase_date TIMESTAMP
+}
+
+class Messages {
+    +id INTEGER
+    +sender_id INTEGER
+    +receiver_id INTEGER
+    +item_id INTEGER
+    +message_text TEXT
+    +send_date TIMESTAMP
+}
+
+Users "1" -- "0..*" Items
+Categories "1" -- "0..*" Items
+Users "1" -- "0..*" Transactions
+Users "1" -- "0..*" Messages
+Items "1" -- "0..*" Messages
+
+@enduml

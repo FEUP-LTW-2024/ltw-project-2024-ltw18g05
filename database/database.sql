@@ -1,15 +1,15 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS items;
-DROP TABLE IF EXISTS categories;
-DROP TABLE IF EXISTS transactions;
-DROP TABLE IF EXISTS messages;
+DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Items;
+DROP TABLE IF EXISTS Categories;
+DROP TABLE IF EXISTS Transactions;
+DROP TABLE IF EXISTS Messages;
 
 ---------------------------------------
 -- CREATE TABLES
 ---------------------------------------
 
 -- Users table to store user information
-CREATE TABLE users (
+CREATE TABLE Users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE NOT NULL,
     password TEXT NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE users (
 );
 
 -- Items table to store information about listed items
-CREATE TABLE items (
+CREATE TABLE Items (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     seller_id INTEGER NOT NULL,
     category_id INTEGER NOT NULL,
@@ -34,13 +34,13 @@ CREATE TABLE items (
 );
 
 -- Categories table to store item categories
-CREATE TABLE categories (
+CREATE TABLE Categories (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT UNIQUE NOT NULL
 );
 
 -- Transactions table to store information about completed transactions
-CREATE TABLE transactions (
+CREATE TABLE Transactions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     buyer_id INTEGER NOT NULL,
     item_id INTEGER NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE transactions (
 );
 
 -- Messages table to store messages between users (optional feature)
-CREATE TABLE messages (
+CREATE TABLE Messages (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     sender_id INTEGER NOT NULL,
     receiver_id INTEGER NOT NULL,
@@ -65,3 +65,18 @@ CREATE TABLE messages (
 ---------------------------------------
 -- POPULATE TABLES
 ---------------------------------------
+
+INSERT INTO Categories (name) VALUES
+('Electronics'),
+('Clothing'),
+('Books'),
+('Home & Garden'),
+('Sports & Outdoors'),
+('Toys & Games'),
+('Food & Beverages'),
+('Health & Beauty'),
+('Automotive'),
+('Pet Supplies'),
+('Furniture'),
+('Jewelry'),
+('Movies & Music');
