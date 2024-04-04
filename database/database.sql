@@ -1,8 +1,18 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS transactions;
+DROP TABLE IF EXISTS messages;
+
+---------------------------------------
+-- CREATE TABLES
+---------------------------------------
+
 -- Users table to store user information
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE NOT NULL,
-    password_hash TEXT NOT NULL,
+    password TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
     is_admin BOOLEAN NOT NULL DEFAULT FALSE
 );
@@ -51,3 +61,7 @@ CREATE TABLE messages (
     FOREIGN KEY (receiver_id) REFERENCES users(id),
     FOREIGN KEY (item_id) REFERENCES items(id)
 );
+
+---------------------------------------
+-- POPULATE TABLES
+---------------------------------------
