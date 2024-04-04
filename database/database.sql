@@ -65,3 +65,39 @@ CREATE TABLE messages (
 ---------------------------------------
 -- POPULATE TABLES
 ---------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INSERT INTO users (username, password_hash, email, is_admin) VALUES
+('ArtisticAdventurer', 'P@intM3aN0ther', 'artistic_adv@example.com', 0),
+('CulinaryConnoisseur', 'T@steExp3rt', 'culinary_connoisseur@example.com', 0),
+('FashionForward', 'Chic&Styl!sh', 'fashion_forward@example.com', 0),
+('VintageVoyager', 'R3troTr3@sure', 'vintage_voyager@example.com', 0),
+('MusicalMaestro', 'M3lod!cM@ster', 'musical_maestro@example.com', 0),
+('CraftyCollector', 'Cr3@t!veCrafter', 'crafty_collector@example.com', 0),
+('user1', 'passwordhash1', 'user1@example.com', 0),
+('admin', 'adminpasswordhash', 'admin@example.com', 1),
+('SunnySurfer21', 's3cureP@ss', 'sunny_surfer21@gmail.com', 0),
+('RetroReviver', 'vintageL0ve', 'retro_reviver@hotmail.com', 0),
+('MysteryMaven', 'enigma@123', 'mystery_maven@yahoo.com', 0);
+
