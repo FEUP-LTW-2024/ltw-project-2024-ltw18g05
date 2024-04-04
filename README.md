@@ -1,6 +1,6 @@
 # Voyager
 
-## UML
+*"Shop across the galaxy."*
 
 ## Team
 
