@@ -8,7 +8,7 @@
     <header>
         <h1><a href="index.html">Voyager</a></h1>
         <h2><a href="index.html">Buy, Sell, Explore</a></h2>
-        <div id="login&signup">
+        <div id="login_signup">
             <a href="register_page.html">Login</a>
             <a href="login_page.html">Sign Up</a>
         </div>
