@@ -2,7 +2,7 @@
 <head>
     <title>Voyager</title>
     <meta charset="UTF-8">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
     <header>
