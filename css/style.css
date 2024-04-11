@@ -7,7 +7,9 @@ body {
     font-family: Manrope;
 
 
-    > header {
+    header {
+        display: flex;
+        justify-content: space-between;
         background-color: #272727;
         color: #dadada;
         padding: 1em 2em;
@@ -20,10 +22,12 @@ body {
             font-size: 4em;
         }
         h2 {margin: 0 0 0.5em 0;}
-        #login_signup {
-            position: absolute;
-            right: 1em; 
-            top: 1em;
+        #search {
+            padding: 3em;
+            input {
+                padding: 1em;
+                width: 80em;
+            }
         }
     }
 
