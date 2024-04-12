@@ -12,6 +12,7 @@
         </div>
         <div id=search>
             <input type="search" name="search" placeholder="Explore Voyager...">
+            
         </div>
         <div id="login_signup_image">
             <a href="register_page.php">Login</a>
@@ -30,4 +31,32 @@
             <li><a href="index.php">Toys</a></li>
         </ul>
     </nav>
+    <section id=products>
+        <section id=highlights>
+            <article>
+                <h1><a href="item.html">Quisque a dapibus magna, non scelerisque</a></h1>
+                <img src="images/default.jpg" alt="default">
+                <footer>
+                    <span class="price"><a href="product.hpp">19.99€</a></span>
+                    <span class="condition"><a href="product.hpp">Very Good</a></span>
+                </footer>
+            </article>
+            <article>
+                <h1><a href="product.hpp">Product Placement</a></h1>
+                <img src="images/default.jpg" alt="default">
+                <footer>
+                    <span class="price"><a href="product.hpp">19.99€</a></span>
+                    <span class="condition"><a href="product.hpp">Very Good</a></span>
+                </footer>
+            </article>
+            <article>
+                <h1><a href="product.hpp">Product Placement</a></h1>
+                <img src="images/default.jpg" alt="default">
+                <footer>
+                    <span class="price"><a href="product.hpp">19.99€</a></span>
+                    <span class="condition"><a href="product.hpp">Very Good</a></span>
+                </footer>
+            </article>
+        </section>
+    </section>
 </body>

@@ -8,8 +8,9 @@ body {
     font-family: Manrope;
 
 
-    header {
+    > header {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         background-color: #272727;
         color: #dadada;
@@ -24,7 +25,6 @@ body {
         }
         h2 {margin: 0 0 0.5em 0;}
         #search {
-            background-color: #16de16;
             padding: 3em;
             width: 60em;
             input {
@@ -38,6 +38,7 @@ body {
         #login_signup_image {
             padding: 0;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             width: 13em;
             img {
@@ -59,8 +60,9 @@ body {
 
         ul {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-evenly;
-            margin: 0.5em;
+            margin: 1.0em;
             list-style-type: none;
             
             li {
@@ -80,6 +82,45 @@ body {
         }
     }
 
+
+    #products {
+        #highlights {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            article {
+                padding: 1em;
+                display: flex;
+                flex-direction: column;
+                border-radius: 10px;
+                justify-content: space-evenly;
+                background-color: #272727;
+                width: 30em;
+                a {
+                    color: #dadada;
+                    text-decoration: none;
+                }
+                h1 {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 1.5em;
+                }
+                img {
+                    display: block;
+                    width: 100%;
+                }
+                footer {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1em;
+                    a {
+                        font-size: 2em;
+                    }
+                }
+            }
+        }
+    }
 
 }
 
