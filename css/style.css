@@ -4,9 +4,12 @@ body {
     background-color: #167ade;
     margin: 0 auto;
     display: grid;
-    grid-template-rows: 10em auto;
+    grid-template-rows: 10em 7em auto;
     font-family: Manrope;
-
+    a {
+        color: #dadada;
+        text-decoration: none;
+    }
 
     > header {
         display: flex;
@@ -15,10 +18,6 @@ body {
         background-color: #272727;
         color: #dadada;
         padding: 1em 2em;
-        a {
-            color: #dadada;
-            text-decoration: none;
-        }
         h1 {
             margin: 0;
             font-size: 4em;
@@ -54,7 +53,7 @@ body {
 
 
     #nav_categories {
-
+        
         #hamburger {display: none;} /*temporary*/
         .hamburger {display: none;} /*temporary*/
 
@@ -62,7 +61,6 @@ body {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
-            margin: 1.0em;
             list-style-type: none;
             
             li {
@@ -83,23 +81,24 @@ body {
     }
 
 
-    #products {
-        #highlights {
+    #featured {
+        h1 {
+            background-color: #272727;
+        }
+        #featured_articles {
+            background-color: #16de48;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
+    
             article {
                 padding: 1em;
                 display: flex;
                 flex-direction: column;
                 border-radius: 10px;
-                justify-content: space-evenly;
+                justify-content: space-around;
                 background-color: #272727;
                 width: 30em;
-                a {
-                    color: #dadada;
-                    text-decoration: none;
-                }
                 h1 {
                     display: block;
                     width: 100%;
@@ -117,6 +116,42 @@ body {
                     a {
                         font-size: 2em;
                     }
+                }
+            }
+        }
+    }
+
+
+
+    #products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+
+        article {
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            justify-content: space-around;
+            background-color: #272727;
+            width: 30em;
+            h1 {
+                display: block;
+                width: 100%;
+                text-align: center;
+                font-size: 1.5em;
+            }
+            img {
+                display: block;
+                width: 100%;
+            }
+            footer {
+                display: flex;
+                justify-content: space-between;
+                padding: 1em;
+                a {
+                    font-size: 2em;
                 }
             }
         }
