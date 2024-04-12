@@ -4,6 +4,7 @@ body {
     background-color: #167ade;
     margin: 0 auto;
     display: grid;
+    grid-template-rows: 10em auto;
     font-family: Manrope;
 
 
@@ -23,10 +24,29 @@ body {
         }
         h2 {margin: 0 0 0.5em 0;}
         #search {
+            background-color: #16de16;
             padding: 3em;
+            width: 60em;
             input {
-                padding: 1em;
-                width: 80em;
+                display: block;
+                width: 100%;
+                align-self: center;
+                padding: 1.5em;
+                border-radius: 10px;
+            }
+        }
+        #login_signup_image {
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            width: 13em;
+            img {
+                align-self: center;
+                width: 4em;
+            }
+            a {
+                align-self: center;
+                font-weight: 700;
             }
         }
     }
