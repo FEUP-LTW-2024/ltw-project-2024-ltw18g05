@@ -12,7 +12,7 @@
         </div>
         <div id=search>
             <input type="search" name="search" placeholder="Explore Voyager...">
-            
+            <button formaction="login.php" formmethod="post" type="submit">Search</button>
         </div>
         <div id="login_signup_image">
             <a href="register_page.php">Login</a>
