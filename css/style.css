@@ -4,7 +4,7 @@ body {
     background-color: #167ade;
     margin: 0 auto;
     display: grid;
-    grid-template-rows: 10em 7em auto;
+    grid-template-rows: 10em auto auto;
     font-family: Manrope;
     a {
         color: #dadada;
@@ -13,7 +13,6 @@ body {
 
     > header {
         display: flex;
-        flex-wrap: wrap;
         justify-content: space-between;
         background-color: #272727;
         color: #dadada;
@@ -53,23 +52,23 @@ body {
 
 
     #nav_categories {
-        
+        margin-bottom: 1em;
+
         #hamburger {display: none;} /*temporary*/
         .hamburger {display: none;} /*temporary*/
 
         ul {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-evenly;
             list-style-type: none;
-            
+
             li {
-                padding: 1em 5em;
+                padding: 1em;
                 border-radius: 10px;
-                text-align: center;
-                width: 4em;
+                width: 10em;
                 font-size: 22px;
                 font-weight: 700;
+                text-align: center;
                 a {
                     color: #272727;
                     text-decoration: none;
@@ -82,11 +81,19 @@ body {
 
 
     #featured {
-        h1 {
-            background-color: #272727;
+        margin-bottom: 3em;
+
+        > h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 1.5em;
+            a {
+                background-color: #272727;
+                padding: 0.5em;
+                border-radius: 10px;
+            }
         }
         #featured_articles {
-            background-color: #16de48;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
@@ -100,8 +107,6 @@ body {
                 background-color: #272727;
                 width: 30em;
                 h1 {
-                    display: block;
-                    width: 100%;
                     text-align: center;
                     font-size: 1.5em;
                 }
@@ -113,9 +118,7 @@ body {
                     display: flex;
                     justify-content: space-between;
                     padding: 1em;
-                    a {
-                        font-size: 2em;
-                    }
+                    font-size: 1.8em;
                 }
             }
         }
@@ -124,37 +127,55 @@ body {
 
 
     #products {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
+        margin-bottom: 3em;
 
-        article {
-            padding: 1em;
+        > h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 1.5em;
+            a {
+                background-color: #272727;
+                padding: 0.5em;
+                border-radius: 10px;
+            }
+        }
+        #products_articles {
             display: flex;
-            flex-direction: column;
-            border-radius: 10px;
-            justify-content: space-around;
-            background-color: #272727;
-            width: 30em;
-            h1 {
-                display: block;
-                width: 100%;
-                text-align: center;
-                font-size: 1.5em;
-            }
-            img {
-                display: block;
-                width: 100%;
-            }
-            footer {
-                display: flex;
-                justify-content: space-between;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+    
+            article {
                 padding: 1em;
-                a {
-                    font-size: 2em;
+                display: flex;
+                flex-direction: column;
+                border-radius: 10px;
+                justify-content: space-around;
+                background-color: #272727;
+                width: 16em;
+                h1 {
+                    text-align: center;
+                    font-size: 1.3em;
+                }
+                img {
+                    display: block;
+                    width: 100%;
+                }
+                footer {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1em;
+                    font-size: 1.3em;
                 }
             }
         }
+    }
+
+
+    > footer {
+        background-color: #272727;
+        color: #dadada;
+        padding: 0.5em;
+        font-weight: 700;
     }
 
 }

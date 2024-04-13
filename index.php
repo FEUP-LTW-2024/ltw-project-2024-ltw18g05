@@ -20,6 +20,7 @@
             <img src="images/anonymous.png">
         </div>
     </header>
+    
     <nav id="nav_categories">
         <input type="checkbox" id="hamburger"> 
         <label class="hamburger" for="hamburger"></label>
@@ -31,6 +32,7 @@
             <li><a href="index.php">Toys</a></li>
         </ul>
     </nav>
+
     <section id=featured>
         <h1><a href="item.html">Featured Products</a></h1>
         <section id=featured_articles>
@@ -62,29 +64,52 @@
     </section>
     
     <section id=products>
-        <article>
-            <h1><a href="item.html">Quisque a dapibus magna, non scelerisque</a></h1>
-            <img src="images/default.jpg" alt="default">
-            <footer>
-                <span class="price"><a href="product.hpp">19.99€</a></span>
-                <span class="condition"><a href="product.hpp">Very Good</a></span>
-            </footer>
-        </article>
-        <article>
-            <h1><a href="product.hpp">Product Placement</a></h1>
-            <img src="images/default.jpg" alt="default">
-            <footer>
-                <span class="price"><a href="product.hpp">19.99€</a></span>
-                <span class="condition"><a href="product.hpp">Very Good</a></span>
-            </footer>
-        </article>
-        <article>
-            <h1><a href="product.hpp">Product Placement</a></h1>
-            <img src="images/default.jpg" alt="default">
-            <footer>
-                <span class="price"><a href="product.hpp">19.99€</a></span>
-                <span class="condition"><a href="product.hpp">Very Good</a></span>
-            </footer>
-        </article>
+        <h1><a href="item.html">Recently Posted</a></h1>
+        <section id=products_articles>
+            <article>
+                <h1><a href="item.html">Quisque a dapibus magna, non scelerisque</a></h1>
+                <img src="images/default.jpg" alt="default">
+                <footer>
+                    <span class="price"><a href="product.hpp">19.99€</a></span>
+                    <span class="condition"><a href="product.hpp">Very Good</a></span>
+                </footer>
+            </article>
+            <article>
+                <h1><a href="product.hpp">Product Placement</a></h1>
+                <img src="images/default.jpg" alt="default">
+                <footer>
+                    <span class="price"><a href="product.hpp">19.99€</a></span>
+                    <span class="condition"><a href="product.hpp">Very Good</a></span>
+                </footer>
+            </article>
+            <article>
+                <h1><a href="product.hpp">Product Placement</a></h1>
+                <img src="images/default.jpg" alt="default">
+                <footer>
+                    <span class="price"><a href="product.hpp">19.99€</a></span>
+                    <span class="condition"><a href="product.hpp">Very Good</a></span>
+                </footer>
+            </article>
+            <article>
+                <h1><a href="product.hpp">Product Placement</a></h1>
+                <img src="images/default.jpg" alt="default">
+                <footer>
+                    <span class="price"><a href="product.hpp">19.99€</a></span>
+                    <span class="condition"><a href="product.hpp">Very Good</a></span>
+                </footer>
+            </article>
+            <article>
+                <h1><a href="product.hpp">Product Placement</a></h1>
+                <img src="images/default.jpg" alt="default">
+                <footer>
+                    <span class="price"><a href="product.hpp">19.99€</a></span>
+                    <span class="condition"><a href="product.hpp">Very Good</a></span>
+                </footer>
+            </article>
+        </section>
     </section>
+
+    <footer>
+        <p>&copy; Voyager International Commerce Group</p>
+    </footer>
 </body>
