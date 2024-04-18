@@ -16,8 +16,8 @@
                 <button formaction="login.php" formmethod="post" type="submit">Search</button>
             </div>
             <div id="login_signup_image">
-                <a href="register_page.php">Login</a>
-                <a href="login_page.php">Sign Up</a>
+                <a href="login.php">Login</a>
+                <a href="register.php">Sign Up</a>
                 <img src="/images/anonymous.png">
             </div>
         </header>
