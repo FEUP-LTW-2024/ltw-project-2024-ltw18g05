@@ -23,8 +23,6 @@
         </header>
         
         <nav id="nav_categories">
-            <input type="checkbox" id="hamburger"> 
-            <label class="hamburger" for="hamburger"></label>
             <ul>
                 <li><a href="index.php">Eletronics</a></li>
                 <li><a href="index.php">Clothing</a></li>

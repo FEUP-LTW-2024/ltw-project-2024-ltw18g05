@@ -78,7 +78,7 @@ body {
 
         ul {
             display: flex;
-            justify-content: space-evenly;
+            padding: 0 1em 0 1em;
             list-style-type: none;
             li {
                 display: block;
