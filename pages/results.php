@@ -3,7 +3,7 @@
     <head>
         <title>Voyager</title>
         <meta charset="UTF-8">
-        <link href="/css/style.css" rel="stylesheet">
+        <link href="/css/results.css" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -32,130 +32,69 @@
             </ul>
         </nav>
 
-        <section id=featured>
-            <h1><a href="item.html">Featured Items</a></h1>
-            <section id=featured_articles>
+        <section id=list>
+            <h1><a>Results for</a></h1>
+            <h2><a>the thing that was searched</a></h2>
+            <section id=list_articles>
                 <article>
-                    <h1><a href="item.php">Quisque a dapibus magna, non scelerisque aaaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaaa aaaaaaaaa aaaaaaaaa</a></h1>
                     <img src="/images/default.jpg" alt="default">
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-                <article>
-                    <h1><a href="item.php">Item Placement</a></h1>
-                    <img src="/images/default2.jpg" alt="default">
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-                <article>
-                    <h1><a href="item.php">Item Placement</a></h1>
-                    <img src="/images/default3.jpeg" alt="default">
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-            </section>
-        </section>
-        
-        <section id=items>
-            <h1><a href="item.html">Recently Posted</a></h1>
-            <section id=items_articles>
-                <article>
                     <h1><a href="item.html">Quisque a dapibus magna, non scelerisque</a></h1>
-                    <img src="/images/default2.jpg" alt="default">
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
                         <span class="condition"><a href="item.php">Very Good</a></span>
                     </footer>
                 </article>
                 <article>
-                    <h1><a href="item.php">Item Placement</a></h1>
-                    <img src="/images/default3.jpeg" alt="default">
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-                <article>
-                    <h1><a href="item.php">Item Placement</a></h1>
                     <img src="/images/default.jpg" alt="default">
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-                <article>
                     <h1><a href="item.php">Item Placement</a></h1>
-                    <img src="/images/default.jpg" alt="default">
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
                         <span class="condition"><a href="item.php">Very Good</a></span>
                     </footer>
                 </article>
                 <article>
-                    <h1><a href="item.php">Item Placement</a></h1>
                     <img src="/images/default.jpg" alt="default">
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-                <article>
                     <h1><a href="item.html">Quisque a dapibus magna, non scelerisque</a></h1>
-                    <img src="/images/default2.jpg" alt="default">
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
                         <span class="condition"><a href="item.php">Very Good</a></span>
                     </footer>
                 </article>
                 <article>
-                    <h1><a href="item.php">Item Placement</a></h1>
-                    <img src="/images/default3.jpeg" alt="default">
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-                <article>
-                    <h1><a href="item.php">Item Placement</a></h1>
                     <img src="/images/default.jpg" alt="default">
+                    <h1><a href="item.php">Item Placement</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
                         <span class="condition"><a href="item.php">Very Good</a></span>
                     </footer>
                 </article>
                 <article>
-                    <h1><a href="item.php">Item Placement</a></h1>
                     <img src="/images/default.jpg" alt="default">
+                    <h1><a href="item.html">Quisque a dapibus magna, non scelerisque</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
                         <span class="condition"><a href="item.php">Very Good</a></span>
                     </footer>
                 </article>
                 <article>
-                    <h1><a href="item.php">Item Placement</a></h1>
                     <img src="/images/default.jpg" alt="default">
+                    <h1><a href="item.php">Item Placement</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
                         <span class="condition"><a href="item.php">Very Good</a></span>
                     </footer>
                 </article>
                 <article>
-                    <h1><a href="item.php">Item Placement</a></h1>
                     <img src="/images/default.jpg" alt="default">
+                    <h1><a href="item.html">Quisque a dapibus magna, non scelerisque</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
                         <span class="condition"><a href="item.php">Very Good</a></span>
                     </footer>
                 </article>
                 <article>
-                    <h1><a href="item.php">Item Placement</a></h1>
                     <img src="/images/default.jpg" alt="default">
+                    <h1><a href="item.php">Item Placement</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
                         <span class="condition"><a href="item.php">Very Good</a></span>
