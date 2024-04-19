@@ -1,6 +1,6 @@
 # Voyager
 
-*"Shop across the galaxy."*
+*"Buy, Sell, Explore"*
 
 ## Team
 

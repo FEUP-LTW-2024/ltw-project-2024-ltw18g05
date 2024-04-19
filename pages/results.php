@@ -1,3 +1,5 @@
+<?php require_once(__DIR__ . '/../templates/common.tpl.php'); ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,31 +8,9 @@
         <link href="/css/results.css" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <div id="title_slogan">
-                <h1><a href="index.php">Voyager</a></h1>
-                <h2><a href="index.php">Buy, Sell, Explore</a></h2>
-            </div>
-            <div id=search>
-                <input type="search" name="search" placeholder="Explore Voyager...">
-                <button formaction="login.php" formmethod="post" type="submit">Search</button>
-            </div>
-            <div id="login_signup_image">
-                <a href="login.php">Login</a>
-                <a href="register.php">Sign Up</a>
-                <img src="/images/anonymous.png">
-            </div>
-        </header>
-        
-        <nav id="nav_categories">
-            <ul>
-                <li><a href="results.php">Eletronics</a></li>
-                <li><a href="results.php">Clothing</a></li>
-                <li><a href="results.php">Books</a></li>
-                <li><a href="results.php">Furniture</a></li>
-                <li><a href="results.php">Toys</a></li>
-            </ul>
-        </nav>
+
+        <?php drawHeader();?>
+        <?php drawNav();?>
 
         <section id=list>
             <h1><a>Results for</a></h1>
@@ -103,8 +83,7 @@
             </section>
         </section>
 
-        <footer>
-            <p>&copy; Voyager International Commerce Group</p>
-        </footer>
+        <?php drawFooter();?>
+
     </body>
 </html>
