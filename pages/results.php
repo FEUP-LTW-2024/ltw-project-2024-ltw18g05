@@ -18,7 +18,7 @@
             <section id=list_articles>
                 <article>
                     <img src="/images/default.jpg" alt="default">
-                    <h1><a href="item.html">Quisque a dapibus magna, non scelerisque</a></h1>
+                    <h1><a href="item.php">Quisque a dapibus magna, non scelerisque</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
                         <span class="condition"><a href="item.php">Very Good</a></span>
@@ -34,7 +34,7 @@
                 </article>
                 <article>
                     <img src="/images/default.jpg" alt="default">
-                    <h1><a href="item.html">Quisque a dapibus magna, non scelerisque</a></h1>
+                    <h1><a href="item.php">Quisque a dapibus magna, non scelerisque</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
                         <span class="condition"><a href="item.php">Very Good</a></span>
@@ -50,7 +50,7 @@
                 </article>
                 <article>
                     <img src="/images/default.jpg" alt="default">
-                    <h1><a href="item.html">Quisque a dapibus magna, non scelerisque</a></h1>
+                    <h1><a href="item.php">Quisque a dapibus magna, non scelerisque</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
                         <span class="condition"><a href="item.php">Very Good</a></span>
@@ -66,7 +66,7 @@
                 </article>
                 <article>
                     <img src="/images/default.jpg" alt="default">
-                    <h1><a href="item.html">Quisque a dapibus magna, non scelerisque</a></h1>
+                    <h1><a href="item.php">Quisque a dapibus magna, non scelerisque</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
                         <span class="condition"><a href="item.php">Very Good</a></span>
