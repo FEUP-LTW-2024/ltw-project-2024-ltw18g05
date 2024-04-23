@@ -1,65 +1,65 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS items;
-DROP TABLE IF EXISTS categories;
-DROP TABLE IF EXISTS transactions;
-DROP TABLE IF EXISTS messages;
+DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Item;
+DROP TABLE IF EXISTS Category;
+DROP TABLE IF EXISTS Transaction_;
+DROP TABLE IF EXISTS Message;
 
 ---------------------------------------
 -- CREATE TABLES
 ---------------------------------------
 
 -- Users table to store user information
-CREATE TABLE users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username TEXT UNIQUE NOT NULL,
-    password TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL,
-    is_admin BOOLEAN NOT NULL DEFAULT FALSE
+CREATE TABLE User (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Username TEXT UNIQUE NOT NULL,
+    Password TEXT NOT NULL,
+    Email TEXT UNIQUE NOT NULL,
+    Is_Admin BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 -- Items table to store information about listed items
-CREATE TABLE items (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    seller_id INTEGER NOT NULL,
-    category_id INTEGER NOT NULL,
-    brand TEXT NOT NULL,
-    model TEXT NOT NULL,
-    size TEXT,
-    condition TEXT,
-    description TEXT,
-    price REAL NOT NULL,
-    image_paths TEXT, -- Comma-separated paths to images
-    FOREIGN KEY (seller_id) REFERENCES users(id),
-    FOREIGN KEY (category_id) REFERENCES categories(id)
+CREATE TABLE Item (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Seller_Id INTEGER NOT NULL,
+    Category_Id INTEGER NOT NULL,
+    Manufacturer TEXT NOT NULL,
+    Name TEXT NOT NULL,
+    Size TEXT,
+    Condition TEXT,
+    Description TEXT,
+    Price REAL NOT NULL,
+    Image_path TEXT, -- Comma-separated paths to images
+    FOREIGN KEY (Seller_id) REFERENCES User(Id),
+    FOREIGN KEY (Category_id) REFERENCES Category(Id)
 );
 
 -- Categories table to store item categories
-CREATE TABLE categories (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT UNIQUE NOT NULL
+CREATE TABLE Category (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name TEXT UNIQUE NOT NULL
 );
 
 -- Transactions table to store information about completed transactions
-CREATE TABLE transactions (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    buyer_id INTEGER NOT NULL,
-    item_id INTEGER NOT NULL,
-    purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (buyer_id) REFERENCES users(id),
-    FOREIGN KEY (item_id) REFERENCES items(id)
+CREATE TABLE Transaction_ (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Buyer_Id INTEGER NOT NULL,
+    Item_Id INTEGER NOT NULL,
+    Purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (Buyer_Id) REFERENCES User(Id),
+    FOREIGN KEY (Item_Id) REFERENCES Item(Id)
 );
 
 -- Messages table to store messages between users (optional feature)
-CREATE TABLE messages (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    sender_id INTEGER NOT NULL,
-    receiver_id INTEGER NOT NULL,
-    item_id INTEGER NOT NULL,
-    message_text TEXT NOT NULL,
-    send_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (sender_id) REFERENCES users(id),
-    FOREIGN KEY (receiver_id) REFERENCES users(id),
-    FOREIGN KEY (item_id) REFERENCES items(id)
+CREATE TABLE Message (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Sender_Id INTEGER NOT NULL,
+    Receiver_Id INTEGER NOT NULL,
+    Item_Id INTEGER NOT NULL,
+    Message_text TEXT NOT NULL,
+    Send_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (Sender_Id) REFERENCES User(Id),
+    FOREIGN KEY (Receiver_Id) REFERENCES User(Id),
+    FOREIGN KEY (Item_Id) REFERENCES Item(Id)
 );
 
 ---------------------------------------
@@ -67,7 +67,7 @@ CREATE TABLE messages (
 ---------------------------------------
 
 -- Insert sample users
-INSERT INTO users (username, password, email, is_admin) VALUES 
+INSERT INTO User (Username, Password, Email, Is_admin) VALUES 
     ('admin', 'admin123', 'admin@example.com', 1),
     ('user1', 'password1', 'user1@example.com', 0),
     ('user2', 'password2', 'user2@example.com', 0),
@@ -81,7 +81,7 @@ INSERT INTO users (username, password, email, is_admin) VALUES
     ('CraftyCollector', 'Cr3@t!veCrafter', 'crafty_collector@example.com', 0);
 
 -- Insert sample categories
-INSERT INTO categories (name) VALUES 
+INSERT INTO Category (Name) VALUES 
     ('Electronics'),
     ('Clothing'),
     ('Books'),
@@ -89,7 +89,7 @@ INSERT INTO categories (name) VALUES
     ('Toys');
 
 -- Insert sample items
-INSERT INTO items (seller_id, category_id, brand, model, size, condition, description, price, image_paths) VALUES 
+INSERT INTO Item (Seller_Id, Category_Id, Manufacturer, Name, Size, Condition, Description, Price, Image_path) VALUES 
     (1, 1, 'Apple', 'iPhone X', 'N/A', 'Good', 'Used iPhone X in good condition', 500.00, '/path/to/image1'),
     (2, 2, 'Nike', 'Air Max', '9', 'New', 'Brand new Nike Air Max shoes', 100.00, '/path/to/image2'),
     (3, 3, 'JK Rowling', 'Harry Potter and the Sorcerer''s Stone', 'N/A', 'Like New', 'First book in the Harry Potter series', 15.00, '/path/to/image3'),
@@ -97,7 +97,7 @@ INSERT INTO items (seller_id, category_id, brand, model, size, condition, descri
     (5, 5, 'LEGO', 'Star Wars Millennium Falcon', 'N/A', 'New', 'LEGO Star Wars Millennium Falcon set', 800.00, '/path/to/image5');
 
 -- Insert sample transactions
-INSERT INTO transactions (buyer_id, item_id) VALUES 
+INSERT INTO Transaction_ (Buyer_Id, Item_Id) VALUES 
     (2, 1),
     (3, 2),
     (4, 3),
@@ -105,7 +105,7 @@ INSERT INTO transactions (buyer_id, item_id) VALUES
     (6, 5);
 
 -- Insert sample messages
-INSERT INTO messages (sender_id, receiver_id, item_id, message_text) VALUES 
+INSERT INTO Message (Sender_Id, Receiver_Id, Item_Id, Message_text) VALUES 
     (2, 1, 1, 'Is the iPhone still available?'),
     (1, 2, 1, 'Yes, it is.'),
     (3, 2, 2, 'Are the shoes true to size?'),
