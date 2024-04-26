@@ -9,7 +9,7 @@
     <body>
         <?php drawHeader();?>
         <section id=item>
-                <img src="/images/default.jpg" alt="imagem">
+                <img src="/images/defaults/default.jpg" alt="imagem">
             <section id=description>
                 <h1>
                     Avião low cost (segunda mão)

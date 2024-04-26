@@ -29,6 +29,7 @@ CREATE TABLE Item (
     Description TEXT,
     Price REAL NOT NULL,
     Image_path TEXT, -- Comma-separated paths to images
+    Featured BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (Seller_id) REFERENCES User(Id),
     FOREIGN KEY (Category_id) REFERENCES Category(Id)
 );
@@ -89,12 +90,12 @@ INSERT INTO Category (Name) VALUES
     ('Toys');
 
 -- Insert sample items
-INSERT INTO Item (Seller_Id, Category_Id, Manufacturer, Name, Size, Condition, Description, Price, Image_path) VALUES 
-    (1, 1, 'Apple', 'iPhone X', 'N/A', 'Good', 'Used iPhone X in good condition', 500.00, '/path/to/image1'),
-    (2, 2, 'Nike', 'Air Max', '9', 'New', 'Brand new Nike Air Max shoes', 100.00, '/path/to/image2'),
-    (3, 3, 'JK Rowling', 'Harry Potter and the Sorcerer''s Stone', 'N/A', 'Like New', 'First book in the Harry Potter series', 15.00, '/path/to/image3'),
-    (4, 4, 'IKEA', 'MALM', 'Queen', 'Excellent', 'IKEA MALM Queen bed frame', 200.00, '/path/to/image4'),
-    (5, 5, 'LEGO', 'Star Wars Millennium Falcon', 'N/A', 'New', 'LEGO Star Wars Millennium Falcon set', 800.00, '/path/to/image5');
+INSERT INTO Item (Seller_Id, Category_Id, Manufacturer, Name, Size, Condition, Description, Price, Image_path, Featured) VALUES 
+    (1, 1, 'Apple', 'iPhone X', 'N/A', 'Good', 'Used iPhone X in good condition', 500.00, '/path/to/image1', 1),
+    (2, 2, 'Nike', 'Air Max', '9', 'New', 'Brand new Nike Air Max shoes', 100.00, '/path/to/image2', 0),
+    (3, 3, 'JK Rowling', 'Harry Potter and the Sorcerer''s Stone', 'N/A', 'Like New', 'First book in the Harry Potter series', 15.00, '/path/to/image3', 0),
+    (4, 4, 'IKEA', 'MALM', 'Queen', 'Excellent', 'IKEA MALM Queen bed frame', 200.00, '/path/to/image4', 1),
+    (5, 5, 'LEGO', 'Star Wars Millennium Falcon', 'N/A', 'New', 'LEGO Star Wars Millennium Falcon set', 800.00, '/path/to/image5', 1);
 
 -- Insert sample transactions
 INSERT INTO Transaction_ (Buyer_Id, Item_Id) VALUES 

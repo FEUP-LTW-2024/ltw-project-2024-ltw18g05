@@ -17,7 +17,7 @@
             <h2><a>the thing that was searched</a></h2>
             <section id=list_articles>
                 <article>
-                    <img src="/images/default.jpg" alt="default">
+                    <img src="/images/defaults/default.jpg" alt="default">
                     <h1><a href="item.php">Quisque a dapibus magna, non scelerisque</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
@@ -25,7 +25,7 @@
                     </footer>
                 </article>
                 <article>
-                    <img src="/images/default.jpg" alt="default">
+                    <img src="/images/defaults/default.jpg" alt="default">
                     <h1><a href="item.php">Item Placement</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
@@ -33,7 +33,7 @@
                     </footer>
                 </article>
                 <article>
-                    <img src="/images/default.jpg" alt="default">
+                    <img src="/images/defaults/default.jpg" alt="default">
                     <h1><a href="item.php">Quisque a dapibus magna, non scelerisque</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
@@ -41,7 +41,7 @@
                     </footer>
                 </article>
                 <article>
-                    <img src="/images/default.jpg" alt="default">
+                    <img src="/images/defaults/default.jpg" alt="default">
                     <h1><a href="item.php">Item Placement</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
@@ -49,7 +49,7 @@
                     </footer>
                 </article>
                 <article>
-                    <img src="/images/default.jpg" alt="default">
+                    <img src="/images/defaults/default.jpg" alt="default">
                     <h1><a href="item.php">Quisque a dapibus magna, non scelerisque</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
@@ -57,7 +57,7 @@
                     </footer>
                 </article>
                 <article>
-                    <img src="/images/default.jpg" alt="default">
+                    <img src="/images/defaults/default.jpg" alt="default">
                     <h1><a href="item.php">Item Placement</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
@@ -65,7 +65,7 @@
                     </footer>
                 </article>
                 <article>
-                    <img src="/images/default.jpg" alt="default">
+                    <img src="/images/defaults/default.jpg" alt="default">
                     <h1><a href="item.php">Quisque a dapibus magna, non scelerisque</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
@@ -73,7 +73,7 @@
                     </footer>
                 </article>
                 <article>
-                    <img src="/images/default.jpg" alt="default">
+                    <img src="/images/defaults/default.jpg" alt="default">
                     <h1><a href="item.php">Item Placement</a></h1>
                     <footer>
                         <span class="price"><a href="item.php">19.99€</a></span>
