@@ -1,17 +1,17 @@
 <?php
 
 class Item {
-    private $id;
-    private $sellerId;
-    private $categoryId;
-    private $manufacturer;
-    private $name;
-    private $size;
-    private $condition;
-    private $description;
-    private $price;
-    private $imagePath;
-    private $featured;
+    public int $id;
+    public int $sellerId;
+    public int $categoryId;
+    public string $manufacturer;
+    public string $name;
+    public string $size;
+    public string $condition;
+    public string $description;
+    public $price;
+    public $imagePath;
+    public $featured;
 
     public function __construct($id, $sellerId, $categoryId, $manufacturer, $name, $size, $condition, $description, $price, $imagePath, $featured) {
         $this->id = $id;
