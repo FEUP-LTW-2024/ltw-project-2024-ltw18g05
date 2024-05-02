@@ -1,4 +1,9 @@
-<?php require_once(__DIR__ . '/../templates/common.tpl.php'); ?>
+<?php 
+require_once(__DIR__ . '/../templates/common.tpl.php');
+
+$search_content=$_GET['search_content'];
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -12,10 +17,10 @@
         <?php drawHeader();?>
         <?php drawNav();?>
 
-        <section id=list>
+        <section id=results>
             <h1><a>Results for</a></h1>
             <h2><a>the thing that was searched</a></h2>
-            <section id=list_articles>
+            <section id=results_articles>
                 <article>
                     <img src="/images/defaults/default.jpg" alt="default">
                     <h1><a href="item.php">Quisque a dapibus magna, non scelerisque</a></h1>

@@ -99,7 +99,7 @@ body {
     }
 
 
-    #list {
+    #results {
         margin-bottom: 3em;
 
         > h1 {
@@ -123,7 +123,7 @@ body {
                 border-radius: 10px;
             }
         }
-        #list_articles {
+        #results_articles {
             display: flex;
             flex-wrap: wrap;
             justify-content: left;

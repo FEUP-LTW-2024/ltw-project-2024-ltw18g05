@@ -7,10 +7,10 @@
         <h1><a href="index.php">Voyager</a></h1>
         <h2><a href="index.php">Buy, Sell, Explore</a></h2>
     </div>
-    <div id=search>
-        <input type="search" name="search" placeholder="Explore Voyager...">
-        <button formaction="login.php" formmethod="post" type="submit">Search</button>
-    </div>
+    <form id=search action="results.php" method="get">
+        <input type="search" id="search" name="search_content" placeholder="Explore Voyager...">
+        <button type="submit" value="Send">Search</button>
+    </form>
     <div id="login_signup_image">
         <a href="login.php">Login</a>
         <a href="register.php">Sign Up</a>
