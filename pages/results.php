@@ -1,7 +1,17 @@
 <?php 
-require_once(__DIR__ . '/../templates/common.tpl.php');
+    declare(strict_types = 1);
 
-$search_content=$_GET['search_content'];
+    require_once(__DIR__ . '/../database/connection.db.php');
+
+    require_once(__DIR__ . '/../database/item.class.php');
+
+    require_once(__DIR__ . '/../templates/common.tpl.php');
+    require_once(__DIR__ . '/../templates/item.tpl.php'); 
+
+    $db = getDatabaseConnection();
+    $items = Item::getAllItems($db);
+
+    $search_content=$_GET['search_content'];
 ?>
 
 
@@ -17,7 +27,9 @@ $search_content=$_GET['search_content'];
         <?php drawHeader();?>
         <?php drawNav();?>
 
-        <section id=results>
+        <?php drawResults($items,$search_content);?>
+
+        <!--<section id=results>
             <h1><a>Results for</a></h1>
             <h2><a>the thing that was searched</a></h2>
             <section id=results_articles>
@@ -86,7 +98,7 @@ $search_content=$_GET['search_content'];
                     </footer>
                 </article>
             </section>
-        </section>
+        </section>-->
 
         <?php drawFooter();?>
 
