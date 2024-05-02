@@ -24,11 +24,11 @@
 <?php function drawNav() { ?>
 <nav id="nav_categories">
         <ul>
-            <li><a href="results.php">Eletronics</a></li>
-            <li><a href="results.php">Clothing</a></li>
-            <li><a href="results.php">Books</a></li>
-            <li><a href="results.php">Furniture</a></li>
-            <li><a href="results.php">Toys</a></li>
+            <li><a href="results.php?search_content=Eletronics">Eletronics</a></li>
+            <li><a href="results.php?search_content=Clothing">Clothing</a></li>
+            <li><a href="results.php?search_content=Books">Books</a></li>
+            <li><a href="results.php?search_content=Furniture">Furniture</a></li>
+            <li><a href="results.php?search_content=Toys">Toys</a></li>
         </ul>
 </nav>
 <?php } ?>

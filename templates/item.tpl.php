@@ -3,6 +3,16 @@
   require_once(__DIR__ . '/../database/item.class.php')
 ?>
 
+<!--Auxiliary functions-->
+
+<?php function getCategoryName(array $categories, int $categoryId) : string {
+    foreach ($categories as $category) {
+        if ($category->id === $categoryId) {
+            return $category->name;
+        }
+    }
+    return ''; // Return empty string if category ID is not found
+} ?>
 
 <!--index.php draw functions-->
 
@@ -58,18 +68,22 @@
 
 <!--results.php draw functions-->
 
-<?php function drawResults(array $items, string $search_content) { ?>
+<?php function drawResults(array $items, array $categories, string $search_content) { ?>
 <section id=results>
     <h1><a>Results for</a></h1>
     <h2><a><?=$search_content?></a></h2>
     <section id=results_articles>
 
-    <?php foreach($items as $item) { 
+    <?php foreach($items as $item) {
+                $categoryId = $item->categoryId;
+                $categoryName = getCategoryName($categories, $categoryId);
+                
                 if (strpos($item->manufacturer, $search_content) !== false ||
                 strpos($item->name, $search_content) !== false ||
                 strpos($item->size, $search_content) !== false ||
                 strpos($item->condition, $search_content) !== false ||
-                strpos($item->description, $search_content) !== false) {?>
+                strpos($item->description, $search_content) !== false ||
+                strpos($categoryName, $search_content) !== false) {?>
 
         <article>
             <img src="/images/defaults/default.jpg" alt="default">
