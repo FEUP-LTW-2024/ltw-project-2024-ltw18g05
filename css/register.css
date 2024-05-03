@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+body {
+    background-color: #167ade;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    font-family: Manrope;
+    a {
+        color: #dadada;
+        text-decoration: none;
+    }
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 3fr 0.8fr;
+    background-color: #272727;
+    color: #dadada;
+    padding: 1em 2em;
+    #title_slogan {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        h1 {
+            margin: 0;
+            font-size: 4em;
+        }
+        h2 {margin: 0;}
+    }
+}
+
+.register-container {
+    width: 20em;
+    padding: 2em;
+    background-color: #272727;
+    color: #dadada;
+    border-radius: 1em;
+    margin: 2em 0 2em 0;
+    font-size: larger;
+    justify-self: center;
+    align-self: center;
+}
+
+
+.register-container h2 {
+    text-align: center;
+}
+
+.input-container {
+    margin-bottom: 2em;
+}
+
+.input-container label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background-color: #167ade;
+    color: #fff;
+    border: none;
+    padding: 1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #125d9b;
+}
+
+footer {
+    background-color: #272727;
+    color: #dadada;
+    padding: 1em 2em;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

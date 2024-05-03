@@ -1,11 +1,11 @@
 <?php
 
 class User {
-    private $id;
-    private $username;
-    private $password;
-    private $email;
-    private $isAdmin;
+    public int $id;
+    public string $username;
+    public string $password;  //Coloquei public string e public int nestes atributos, mas depois temos de rever isto
+    public string $email;
+    public bool $isAdmin;
 
     public function __construct($id, $username, $password, $email, $isAdmin = false) {
         $this->id = $id;

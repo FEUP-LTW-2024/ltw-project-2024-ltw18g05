@@ -5,9 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login - Voyager</title>
+    <title>Register - Voyager</title>
     <meta charset="UTF-8">
-    <link href="/css/login.css" rel="stylesheet">
+    <link href="/css/register.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -17,20 +17,22 @@
         </div>
     </header>
     
-    <div class="login-container">
+    <div class="register-container">
         <form action="authenticate.php" method="post">
-            <h2>Login to Your Account</h2>
+            <h2>Sign up today!</h2>
             <div class="input-container">
-                <label for="email">Email:</label>
+                <label for="email">Username:</label>
                 <input type="text" id="email" name="email" required>
+            </div>
+            <div class="input-container">
+                <label for="username">Password:</label>
+                <input type="username" id="username" name="username" required>
             </div>
             <div class="input-container">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit">Login</button>
-        </form>
-        <p class="no-account">Don't have an account? <a href="register.php">Sign up here</a>.</p>
+            <button type="submit">Create Account</button>
     </div>
 
     <?php drawFooter();?>

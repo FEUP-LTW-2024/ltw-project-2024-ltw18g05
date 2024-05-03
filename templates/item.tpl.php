@@ -3,6 +3,8 @@
   require_once(__DIR__ . '/../database/item.class.php')
 ?>
 
+
+
 <!--Auxiliary functions-->
 
 <?php function getCategoryName(array $categories, int $categoryId) : string {
@@ -13,6 +15,8 @@
     }
     return ''; // Return empty string if category ID is not found
 } ?>
+
+
 
 <!--index.php draw functions-->
 
@@ -28,7 +32,7 @@
                 <h1><a href="item.php"><?=$item->name?></a></h1>
                 <img src="/images/defaults/default2.jpg" alt="default">
                 <footer>
-                    <span class="price"><a href="item.php"><?=$item->price?></a></span>
+                    <span class="price"><a href="item.php"><?=$item->price?>€</a></span>
                     <span class="condition"><a href="item.php"><?=$item->condition?></a></span>
                 </footer>
             </article>
@@ -53,7 +57,7 @@
                 <h1><a href="item.php"><?=$item->name?></a></h1>
                 <img src="/images/defaults/default2.jpg" alt="default">
                 <footer>
-                    <span class="price"><a href="item.php"><?=$item->price?></a></span>
+                    <span class="price"><a href="item.php"><?=$item->price?>€</a></span>
                     <span class="condition"><a href="item.php"><?=$item->condition?></a></span>
                 </footer>
             </article>
@@ -66,6 +70,7 @@
 <?php } ?>
 
 
+
 <!--results.php draw functions-->
 
 <?php function drawResults(array $items, array $categories, string $search_content) { ?>
@@ -74,22 +79,31 @@
     <h2><a><?=$search_content?></a></h2>
     <section id=results_articles>
 
-    <?php foreach($items as $item) {
-                $categoryId = $item->categoryId;
-                $categoryName = getCategoryName($categories, $categoryId);
-                
-                if (strpos($item->manufacturer, $search_content) !== false ||
-                strpos($item->name, $search_content) !== false ||
-                strpos($item->size, $search_content) !== false ||
-                strpos($item->condition, $search_content) !== false ||
-                strpos($item->description, $search_content) !== false ||
-                strpos($categoryName, $search_content) !== false) {?>
+    <?php $search_content_lower = strtolower($search_content);
+    
+        foreach($items as $item) {
+            $categoryId = $item->categoryId;
+            $categoryName = getCategoryName($categories, $categoryId);
+            
+            $manufacturer_lower = strtolower($item->manufacturer);
+            $name_lower = strtolower($item->name);
+            $size_lower = strtolower($item->size);
+            $condition_lower = strtolower($item->condition);
+            $description_lower = strtolower($item->description);
+            $categoryName_lower = strtolower($categoryName);
+        
+            if (strpos($manufacturer_lower, $search_content_lower) !== false ||
+                strpos($name_lower, $search_content_lower) !== false ||
+                strpos($size_lower, $search_content_lower) !== false ||
+                strpos($condition_lower, $search_content_lower) !== false ||
+                strpos($description_lower, $search_content_lower) !== false ||
+                strpos($categoryName_lower, $search_content_lower) !== false) {?>
 
         <article>
             <img src="/images/defaults/default.jpg" alt="default">
             <h1><a href="item.php"><?=$item->name?></a></h1>
             <footer>
-                <span class="price"><a href="item.php"><?=$item->price?></a></span>
+                <span class="price"><a href="item.php"><?=$item->price?>€</a></span>
                 <span class="condition"><a href="item.php"><?=$item->condition?></a></span>
             </footer>
         </article>
