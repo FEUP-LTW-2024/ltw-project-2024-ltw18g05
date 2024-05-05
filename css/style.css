@@ -78,7 +78,6 @@ body {
         margin-bottom: 1em;
 
         #hamburger {display: none;} /*temporary*/
-        .hamburger {display: none;} /*temporary*/
 
         ul {
             display: flex;
@@ -210,3 +209,41 @@ body {
 
 }
 
+
+@media (max-width: 70em) {
+
+    body #nav_categories{
+
+        #hamburger {
+            &:checked {
+                ~ ul {max-height: 25em;}
+                ~ .hamburger::before {content: "\2715";}
+            }
+        }
+        .hamburger {
+            display: flex;
+            padding: 1em;
+            background-color: #272727;
+            &:before {
+                content: "\2630";
+                color: white;
+                font-size: 1.5em;
+            }
+        }
+        ul {
+            flex-direction: column;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height .5s;
+            li {
+                border-top: 0;
+                list-style-type: none;
+                background-color: #272727;
+                a {color: #dadada;}
+                &:hover {background-color: #dadada;}
+                &:hover a{color: #272727;}    
+            }
+        }
+    }
+    
+}

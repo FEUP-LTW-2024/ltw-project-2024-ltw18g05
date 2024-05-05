@@ -23,6 +23,8 @@
 <!-- Nav bar HTML code-->
 <?php function drawNav() { ?>
 <nav id="nav_categories">
+        <input type="checkbox" id="hamburger"> 
+        <label class="hamburger" for="hamburger"></label>  
         <ul>
             <li><a href="results.php?search_content=Eletronics">Eletronics</a></li>
             <li><a href="results.php?search_content=Clothing">Clothing</a></li>
