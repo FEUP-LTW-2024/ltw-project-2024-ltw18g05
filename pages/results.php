@@ -14,6 +14,7 @@
     $categories = Category::getAllCategories($db);
 
     $search_content=$_GET['search_content'];
+    $condition_filter = $_GET['condition_filter'] ?? '';
 ?>
 
 
@@ -29,7 +30,10 @@
         <?php drawHeader();?>
         <?php drawNav();?>
 
-        <?php drawResults($items,$categories,$search_content);?>
+        <section id=results>
+            <?php drawResultsHeader($search_content, $condition_filter);?>
+            <?php drawResults($items, $categories, $search_content, $condition_filter);?>
+        </section>
 
         <?php drawFooter();?>
 

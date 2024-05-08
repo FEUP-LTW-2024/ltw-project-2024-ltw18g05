@@ -105,29 +105,44 @@ body {
 
 
     #results {
-        margin-bottom: 3em;
-
-        > h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 1.5em;
-            a {
-                background-color: #272727;
-                padding: 0.5em;
-                border-radius: 10px;
+        margin-bottom: 6em;
+        #results_header {
+            padding: 0 1em 0 1em;
+            display: grid;
+            grid-template-columns: 3fr auto;
+            #resultsfor {
+                display: flex;
+                justify-content: left;
+                gap: 1em;
+                > h1 {
+                    align-self: center;
+                    font-size: 2.5em;
+                    a {
+                        background-color: #272727;
+                        padding: 0.5em;
+                        border-radius: 10px;
+                    }
+                }
+                > h2 {
+                    align-self: center;
+                    font-size: 1.8em;
+                    a {
+                        background-color: #dadada;
+                        color: #272727;
+                        padding: 0.5em;
+                        border-radius: 10px;
+                    }
+                }
+            }
+            #filters_form {
+                > h2 {
+                    margin: 0;
+                    font-size: 1em;
+                    a {color: #272727;}
+                }
             }
         }
-        > h2 {
-            text-align: center;
-            font-size: 1.8em;
-            margin-bottom: 1.5em;
-            a {
-                background-color: #dadada;
-                color: #272727;
-                padding: 0.5em;
-                border-radius: 10px;
-            }
-        }
+        
         #results_articles {
             display: flex;
             flex-wrap: wrap;
@@ -169,6 +184,9 @@ body {
         color: #dadada;
         padding: 0.5em;
         font-weight: 700;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
     }
 
 }
