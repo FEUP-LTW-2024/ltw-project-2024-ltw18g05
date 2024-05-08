@@ -30,7 +30,7 @@
 
             <article>
                 <h1><a href="item.php"><?=$item->name?></a></h1>
-                <img src="/images/defaults/default2.jpg" alt="default">
+                <img src=<?=$item->imagePath?> alt="imagePath">
                 <footer>
                     <span class="price"><a href="item.php"><?=$item->price?>€</a></span>
                     <span class="condition"><a href="item.php"><?=$item->condition?></a></span>
@@ -55,7 +55,7 @@
 
             <article>
                 <h1><a href="item.php"><?=$item->name?></a></h1>
-                <img src="/images/defaults/default2.jpg" alt="default">
+                <img src=<?=$item->imagePath?> alt="imagePath">
                 <footer>
                     <span class="price"><a href="item.php"><?=$item->price?>€</a></span>
                     <span class="condition"><a href="item.php"><?=$item->condition?></a></span>
@@ -100,7 +100,7 @@
                 strpos($categoryName_lower, $search_content_lower) !== false) {?>
 
         <article>
-            <img src="/images/defaults/default.jpg" alt="default">
+            <img src=<?=$item->imagePath?> alt="default">
             <h1><a href="item.php"><?=$item->name?></a></h1>
             <footer>
                 <span class="price"><a href="item.php"><?=$item->price?>€</a></span>

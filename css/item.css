@@ -27,6 +27,7 @@ body {
             }
             h2 {margin: 0;}
         }
+        #hidden_search {display: none;}
         #search {
             display: flex;
             justify-content: center;
