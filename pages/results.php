@@ -13,9 +13,13 @@
     $items = Item::getAllItems($db);
     $categories = Category::getAllCategories($db);
 
-    $search_content=$_GET['search_content'];
+    $search_content = $_GET['search_content'] ?? '';
     $condition_filter = $_GET['condition_filter'] ?? '';
+    $category_filter = $_GET['category_filter'] ?? '';    
+    $min_price_filter = isset($_GET['min_price_filter']) ? (float)$_GET['min_price_filter'] : null;
+    $max_price_filter = isset($_GET['max_price_filter']) ? (float)$_GET['max_price_filter'] : null;
 ?>
+
 
 
 <!DOCTYPE html>
@@ -31,8 +35,8 @@
         <?php drawNav();?>
 
         <section id=results>
-            <?php drawResultsHeader($search_content, $condition_filter);?>
-            <?php drawResults($items, $categories, $search_content, $condition_filter);?>
+            <?php drawResultsHeader($categories, $search_content, $condition_filter, $min_price_filter, $max_price_filter, $category_filter);?>
+            <?php drawResults($items, $categories, $search_content, $condition_filter, $min_price_filter, $max_price_filter, $category_filter);?>
         </section>
 
         <?php drawFooter();?>
