@@ -1,5 +1,13 @@
 <?php
     require_once(__DIR__ . '/../templates/common.tpl.php');
+    require_once(dirname(__DIR__).'/database/session.class.php');
+    $session = new Session();
+  
+    $_SESSION['input']['username newUser'] = $_SESSION['input']['name newUser'] ?? "";
+    $_SESSION['input']['email newUser'] = $_SESSION['input']['email newUser'] ?? "";
+    $_SESSION['input']['password1 newUser'] = $_SESSION['input']['password1 newUser'] ?? "";
+    $_SESSION['input']['password2 newUser'] = $_SESSION['input']['password2 newUser'] ?? "";
+    $_SESSION['input']['profile_picture newUser'] = $_SESSION['input']['profile_picture newUser'] ?? "";
 ?>
 
 <!DOCTYPE html>
@@ -18,25 +26,25 @@
     </header>
     
     <div class="register-container">
-        <form action="authenticate.php" method="post">
+        <form action="../actions/register.action.php" method="post">
             <h2>Sign up today!</h2>
             <div class="input-container">
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" required>
+                <label>Email: <input type="email" name="email" required="required" value="<?=htmlentities($_SESSION['input']['email newUser'])?>"></label>
             </div>
             <div class="input-container">
-                <label for="username">Username:</label>
-                <input type="username" id="username" name="username" required>
+                <label>Username: <input type="text" name = "name" required="required" value="<?=htmlentities($_SESSION['input']['username newUser'])?>"></label>
             </div>
             <div class="input-container">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <label>Password: <input type="password" name="password1" required="required" value="<?=htmlentities($_SESSION['input']['password1 newUser'])?>"></label>
             </div>
             <div class="input-container">
-                <label for="profile_picture">Profile Picture:</label>
-                <input type="file" id="profile_picture" name="profile_picture" accept="image/png,image/jpeg">
+                <label>Confirm Password: <input type="password" name="password2" required="required" value="<?=htmlentities($_SESSION['input']['password2 newUser'])?>"></label>
+            </div>
+            <div class="input-container">
+                <label>Profile Picture: <input type="file" name="profile_picture" required="required" value="<?=htmlentities($_SESSION['input']['profile_picture newUser'])?>"></label>
             </div>
             <button type="submit">Create Account</button>
+        </form>
     </div>
 
     <?php drawFooter();?>

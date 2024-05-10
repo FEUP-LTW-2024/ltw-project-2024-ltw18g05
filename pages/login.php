@@ -1,5 +1,10 @@
 <?php
     require_once(__DIR__ . '/../templates/common.tpl.php');
+    require_once(dirname(__DIR__).'/database/session.class.php');
+    $session = new Session();
+
+    $_SESSION['input']['email login'] = $_SESSION['input']['email login'] ?? "";
+    $_SESSION['input']['password login'] = $_SESSION['input']['password login'] ?? "";
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +23,7 @@
     </header>
     
     <div class="login-container">
-        <form action="authenticate.php" method="post">
+        <form action="../actions/login.action.php" method="post">
             <h2>Login to Your Account</h2>
             <div class="input-container">
                 <label for="email">Email:</label>
