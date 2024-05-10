@@ -26,19 +26,18 @@
 
 
 <!-- Nav bar HTML code-->
-<?php function drawNav() { ?>
+<?php function drawNav(array $categories) { ?>
 <nav id="nav_categories">
-        <input type="checkbox" id="hamburger"> 
-        <label class="hamburger" for="hamburger"></label>  
-        <ul>
-            <li><a href="results.php?category_filter=Electronics&search_content=">Electronics</a></li>
-            <li><a href="results.php?category_filter=Clothing&search_content=">Clothing</a></li>
-            <li><a href="results.php?category_filter=Books&search_content=">Books</a></li>
-            <li><a href="results.php?category_filter=Furniture&search_content=">Furniture</a></li>
-            <li><a href="results.php?category_filter=Toys&search_content=">Toys</a></li>
-        </ul>
+    <input type="checkbox" id="hamburger"> 
+    <label class="hamburger" for="hamburger"></label>  
+    <ul>
+        <?php foreach ($categories as $category): ?>
+            <li><a href="results.php?category_filter=<?= urlencode($category->name) ?>&search_content="><?= $category->name ?></a></li>
+        <?php endforeach; ?>
+    </ul>
 </nav>
 <?php } ?>
+
 
 
 <!-- Footer HTML code-->

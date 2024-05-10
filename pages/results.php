@@ -32,7 +32,7 @@
     <body>
 
         <?php drawHeader();?>
-        <?php drawNav();?>
+        <?php drawNav($categories);?>
 
         <section id=results>
             <?php drawResultsHeader($categories, $search_content, $condition_filter, $min_price_filter, $max_price_filter, $category_filter);?>
