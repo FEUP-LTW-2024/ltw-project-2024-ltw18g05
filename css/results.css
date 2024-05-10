@@ -76,7 +76,6 @@ body {
 
 
     #nav_categories {
-        margin-bottom: 1em;
 
         #hamburger {display: none;} /*temporary*/
         .hamburger {display: none;} /*temporary*/
@@ -105,49 +104,61 @@ body {
 
 
     #results {
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
         margin-bottom: 6em;
         #results_header {
-            padding: 0 1em 0 1em;
-            display: grid;
-            grid-template-columns: 3fr auto;
+            background-color: #272727;
+            padding: 0.6em 1em 0.6em 1em;
+            border-radius: 6em;
+            display: flex;
+            flex-direction: column;
+
             #resultsfor {
                 display: flex;
-                justify-content: left;
+                justify-content:center;
                 gap: 1em;
+                overflow: hidden;
                 > h1 {
                     align-self: center;
                     font-size: 2.5em;
                     a {
-                        background-color: #272727;
+                        background-color: #dadada;
+                        color: #272727;
                         padding: 0.5em;
-                        border-radius: 10px;
+                        border-radius: 0.4em;
                     }
                 }
                 > h2 {
                     align-self: center;
-                    font-size: 1.8em;
+                    font-size: 2.5em;
                     a {
-                        background-color: #dadada;
+                        background-color: #167ade;
                         color: #272727;
                         padding: 0.5em;
-                        border-radius: 10px;
+                        border-radius: 0.4em;
                     }
                 }
             }
             #filters_form {
                 display: flex;
-                gap: 0.3em;
-                align-self: center;
-                > h2 {
-                    margin: 0;
-                    font-size: 1.5em;
-                    a {color: #272727;}
+                flex-wrap: wrap;
+                gap: 0.8em;
+                justify-content: center;
+                padding-bottom: 2em;
+                label {
+                    font-size: 1.6em;
+                    color: #dadada;
                 }
-                select {
-                    font-size: 1.2em;
-                }
-                > button {
-                    font-size: 1.2em;
+                input, select, > button {font-size: 1.2em;}
+                input {max-width: 5.5em;}
+                button {
+                    padding: 0.3em;
+                    background-color: #167ade;
+                    color: #272727;
+                    border-radius: 0.4em;
+                    font-weight: 600;
                 }
             }
         }

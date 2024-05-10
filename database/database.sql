@@ -83,7 +83,7 @@ INSERT INTO User (Username, Password, Email, Is_admin) VALUES
 
 -- Insert sample categories
 INSERT INTO Category (Name) VALUES 
-    ('Eletronics'),
+    ('Electronics'),
     ('Clothing'),
     ('Books'),
     ('Furniture'),

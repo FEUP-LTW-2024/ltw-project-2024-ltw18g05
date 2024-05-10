@@ -31,11 +31,11 @@
         <input type="checkbox" id="hamburger"> 
         <label class="hamburger" for="hamburger"></label>  
         <ul>
-            <li><a href="results.php?search_content=Eletronics">Eletronics</a></li>
-            <li><a href="results.php?search_content=Clothing">Clothing</a></li>
-            <li><a href="results.php?search_content=Books">Books</a></li>
-            <li><a href="results.php?search_content=Furniture">Furniture</a></li>
-            <li><a href="results.php?search_content=Toys">Toys</a></li>
+            <li><a href="results.php?category_filter=Electronics&search_content=">Electronics</a></li>
+            <li><a href="results.php?category_filter=Clothing&search_content=">Clothing</a></li>
+            <li><a href="results.php?category_filter=Books&search_content=">Books</a></li>
+            <li><a href="results.php?category_filter=Furniture&search_content=">Furniture</a></li>
+            <li><a href="results.php?category_filter=Toys&search_content=">Toys</a></li>
         </ul>
 </nav>
 <?php } ?>

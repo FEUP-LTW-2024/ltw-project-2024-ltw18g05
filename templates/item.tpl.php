@@ -105,7 +105,7 @@ function drawResultsHeader(array $categories, string $search_content, string $co
             </select>
 
             <input type="hidden" name="search_content" value="<?= htmlspecialchars($search_content) ?>">
-            <button type="submit">Apply Filter</button>
+            <button type="submit">Apply Filters</button>
             <button type="button" onclick="window.location.href='results.php?search_content=<?= $search_content ?>'">Reset Filters</button>
         </form>
     </section>
