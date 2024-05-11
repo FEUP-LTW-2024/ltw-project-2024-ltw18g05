@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+body {
+    background-color: #167ade;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    font-family: Manrope;
+    a {
+        color: #dadada;
+        text-decoration: none;
+    }
+
+    > header {
+        display: grid;
+        grid-template-columns: 1fr 3fr 0.8fr;
+        background-color: #272727;
+        color: #dadada;
+        padding: 1em 2em;
+        #title_slogan {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            h1 {
+                margin: 0;
+                font-size: 4em;
+            }
+            h2 {margin: 0;}
+        }
+        #hidden_search {display: none;}
+        #search {
+            display: flex;
+            justify-content: center;
+            gap: 0.5em;
+            padding: 2em;
+            input {
+                display: block;
+                width: 85%;
+                align-self: center;
+                border-radius: 10px;
+                font-size: 1.3em;
+                padding: 1em;
+            }
+            button {
+                background-color: #167ade;
+                color: #dadada;
+                font-weight: 700;
+                display: block;
+                width: 5em;
+                align-self: center;
+                border-radius: 10px;
+                font-size: 1.7em;
+                padding: 0.6em;
+                &:hover {background-color: #dadada;}
+                &:hover {color: #167ade;}
+            }
+        }
+        #login_signup_image {
+            display: flex;
+            justify-content: right;
+            gap: 1em;
+            img {
+                align-self: center;
+                width: 4em;
+            }
+            a {
+                align-self: center;
+                font-weight: 700;
+                border-radius: 10px;
+                padding: 0.2em;
+                &:hover {background-color: #dadada;}
+                &:hover {color: #272727;}
+            }
+        }
+    }
+
+
+    #nav_categories {
+
+        #hamburger {display: none;} /*temporary*/
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 1em 0 1em;
+            list-style-type: none;
+            li {
+                display: block;
+                flex: 1;
+                padding: 1em 0 1em 0;
+                border-radius: 10px;
+                font-size: 22px;
+                font-weight: 700;
+                text-align: center;
+                a {
+                    color: #272727;
+                    text-decoration: none;
+                }
+                &:hover {background-color: #272727;}
+                &:hover a{color: #dadada;}
+            }
+        }
+    }
+
+
+    #profileimage_maininfo {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        padding: 2em;
+        background-color: #272727;
+        margin-bottom: 3em;
+        img {
+            justify-self: center;
+            max-height: 20em;
+            max-width: 100%;
+            object-fit: cover;
+            overflow: hidden;
+        }
+        #maininfo {
+            margin-left: 2em;
+            h1{
+                font-size: 2em;
+            }
+            h2 {font-size: 1.5em;}
+        }
+    }
+
+
+
+    > footer {
+        background-color: #272727;
+        color: #dadada;
+        padding: 0.5em;
+        font-weight: 700;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+}

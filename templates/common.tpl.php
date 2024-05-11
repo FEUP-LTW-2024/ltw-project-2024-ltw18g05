@@ -19,7 +19,7 @@
     <div id="login_signup_image">
         <a href="login.php">Login</a>
         <a href="register.php">Sign Up</a>
-        <img src="/images/anonymous.png">
+        <img src="/images/anonymous.png" alt="anonymous">
     </div>
 </header>
 <?php } ?>
