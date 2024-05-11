@@ -14,13 +14,13 @@
                 <h1>
                     Avião low cost (segunda mão)
                 </h1>
-                <h5>
+                <p>
                 aviao em segunda mao, em bom estado, tem 2 riscos na asa direita mas de resto está como novo
-                </h5>
-                <button>add to cart</button>
-                <footer>
-                    Ask me anything!
-                </footer>
+                </p>
+                <section id=preco>
+                    15000 Euros
+                    <button>Add to cart</button>
+                </section>
             </section>
         </section>
         <?php drawFooter();?>
