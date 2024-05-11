@@ -1,3 +1,12 @@
+<?php
+    require_once(__DIR__ . '/../templates/common.tpl.php');
+    require_once(dirname(__DIR__).'/database/session.class.php');
+    $session = new Session();
+
+    $_SESSION['input']['email login'] = $_SESSION['input']['email login'] ?? "";
+    $_SESSION['input']['password login'] = $_SESSION['input']['password login'] ?? "";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,11 +23,11 @@
     </header>
     
     <div class="login-container">
-        <form action="authenticate.php" method="post">
+        <form action="../actions/login.action.php" method="post">
             <h2>Login to Your Account</h2>
             <div class="input-container">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
             </div>
             <div class="input-container">
                 <label for="password">Password:</label>
@@ -29,8 +38,7 @@
         <p class="no-account">Don't have an account? <a href="register.php">Sign up here</a>.</p>
     </div>
 
-    <footer>
-        <p>&copy; Voyager International Commerce Group</p>
-    </footer>
+    <?php drawFooter();?>
+
 </body>
 </html>

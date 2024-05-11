@@ -4,15 +4,22 @@
     require_once(__DIR__ . '/../database/connection.db.php');
 
     require_once(__DIR__ . '/../database/item.class.php');
+    require_once(__DIR__ . '/../database/category.class.php');
 
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/item.tpl.php'); 
 
     $db = getDatabaseConnection();
     $items = Item::getAllItems($db);
+    $categories = Category::getAllCategories($db);
 
-    $search_content=$_GET['search_content'];
+    $search_content = $_GET['search_content'] ?? '';
+    $condition_filter = $_GET['condition_filter'] ?? '';
+    $category_filter = $_GET['category_filter'] ?? '';    
+    $min_price_filter = isset($_GET['min_price_filter']) ? (float)$_GET['min_price_filter'] : null;
+    $max_price_filter = isset($_GET['max_price_filter']) ? (float)$_GET['max_price_filter'] : null;
 ?>
+
 
 
 <!DOCTYPE html>
@@ -25,80 +32,12 @@
     <body>
 
         <?php drawHeader();?>
-        <?php drawNav();?>
+        <?php drawNav($categories);?>
 
-        <?php drawResults($items,$search_content);?>
-
-        <!--<section id=results>
-            <h1><a>Results for</a></h1>
-            <h2><a>the thing that was searched</a></h2>
-            <section id=results_articles>
-                <article>
-                    <img src="/images/defaults/default.jpg" alt="default">
-                    <h1><a href="item.php">Quisque a dapibus magna, non scelerisque</a></h1>
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-                <article>
-                    <img src="/images/defaults/default.jpg" alt="default">
-                    <h1><a href="item.php">Item Placement</a></h1>
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-                <article>
-                    <img src="/images/defaults/default.jpg" alt="default">
-                    <h1><a href="item.php">Quisque a dapibus magna, non scelerisque</a></h1>
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-                <article>
-                    <img src="/images/defaults/default.jpg" alt="default">
-                    <h1><a href="item.php">Item Placement</a></h1>
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-                <article>
-                    <img src="/images/defaults/default.jpg" alt="default">
-                    <h1><a href="item.php">Quisque a dapibus magna, non scelerisque</a></h1>
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-                <article>
-                    <img src="/images/defaults/default.jpg" alt="default">
-                    <h1><a href="item.php">Item Placement</a></h1>
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-                <article>
-                    <img src="/images/defaults/default.jpg" alt="default">
-                    <h1><a href="item.php">Quisque a dapibus magna, non scelerisque</a></h1>
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-                <article>
-                    <img src="/images/defaults/default.jpg" alt="default">
-                    <h1><a href="item.php">Item Placement</a></h1>
-                    <footer>
-                        <span class="price"><a href="item.php">19.99€</a></span>
-                        <span class="condition"><a href="item.php">Very Good</a></span>
-                    </footer>
-                </article>
-            </section>
-        </section>-->
+        <section id=results>
+            <?php drawResultsHeader($categories, $search_content, $condition_filter, $min_price_filter, $max_price_filter, $category_filter);?>
+            <?php drawResults($items, $categories, $search_content, $condition_filter, $min_price_filter, $max_price_filter, $category_filter);?>
+        </section>
 
         <?php drawFooter();?>
 

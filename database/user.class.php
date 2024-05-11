@@ -1,11 +1,11 @@
 <?php
 
 class User {
-    private $id;
-    private $username;
-    private $password;
-    private $email;
-    private $isAdmin;
+    public int $id;
+    public string $username;
+    public string $password;  //Coloquei public string e public int nestes atributos, mas depois temos de rever isto
+    public string $email;
+    public bool $isAdmin;
 
     public function __construct($id, $username, $password, $email, $isAdmin = false) {
         $this->id = $id;
@@ -30,9 +30,21 @@ class User {
         return $users;
     }
     
+    static function getUserWithPassword(PDO $db, string $email, string $password) : ?User {
 
-
-
+        $stmt = $db->prepare('SELECT * FROM User WHERE Email = ?');
+        $stmt->execute(array(strtolower($email)));
+        $user = $stmt->fetch();
+        if ($user !== false && password_verify($password, $user['password'])) {
+          return new User(
+            intval($user['id']),
+            $user['name'],
+            $user['email'],
+            $user['password'],
+          );
+        }
+        return null;
+      }
 
 }
 ?>

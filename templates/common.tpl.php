@@ -7,6 +7,11 @@
         <h1><a href="index.php">Voyager</a></h1>
         <h2><a href="index.php">Buy, Sell, Explore</a></h2>
     </div>
+    <div id="hidden_search">
+        <input type="checkbox" id="search_caller"> 
+        <label class="search_caller" for="search_caller"></label>
+        <h2><a>Search here!</a></h2>
+    </div>
     <form id=search action="results.php" method="get">
         <input type="search" id="search" name="search_content" placeholder="Explore Voyager...">
         <button type="submit" value="Send">Search</button>
@@ -21,17 +26,18 @@
 
 
 <!-- Nav bar HTML code-->
-<?php function drawNav() { ?>
+<?php function drawNav(array $categories) { ?>
 <nav id="nav_categories">
-        <ul>
-            <li><a href="results.php">Eletronics</a></li>
-            <li><a href="results.php">Clothing</a></li>
-            <li><a href="results.php">Books</a></li>
-            <li><a href="results.php">Furniture</a></li>
-            <li><a href="results.php">Toys</a></li>
-        </ul>
+    <input type="checkbox" id="hamburger"> 
+    <label class="hamburger" for="hamburger"></label>  
+    <ul>
+        <?php foreach ($categories as $category): ?>
+            <li><a href="results.php?category_filter=<?= urlencode($category->name) ?>&search_content="><?= $category->name ?></a></li>
+        <?php endforeach; ?>
+    </ul>
 </nav>
 <?php } ?>
+
 
 
 <!-- Footer HTML code-->
