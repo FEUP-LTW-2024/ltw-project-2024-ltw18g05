@@ -29,11 +29,11 @@
                 if($item->featured) {?>
 
             <article>
-                <h1><a href="item.php"><?=$item->name?></a></h1>
+                <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
                 <img src=<?=$item->imagePath?> alt="imagePath">
                 <footer>
-                    <span class="price"><a href="item.php"><?=$item->price?>€</a></span>
-                    <span class="condition"><a href="item.php"><?=$item->condition?></a></span>
+                    <span class="price"><a href="item.php?id=<?=$item->id?>"><?=$item->price?>€</a></span>
+                    <span class="condition"><a href="item.php?id=<?=$item->id?>"><?=$item->condition?></a></span>
                 </footer>
             </article>
 
@@ -54,11 +54,11 @@
                 if(!$item->featured) {?>
 
             <article>
-                <h1><a href="item.php"><?=$item->name?></a></h1>
+                <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
                 <img src=<?=$item->imagePath?> alt="imagePath">
                 <footer>
-                    <span class="price"><a href="item.php"><?=$item->price?>€</a></span>
-                    <span class="condition"><a href="item.php"><?=$item->condition?></a></span>
+                    <span class="price"><a href="item.php?id=<?=$item->id?>"><?=$item->price?>€</a></span>
+                    <span class="condition"><a href="item.php?id=<?=$item->id?>"><?=$item->condition?></a></span>
                 </footer>
             </article>
 
@@ -151,10 +151,10 @@ function drawResults(array $items, array $categories, string $search_content, st
                 ?>
                 <article>
                     <img src="<?= $item->imagePath ?>" alt="default">
-                    <h1><a href="item.php"><?= $item->name ?></a></h1>
+                    <h1><a href="item.php?id=<?=$item->id?>"><?= $item->name ?></a></h1>
                     <footer>
-                        <span class="price"><a href="item.php"><?= $item->price ?>€</a></span>
-                        <span class="condition"><a href="item.php"><?= $item->condition ?></a></span>
+                        <span class="price"><a href="item.php?id=<?=$item->id?>"><?= $item->price ?>€</a></span>
+                        <span class="condition"><a href="item.php?id=<?=$item->id?>"><?= $item->condition ?></a></span>
                     </footer>
                 </article>
                 <?php
@@ -166,4 +166,24 @@ function drawResults(array $items, array $categories, string $search_content, st
 } 
 ?>
 
+<?php function drawItemPage(array $items) { ?>
+
+<?php
+$itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
+
+foreach($items as $item) { 
+    if($item->id === $itemIdFromUrl) {?>
+        <section id="item">
+            <img src="<?= $item->imagePath ?>" alt="imagem">
+            <section id="description">
+                <h1><?= $item->name ?></h1>
+                <p><?= $item->description ?></p>
+                <p>Quality: <?= $item->condition ?></p>
+                <p>Price: <?= $item->price ?> €</p>
+                <button>Add to cart</button>
+            </section>
+        </section>
+<?php }
+}?>
+<?php } ?>
 
