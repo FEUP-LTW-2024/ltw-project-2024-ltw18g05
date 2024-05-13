@@ -65,6 +65,7 @@ body {
             }
             a {
                 align-self: center;
+                text-align: center;
                 font-weight: 700;
                 border-radius: 10px;
                 padding: 0.2em;

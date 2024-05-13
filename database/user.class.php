@@ -31,20 +31,24 @@ class User {
     }
     
     static function getUserWithPassword(PDO $db, string $email, string $password) : ?User {
+      $stmt = $db->prepare('
+          SELECT *
+          FROM User 
+          WHERE lower(Email) = ? AND Password = ?
+      ');
 
-        $stmt = $db->prepare('SELECT * FROM User WHERE Email = ?');
-        $stmt->execute(array(strtolower($email)));
-        $user = $stmt->fetch();
-        if ($user !== false && password_verify($password, $user['password'])) {
+      $stmt->execute(array(strtolower($email), $password));
+
+      if ($user = $stmt->fetch()) {
           return new User(
-            intval($user['id']),
-            $user['name'],
-            $user['email'],
-            $user['password'],
+              $user['Id'],
+              $user['Username'],
+              $user['Password'],
+              $user['Email'],
+              $user['Is_Admin']
           );
-        }
-        return null;
-      }
+      } else return null;
+  }
 
 }
 ?>

@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS Message;
 
 -- Users table to store user information
 CREATE TABLE User (
-    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     Username TEXT UNIQUE NOT NULL,
     Password TEXT NOT NULL,
     Email TEXT UNIQUE NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE User (
 
 -- Items table to store information about listed items
 CREATE TABLE Item (
-    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     Seller_Id INTEGER NOT NULL,
     Category_Id INTEGER NOT NULL,
     Manufacturer TEXT NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE Category (
 
 -- Transactions table to store information about completed transactions
 CREATE TABLE Transaction_ (
-    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     Buyer_Id INTEGER NOT NULL,
     Item_Id INTEGER NOT NULL,
     Purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -52,7 +52,7 @@ CREATE TABLE Transaction_ (
 
 -- Messages table to store messages between users (optional feature)
 CREATE TABLE Message (
-    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     Sender_Id INTEGER NOT NULL,
     Receiver_Id INTEGER NOT NULL,
     Item_Id INTEGER NOT NULL,

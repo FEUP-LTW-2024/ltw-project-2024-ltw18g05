@@ -1,10 +1,17 @@
 <?php
+    declare(strict_types = 1);
+
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(dirname(__DIR__).'/database/session.class.php');
-    $session = new Session();
+    require_once(dirname(__DIR__).'/database/user.class.php');
+    require_once(__DIR__ . '/../database/connection.db.php');
 
-    $_SESSION['input']['email login'] = $_SESSION['input']['email login'] ?? "";
-    $_SESSION['input']['password login'] = $_SESSION['input']['password login'] ?? "";
+
+    $session = new Session();
+    $db = getDatabaseConnection();
+
+    //$_SESSION['input']['email login'] = $_SESSION['input']['email login'] ?? "";
+    //$_SESSION['input']['password login'] = $_SESSION['input']['password login'] ?? "";
 ?>
 
 <!DOCTYPE html>
