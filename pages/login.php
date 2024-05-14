@@ -9,9 +9,6 @@
 
     $session = new Session();
     $db = getDatabaseConnection();
-
-    //$_SESSION['input']['email login'] = $_SESSION['input']['email login'] ?? "";
-    //$_SESSION['input']['password login'] = $_SESSION['input']['password login'] ?? "";
 ?>
 
 <!DOCTYPE html>

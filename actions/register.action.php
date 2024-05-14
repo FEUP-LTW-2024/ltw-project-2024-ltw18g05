@@ -1,28 +1,40 @@
 <?php
-    declare(strict_types = 1);
-    require_once(dirname(__DIR__).'/database/connection.db.php');
-    require_once(dirname(__DIR__).'/database/session.class.php');
-    $session = new Session();
+declare(strict_types = 1);
+require_once(dirname(__DIR__).'/database/session.class.php');
+require_once(__DIR__ . '/../database/connection.db.php');
 
-    $_SESSION['input']['username newUser'] = htmlentities($_POST['username']);
-    $_SESSION['input']['email newUser'] = htmlentities($_POST['email']);
-    $_SESSION['input']['password1 newUser'] = htmlentities($_POST['password1']);
-    $_SESSION['input']['password2 newUser'] = htmlentities($_POST['password2']);
-    $_SESSION['input']['profile_picture newUser'] = htmlentities($_POST['profile_picture']);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST["email"]) && isset($_POST["username"]) && isset($_POST["password1"]) && isset($_POST["password2"])) {
+        $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
+        $username = $_POST["username"];
+        $password1 = $_POST["password1"];
+        $password2 = $_POST["password2"];
+        if ($password1 !== $password2) {
+            die("Passwords do not match");
+        }
 
-    $db = getDatabaseConnection();
-    if ($_POST['password1'] === $_POST['password2']) {
+        $session = new Session();
+        $db = getDatabaseConnection();
 
-        $cost = ['cost' => 12];
-        $stmt = $db->prepare('INSERT INTO User (name, email, password, address, phoneNumber) VALUES (?, ?, ?, ?, ?)');
-        $stmt->execute(array($_POST['username'], $_POST['email'], password_hash($_POST['password1'], PASSWORD_DEFAULT, $cost), $_POST['profile_picture']));
+        // Use named placeholders in the SQL statement
+        $stmt = $db->prepare("INSERT INTO User (Username, Password, Email) VALUES (:username, :password, :email)");
+        
+        // Bind values using named placeholders
+        $stmt->bindValue(':email', $email);
+        $stmt->bindValue(':username', $username);
+        $stmt->bindValue(':password', $password1);
+        
+        $stmt->execute();
+        $stmt->closeCursor();
 
+        header("Location: /../pages/index.php");
+        exit();
     } 
     else {
-        die(header('Location: ../register/user.register.php'));
+        die("All fields are required");
     }
-
-    unset($_SESSION['input']);
-
-    header('Location: ../pages/login.php');
+} else {
+    header("Location: /../pages/register.php");
+    exit();
+}
 ?>

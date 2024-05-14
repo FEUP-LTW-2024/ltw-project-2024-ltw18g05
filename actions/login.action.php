@@ -5,9 +5,6 @@
   require_once(dirname(__DIR__).'/database/session.class.php');
   $session = new Session();
 
-  //$_SESSION['input']['email login'] = htmlentities($_POST['email']);
-  //$_SESSION['input']['password login'] = htmlentities($_POST['password']);
-
   $db = getDatabaseConnection();
   $user = User::getUserWithPassword($db, $_POST['email'], $_POST['password']);
   
@@ -19,14 +16,8 @@
     header('Location: /../pages/index.php');
     exit;
 
-    /*$_SESSION['id'] = $user->id;
-    $_SESSION['username'] = $user->username;
-
-    unset($_SESSION['input']['email login']);
-    unset($_SESSION['input']['password login']);
-    header('Location: ../pages/index.php');*/
-
-  } else {
+  } 
+  else {
     $session->addMessage('error', 'Wrong password! Try again!');
     header('Location: /../pages/login.php');
   }
