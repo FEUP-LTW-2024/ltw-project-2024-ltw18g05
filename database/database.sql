@@ -12,6 +12,7 @@ DROP TABLE IF EXISTS Message;
 CREATE TABLE User (
     Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     Username TEXT UNIQUE NOT NULL,
+    Name TEXT NOT NULL,
     Password TEXT NOT NULL,
     Email TEXT UNIQUE NOT NULL,
     Is_Admin BOOLEAN NOT NULL DEFAULT FALSE
@@ -68,18 +69,18 @@ CREATE TABLE Message (
 ---------------------------------------
 
 -- Insert sample users
-INSERT INTO User (Username, Password, Email, Is_admin) VALUES 
-    ('admin', 'admin123', 'admin@example.com', 1),
-    ('user1', 'password1', 'user1@example.com', 0),
-    ('user2', 'password2', 'user2@example.com', 0),
-    ('user3', 'password3', 'user3@example.com', 0),
-    ('SunnySurfer21', 's3cureP@ss', 'sunny_surfer21@gmail.com', 0),
-    ('ArtisticAdventurer', 'P@intM3aN0ther', 'artistic_adv@example.com', 0),
-    ('CulinaryConnoisseur', 'T@steExp3rt', 'culinary_connoisseur@example.com', 0),
-    ('FashionForward', 'Chic&Styl!sh', 'fashion_forward@example.com', 0),
-    ('VintageVoyager', 'R3troTr3@sure', 'vintage_voyager@example.com', 0),
-    ('MusicalMaestro', 'M3lod!cM@ster', 'musical_maestro@example.com', 0),
-    ('CraftyCollector', 'Cr3@t!veCrafter', 'crafty_collector@example.com', 0);
+INSERT INTO User (Username, Name, Password, Email, Is_admin) VALUES 
+    ('admin', 'NameOfAdmin', 'admin123', 'admin@example.com', 1),
+    ('user1', 'User One', 'password1', 'user1@example.com', 0),
+    ('user2', 'User Two', 'password2', 'user2@example.com', 0),
+    ('user3', 'User Three', 'password3', 'user3@example.com', 0),
+    ('SunnySurfer21', 'Sunny Surfer', 's3cureP@ss', 'sunny_surfer21@gmail.com', 0),
+    ('ArtisticAdventurer', 'Artistic Adventurer', 'P@intM3aN0ther', 'artistic_adv@example.com', 0),
+    ('CulinaryConnoisseur', 'Culinary Connoisseur', 'T@steExp3rt', 'culinary_connoisseur@example.com', 0),
+    ('FashionForward', 'Fashion Forward', 'Chic&Styl!sh', 'fashion_forward@example.com', 0),
+    ('VintageVoyager', 'Vintage Voyager', 'R3troTr3@sure', 'vintage_voyager@example.com', 0),
+    ('MusicalMaestro', 'Musical Maestro', 'M3lod!cM@ster', 'musical_maestro@example.com', 0),
+    ('CraftyCollector', 'Crafty Collector', 'Cr3@t!veCrafter', 'crafty_collector@example.com', 0);
 
 -- Insert sample categories
 INSERT INTO Category (Name) VALUES 
