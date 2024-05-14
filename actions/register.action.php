@@ -10,16 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $password1 = $_POST["password1"];
         $password2 = $_POST["password2"];
         if ($password1 !== $password2) {
-            die("Passwords do not match");
+            $session->addMessage('warning', 'Passwords dont match');
+            die(header('Location: ../pages/register.php'));
         }
 
         $session = new Session();
         $db = getDatabaseConnection();
 
-        // Use named placeholders in the SQL statement
         $stmt = $db->prepare("INSERT INTO User (Username, Password, Email) VALUES (:username, :password, :email)");
         
-        // Bind values using named placeholders
         $stmt->bindValue(':email', $email);
         $stmt->bindValue(':username', $username);
         $stmt->bindValue(':password', $password1);
@@ -27,11 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->execute();
         $stmt->closeCursor();
 
+        $session->addMessage('success', "User registered");
         header("Location: /../pages/index.php");
         exit();
     } 
     else {
-        die("All fields are required");
+        $session->addMessage('warning', "All fields are required");
+        die(header('Location: ../pages/register.php'));
     }
 } else {
     header("Location: /../pages/register.php");
