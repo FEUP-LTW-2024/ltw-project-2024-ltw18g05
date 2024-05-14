@@ -44,13 +44,13 @@
 
         </section>
 
-        <section id=sell_item>
-            <h1><a href="sell.php">Place New Item to Sell!</a></h1>
-        </section>
-
         <?php if (count($itemsForSale) != 0) {
             drawItemsofSellerUser($itemsForSale);
         } ?>
+        
+        <section id=sell_item>
+            <h1><a href="sell.php">Place New Item to Sell!</a></h1>
+        </section>
 
         <?php drawFooter();?>
         

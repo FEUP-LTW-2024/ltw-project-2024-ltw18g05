@@ -73,7 +73,7 @@ declare(strict_types = 1);
                 <input type="number" id="price" name="price" value="0" step="0.5" required>
             </div>
 
-            <button type="submit">Create Account</button>
+            <button type="submit">Publish Item</button>
         </form>
     </div>
 
