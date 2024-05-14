@@ -5,9 +5,12 @@
 
     require_once(__DIR__ . '/../database/category.class.php');
 
+    require_once(dirname(__DIR__).'/database/session.class.php');
+
     require_once(__DIR__ . '/../templates/common.tpl.php');
 
     $db = getDatabaseConnection();
+    $session = new Session();
     $categories = Category::getAllCategories($db);
 ?>
 
@@ -22,7 +25,7 @@
     </head>
     <body>
 
-        <?php drawHeader();?>
+        <?php drawHeader($session);?>
         <?php drawNav($categories);?>
 
         <section id="profileimage_maininfo">

@@ -2,6 +2,7 @@
     declare(strict_types = 1);
 
     require_once(__DIR__ . '/../database/connection.db.php');
+    require_once(dirname(__DIR__).'/database/session.class.php');
 
     require_once(__DIR__ . '/../database/item.class.php');
     require_once(__DIR__ . '/../database/category.class.php');
@@ -10,6 +11,7 @@
     require_once(__DIR__ . '/../templates/item.tpl.php'); 
 
     $db = getDatabaseConnection();
+    $session = new Session();
     $items = Item::getAllItems($db);
     $categories = Category::getAllCategories($db);
 
@@ -31,7 +33,7 @@
     </head>
     <body>
 
-        <?php drawHeader();?>
+        <?php drawHeader($session);?>
         <?php drawNav($categories);?>
 
         <section id=results>

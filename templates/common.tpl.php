@@ -1,7 +1,5 @@
-
-
 <!-- Header HTML code-->
-<?php function drawHeader() { ?>
+<?php function drawHeader($session) { ?>
 <header>
     <div id="title_slogan">
         <h1><a href="index.php">Voyager</a></h1>
@@ -16,11 +14,18 @@
         <input type="search" id="search" name="search_content" placeholder="Explore Voyager...">
         <button type="submit" value="Send">Search</button>
     </form>
-    <div id="login_signup_image">
-        <a href="login.php">Login</a>
-        <a href="register.php">Sign Up</a>
-        <img src="/images/anonymous.png" alt="anonymous">
-    </div>
+    <?php if (!$session->isLoggedIn()): ?>
+        <div id="login_signup_image">
+            <a href="login.php">Login</a>
+            <a href="register.php">Sign Up</a>
+            <img src="/images/anonymous.png" alt="anonymous">
+        </div>
+    <?php else: ?>
+        <div id="logout_profile">
+            <a href="../actions/logout.action.php">Logout</a>
+            <a href="profile.php">Profile</a>
+        </div>
+    <?php endif; ?>
 </header>
 <?php } ?>
 
