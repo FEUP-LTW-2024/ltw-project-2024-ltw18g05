@@ -97,9 +97,9 @@ INSERT INTO Item (Seller_Id, Category_Id, Manufacturer, Name, Size, Condition, D
     (3, 3, 'JK Rowling', 'Harry Potter and the Sorcerer''s Stone', 'N/A', 'Very Good', 'First book in the Harry Potter series', 15.00, '/images/items/harrypotter.jpg', 0),
     (4, 4, 'IKEA', 'MALM', 'Queen', 'Excellent', 'IKEA MALM Queen bed frame', 200.00, '/images/items/MALM.png', 1),
     (5, 5, 'LEGO', 'Star Wars Millennium Falcon', 'N/A', 'Good', 'LEGO Star Wars Millennium Falcon set', 800.00, '/images/items/millenium.jpg', 1),
-    (6, 1, 'Apple', 'Apple Watch Series 9', 'N/A', 'Bad', 'This Apple Watch is surviving by hopes and prayers', 50.00, '/images/items/apple.jpg', 0),
-    (6, 1, 'Cessna', 'Cessna 152', 'N/A', 'Deteriorated', 'The GPS still works', 15000.00, '/images/items/cessna.jpg', 0),
-    (6, 1, 'Samsung', 'Galaxy Book 3', 'N/A', 'Very Good', 'Computer in great condition!!', 2640.00, '/images/items/samsung.jpg', 0);
+    (2, 1, 'Apple', 'Apple Watch Series 9', 'N/A', 'Bad', 'This Apple Watch is surviving by hopes and prayers', 50.00, '/images/items/apple.jpg', 0),
+    (2, 1, 'Cessna', 'Cessna 152', 'N/A', 'Deteriorated', 'The GPS still works', 15000.00, '/images/items/cessna.jpg', 0),
+    (2, 1, 'Samsung', 'Galaxy Book 3', 'N/A', 'Very Good', 'Computer in great condition!!', 2640.00, '/images/items/samsung.jpg', 0);
 
 -- Insert sample transactions
 INSERT INTO Transaction_ (Buyer_Id, Item_Id) VALUES 

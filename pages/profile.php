@@ -4,14 +4,18 @@
     require_once(__DIR__ . '/../database/connection.db.php');
 
     require_once(__DIR__ . '/../database/category.class.php');
+    require_once(__DIR__ . '/../database/item.class.php');
 
     require_once(dirname(__DIR__).'/database/session.class.php');
 
     require_once(__DIR__ . '/../templates/common.tpl.php');
+    require_once(__DIR__ . '/../templates/item.tpl.php');
 
     $db = getDatabaseConnection();
     $session = new Session();
     $categories = Category::getAllCategories($db);
+
+    $itemsForSale = Item::getItemsOfSellerUser($db,$session->getId());
 ?>
 
 
@@ -40,6 +44,9 @@
 
         </section>
 
+        <?php if (count($itemsForSale) != 0) {
+            drawItemsofSellerUser($itemsForSale);
+        } ?>
 
         <?php drawFooter();?>
         
