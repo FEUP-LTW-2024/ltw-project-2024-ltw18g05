@@ -24,6 +24,7 @@
         <div id="logout_profile">
             <a href="../actions/logout.action.php">Logout</a>
             <a href="profile.php">Profile</a>
+            <img src="/images/anonymous.png" alt="anonymous">
         </div>
     <?php endif; ?>
 </header>
