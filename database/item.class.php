@@ -63,6 +63,21 @@ class Item {
         return $items;
     }
 
+
+    static function getIdOfCategory(PDO $db, string $nameOfCategory) {
+        $query = "SELECT Id FROM Category WHERE Name = :name";
+        $statement = $db->prepare($query);
+        $statement->bindParam(':name', $nameOfCategory, PDO::PARAM_STR);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        if ($result) {
+            return $result['Id'];
+        } else {
+            return null;
+        }
+    }
+
+
     static function getItemsOfCategory(PDO $db, int $idOfcategory) : array {
         $stmt = $db->prepare('
             SELECT * FROM Item

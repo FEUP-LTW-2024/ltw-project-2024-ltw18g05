@@ -29,7 +29,7 @@ CREATE TABLE Item (
     Condition TEXT,
     Description TEXT,
     Price REAL NOT NULL,
-    Image_path TEXT, -- Comma-separated paths to images
+    Image_path TEXT DEFAULT '/images/defaults/default_Item.jpg', -- Comma-separated paths to images
     Featured BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (Seller_id) REFERENCES User(Id),
     FOREIGN KEY (Category_id) REFERENCES Category(Id)
