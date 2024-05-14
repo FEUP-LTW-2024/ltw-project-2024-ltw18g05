@@ -56,7 +56,7 @@ body {
                 &:hover {color: #167ade;}
             }
         }
-        #login_signup_image {
+        #login_signup_image, #logout_profile {
             display: flex;
             justify-content: right;
             gap: 1em;
@@ -72,6 +72,10 @@ body {
                 padding: 0.2em;
                 &:hover {background-color: #dadada;}
                 &:hover {color: #272727;}
+            }
+            #name_of_user {
+                background-color: #dadada;
+                color: #272727;
             }
         }
     }

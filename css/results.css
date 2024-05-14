@@ -72,6 +72,10 @@ body {
                 &:hover {background-color: #dadada;}
                 &:hover {color: #272727;}
             }
+            #name_of_user {
+                background-color: #dadada;
+                color: #272727;
+            }
         }
     }
 

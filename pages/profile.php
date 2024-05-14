@@ -33,9 +33,9 @@
             <img src="/images/anonymous.png" alt="anonymous">
 
             <section id=maininfo>
-                <h1><a href="profile.php">John Human</a></h1>
-                <h2><a href="profile.php">johnhuman1234</a></h2>
-                <h2><a href="profile.php">jonhhumaniscool@gmail.com</a></h2>
+                <h1><a href="profile.php"><?= $session->getName() ?></a></h1>
+                <h2><a href="profile.php"><?= $session->getUsername() ?></a></h2>
+                <h2><a href="profile.php"><?= $session->getEmail() ?></a></h2>
             </section>
 
         </section>
