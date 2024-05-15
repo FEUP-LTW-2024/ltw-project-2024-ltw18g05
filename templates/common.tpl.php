@@ -23,8 +23,7 @@
     <?php else: ?>
         <div id="logout_profile">
             <a href="../actions/logout.action.php">Logout</a>
-            <a href="profile.php" id="name_of_user"><?= $session->getName() ?></a>
-            <img src="/images/profilepictures/<?= $session->getProfilepicture() ?>.png" alt="anonymous">
+            <a href="/pages/profile.php" > <img src="/images/profilepictures/<?= $session->getProfilepicture() ?>.png" alt="anonymous"></a>
         </div>
     <?php endif; ?>
 </header>

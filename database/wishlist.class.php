@@ -1,0 +1,38 @@
+<?php
+declare(strict_types=1);
+
+require_once(__DIR__ . '/connection.db.php');
+
+class Wishlist {
+    public int $id;
+    public int $userId;
+    public int $itemId;
+
+    public function __construct(int $id, int $userId, int $itemId) {
+        $this->id = $id;
+        $this->userId = $userId;
+        $this->itemId = $itemId;
+    }
+
+    public static function getWishlistOfUserId(PDO $db, int $userId): array {
+        $stmt = $db->prepare('SELECT Item_Id FROM Wishlist WHERE User_Id = ?');
+
+        $stmt->execute([$userId]);
+
+        $items = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+        return $items;
+    }
+
+    public static function getWishlistUser(PDO $db, int $userId): array {
+        $stmt = $db->prepare('SELECT Item_Id.* FROM Wishlist INNER JOIN Item ON Wishlist.Item_Id = Item.Id WHERE Wishlist.User_Id = ?');
+
+        $stmt->execute([$userId]);
+
+        $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $items;
+    }
+
+}
+?>

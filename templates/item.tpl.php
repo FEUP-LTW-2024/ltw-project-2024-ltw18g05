@@ -166,7 +166,7 @@ function drawResults(array $items, array $categories, string $search_content, st
 
 <!--item.php draw functions-->
 
-<?php function drawItemPage(array $items) {
+<?php function drawItemPage(array $items, $session) {
 
 $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
 
@@ -192,7 +192,13 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
                             <li>Manufacturer: <?= $item->manufacturer ?></li>
                         </ul>
                     <?php endif; ?>
-                    <button>Add to cart</button>
+                    <?php if ($session->isLoggedIn()) { ?>
+                    <form action="/actions/wishlist.action.php" method="POST">
+                        <input type="hidden" name="itemId" value="<?= $item->id ?>"></input>
+                        <input type="hidden" name="userId" value="<?= $session->getId() ?>"></input>
+                        <button>Add to Wishlist</button>
+                    </form>
+                    <?php } ?>                    
                 </section>
             </section>
     <?php }
