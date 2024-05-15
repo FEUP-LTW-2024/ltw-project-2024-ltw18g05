@@ -33,8 +33,8 @@
       return isset($_SESSION['email']) ? $_SESSION['email'] : null;
     }
 
-    public function getUserProfilePictureUrl() : ?string {
-      return isset($_SESSION['image_url']) ? $_SESSION['image_url'] : null;
+    public function getProfilePicture() : ?string {
+      return isset($_SESSION['profilepicture']) ? $_SESSION['profilepicture'] : null;
     }
 
     public function setId(int $id) {
@@ -51,6 +51,10 @@
 
     public function setEmail(string $email) {
       $_SESSION['email'] = $email;
+    }
+
+    public function setProfilepicture(string $profilepicture) {
+      $_SESSION['profilepicture'] = $profilepicture;
     }
 
     public function addMessage(string $type, string $text) {

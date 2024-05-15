@@ -15,7 +15,8 @@ CREATE TABLE User (
     Name TEXT NOT NULL,
     Password TEXT NOT NULL,
     Email TEXT UNIQUE NOT NULL,
-    Is_Admin BOOLEAN NOT NULL DEFAULT FALSE
+    Is_Admin BOOLEAN NOT NULL DEFAULT FALSE,
+    Profile_Picture TEXT NOT NULL DEFAULT 'white'
 );
 
 -- Items table to store information about listed items
@@ -69,18 +70,18 @@ CREATE TABLE Message (
 ---------------------------------------
 
 -- Insert sample users
-INSERT INTO User (Username, Name, Password, Email, Is_admin) VALUES 
-    ('admin', 'NameOfAdmin', 'admin123', 'admin@example.com', 1),
-    ('user1', 'User One', 'password1', 'user1@example.com', 0),
-    ('user2', 'User Two', 'password2', 'user2@example.com', 0),
-    ('user3', 'User Three', 'password3', 'user3@example.com', 0),
-    ('SunnySurfer21', 'Sunny Surfer', 's3cureP@ss', 'sunny_surfer21@gmail.com', 0),
-    ('ArtisticAdventurer', 'Artistic Adventurer', 'P@intM3aN0ther', 'artistic_adv@example.com', 0),
-    ('CulinaryConnoisseur', 'Culinary Connoisseur', 'T@steExp3rt', 'culinary_connoisseur@example.com', 0),
-    ('FashionForward', 'Fashion Forward', 'Chic&Styl!sh', 'fashion_forward@example.com', 0),
-    ('VintageVoyager', 'Vintage Voyager', 'R3troTr3@sure', 'vintage_voyager@example.com', 0),
-    ('MusicalMaestro', 'Musical Maestro', 'M3lod!cM@ster', 'musical_maestro@example.com', 0),
-    ('CraftyCollector', 'Crafty Collector', 'Cr3@t!veCrafter', 'crafty_collector@example.com', 0);
+INSERT INTO User (Username, Name, Password, Email, Is_admin, Profile_Picture) VALUES 
+    ('admin', 'NameOfAdmin', 'admin123', 'admin@example.com', 1, 'black'),
+    ('user1', 'User One', 'password1', 'user1@example.com', 0, 'white'),
+    ('user2', 'User Two', 'password2', 'user2@example.com', 0, 'white'),
+    ('user3', 'User Three', 'password3', 'user3@example.com', 0, 'white'),
+    ('SunnySurfer21', 'Sunny Surfer', 's3cureP@ss', 'sunny_surfer21@gmail.com', 0, 'orange'),
+    ('ArtisticAdventurer', 'Artistic Adventurer', 'P@intM3aN0ther', 'artistic_adv@example.com', 0, 'blue'),
+    ('CulinaryConnoisseur', 'Culinary Connoisseur', 'T@steExp3rt', 'culinary_connoisseur@example.com', 0, 'red'),
+    ('FashionForward', 'Fashion Forward', 'Chic&Styl!sh', 'fashion_forward@example.com', 0, 'green'),
+    ('VintageVoyager', 'Vintage Voyager', 'R3troTr3@sure', 'vintage_voyager@example.com', 0, 'orange'),
+    ('MusicalMaestro', 'Musical Maestro', 'M3lod!cM@ster', 'musical_maestro@example.com', 0, 'blue'),
+    ('CraftyCollector', 'Crafty Collector', 'Cr3@t!veCrafter', 'crafty_collector@example.com', 0, 'red');
 
 -- Insert sample categories
 INSERT INTO Category (Name) VALUES 

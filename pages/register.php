@@ -29,15 +29,15 @@ declare(strict_types = 1);
             <h2>Sign up today!</h2>
             <div class="input-container">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" maxlength="100" name="email" required>
             </div>
             <div class="input-container">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" maxlength="20" name="username" required>
             </div>
             <div class="input-container">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" maxlength="30" name="name" required>
             </div>
             <div class="input-container">
                 <label for="password1">Password:</label>
@@ -48,8 +48,15 @@ declare(strict_types = 1);
                 <input type="password" id="password2" name="password2" required>
             </div>
             <div class="input-container">
-                <label for="profile_picture">Profile Picture:</label>
-                <input type="file" id="profile_picture" name="profile_picture" required>
+                <label for="profilepicture">Profile Picture:</label>
+                <select name="profilepicture" required>
+                    <option value="white" selected>White</option>
+                    <option value="blue">Blue</option>
+                    <option value="red">Red</option>
+                    <option value="orange">Orange</option>
+                    <option value="green">Green</option>
+                    <option value="black">Black</option>
+                </select>
             </div>
             <button type="submit">Create Account</button>
         </form>

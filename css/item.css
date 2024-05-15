@@ -63,6 +63,7 @@ body {
             img {
                 align-self: center;
                 width: 4em;
+                border-radius: 2em;
             }
             a {
                 align-self: center;

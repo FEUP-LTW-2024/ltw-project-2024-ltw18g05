@@ -34,7 +34,7 @@
 
         <section id="profileimage_maininfo">
 
-            <img src="/images/anonymous.png" alt="anonymous">
+            <img src="/images/profilepictures/<?= $session->getProfilePicture() ?>.png" alt="anonymous">
 
             <section id=maininfo>
                 <h1><a href="profile.php"><?= $session->getName() ?></a></h1>

@@ -70,7 +70,7 @@ declare(strict_types = 1);
 
             <div class="input-container">
                 <label for="price">Price:</label>
-                <input type="number" id="price" name="price" value="0" step="0.5" required>
+                <input type="number" id="price" name="price" min="0" value="0" step="0.5" required>
             </div>
 
             <button type="submit">Publish Item</button>
