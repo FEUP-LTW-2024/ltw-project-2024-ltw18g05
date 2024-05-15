@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS Item;
 DROP TABLE IF EXISTS Category;
 DROP TABLE IF EXISTS Transaction_;
 DROP TABLE IF EXISTS Message;
+DROP TABLE IF EXISTS Wishlist;
 
 ---------------------------------------
 -- CREATE TABLES
@@ -65,6 +66,14 @@ CREATE TABLE Message (
     FOREIGN KEY (Item_Id) REFERENCES Item(Id)
 );
 
+CREATE TABLE Wishlist (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    User_Id INTEGER NOT NULL,
+    Item_Id INTEGER NOT NULL,
+    FOREIGN KEY (User_Id) REFERENCES User(Id),
+    FOREIGN KEY (Item_Id) REFERENCES Item(Id)
+);
+
 ---------------------------------------
 -- POPULATE TABLES
 ---------------------------------------
@@ -117,3 +126,14 @@ INSERT INTO Message (Sender_Id, Receiver_Id, Item_Id, Message_text) VALUES
     (3, 2, 2, 'Are the shoes true to size?'),
     (2, 3, 2, 'Yes, they are.'),
     (4, 3, 3, 'Is the book hardcover?');
+
+INSERT INTO Wishlist (User_Id, Item_Id) VALUES 
+    (2, 1),  
+    (3, 2),  
+    (4, 3),  
+    (2, 4),  
+    (5, 5),  
+    (6, 6),  
+    (7, 7),  
+    (8, 8);  
+

@@ -31,7 +31,7 @@ if(isset($_GET['id'])) {
     </head>
     <body>
         <?php drawHeader($session);?>
-        <?php drawItemPage($items);?>
+        <?php drawItemPage($items, $session);?>
         <?php drawFooter();?>
     </body>
 </html>
