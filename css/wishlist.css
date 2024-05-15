@@ -4,7 +4,7 @@ body {
     background-color: #167ade;
     margin: 0 auto;
     display: grid;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
     font-family: Manrope;
     a {
         color: #dadada;
@@ -73,16 +73,11 @@ body {
                 &:hover {background-color: #dadada;}
                 &:hover {color: #272727;}
             }
-            #wishlist {
-                background-color: #dadada;
-                color: #272727;
-            }
         }
     }
 
 
     #nav_categories {
-        margin-bottom: 1em;
 
         #hamburger {display: none;} /*temporary*/
 
@@ -109,57 +104,7 @@ body {
         }
     }
 
-
-    #featured {
-        margin-bottom: 3em;
-        > h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 1.5em;
-            a {
-                background-color: #272727;
-                padding: 0.5em;
-                border-radius: 10px;
-            }
-        }
-        #featured_articles {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            gap: 1em;
-            padding: 0 1em 0 1em;
-
-            article {
-                padding: 1em;
-                display: flex;
-                flex-direction: column;
-                border-radius: 10px;
-                justify-content: space-evenly;
-                background-color: #272727;
-                max-width: 32em;
-                max-height: 40em;
-                h1 {
-                    text-align: center;
-                    font-size: 1.8em;
-                }
-                img {
-                    width: 100%;
-                    object-fit: cover;
-                    overflow: hidden;
-                }
-                footer {
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 1em;
-                    font-size: 1.8em;
-                }
-            }
-        }
-    }
-
-
-
-    #items {
+    #items_of_wishlist {
         margin-bottom: 3em;
 
         > h1 {
@@ -207,89 +152,14 @@ body {
         }
     }
 
-
     > footer {
         background-color: #272727;
         color: #dadada;
         padding: 0.5em;
         font-weight: 700;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
     }
 
-}
-
-
-@media (max-width: 65em) {
-
-    body {
-        
-        header {
-            grid-template-columns: auto auto auto;
-
-            #hidden_search {
-                display: flex;
-                justify-content: center;
-                gap: 0.5em;
-
-                #search_caller {
-                    display: none;
-                    &:checked {
-                        ~ .search_caller::before {content: "\2715";}
-                        ~ h2 {display: none;}
-                    }
-                }
-
-                .search_caller {
-                    align-self: center;
-                    &:before {
-                        content: "\1F50D";
-                        font-size: 3.5em;
-                    }
-                }
-
-                > h2 {
-                    align-self: center;
-                    font-size: 1.5em;
-                }
-            }
-            
-            #search {display: none;}
-
-        }
-
-
-        #nav_categories{
-
-            #hamburger {
-                &:checked {
-                    ~ ul {max-height: 25em;}
-                    ~ .hamburger::before {content: "\2715";}
-                }
-            }
-            .hamburger {
-                display: flex;
-                padding: 1em;
-                background-color: #272727;
-                &:before {
-                    content: "\2630";
-                    color: white;
-                    font-size: 1.5em;
-                }
-            }
-            ul {
-                flex-direction: column;
-                overflow: hidden;
-                max-height: 0;
-                transition: max-height .5s;
-                li {
-                    border-top: 0;
-                    list-style-type: none;
-                    background-color: #272727;
-                    a {color: #dadada;}
-                    &:hover {background-color: #dadada;}
-                    &:hover a{color: #272727;}    
-                }
-            }
-        }
-
-    }
 }

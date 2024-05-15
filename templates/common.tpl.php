@@ -23,6 +23,7 @@
     <?php else: ?>
         <div id="logout_profile">
             <a href="../actions/logout.action.php">Logout</a>
+            <a href="wishlist.php" id="wishlist">Wishlist</a>
             <a href="/pages/profile.php" > <img src="/images/profilepictures/<?= $session->getProfilepicture() ?>.png" alt="anonymous"></a>
         </div>
     <?php endif; ?>

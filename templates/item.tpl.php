@@ -7,6 +7,7 @@
 
 <!--Auxiliary functions-->
 
+
 <?php function getCategoryName(array $categories, int $categoryId) : string {
     foreach ($categories as $category) {
         if ($category->id === $categoryId) {
@@ -17,8 +18,8 @@
 } ?>
 
 
-
 <!--index.php draw functions-->
+
 
 <?php function drawFeatured(array $items) { ?>
 <section id=featured>
@@ -69,7 +70,9 @@
 </section>
 <?php } ?>
 
+
 <!--results.php draw functions-->
+
 
 <?php 
 function drawResultsHeader(array $categories, string $search_content, string $condition_filter, ?float $min_price_filter, ?float $max_price_filter, ?string $category_filter) { 
@@ -164,7 +167,9 @@ function drawResults(array $items, array $categories, string $search_content, st
 } 
 ?>
 
+
 <!--item.php draw functions-->
+
 
 <?php function drawItemPage(array $items, $session) {
 
@@ -205,7 +210,9 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
     }?>
 <?php } ?>
 
+
 <!--profile.php draw functions-->
+
 
 <?php function drawItemsofSellerUser(array $itemsForSale) { ?>
 <section id=items_for_sale>
@@ -228,3 +235,30 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
     </section>
 </section>
 <?php } ?>
+
+
+<!--wishlist.php draw functions-->
+
+
+<?php function drawItemsofWishlist(array $items_of_wishlist) { ?>
+<section id=items_of_wishlist>
+    <h1><a>WISHLIST ❤️</a></h1>
+    <section id=items_articles>
+
+    <?php foreach($items_of_wishlist as $item) { ?>
+
+            <article>
+                <h1><a href="item.php?id=<?=$item['Id']?>"><?=$item['Name']?></a></h1>
+                <img src=<?=$item["Image_path"];?> alt="imagePath">
+                <footer>
+                    <span class="price"><a href="item.php?id=<?=$item['Id']?>"><?=$item['Price']?>€</a></span>
+                    <span class="condition"><a href="item.php?id=<?=$item['Id']?>"><?=$item['Condition']?></a></span>
+                </footer>
+            </article>
+
+    <?php }?>
+
+    </section>
+</section>
+<?php } ?>
+

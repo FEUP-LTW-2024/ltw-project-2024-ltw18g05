@@ -24,13 +24,16 @@ class Wishlist {
         return $items;
     }
 
-    public static function getWishlistUser(PDO $db, int $userId): array {
-        $stmt = $db->prepare('SELECT Item_Id.* FROM Wishlist INNER JOIN Item ON Wishlist.Item_Id = Item.Id WHERE Wishlist.User_Id = ?');
+    public static function getItemsOfWishlistOfUser(PDO $db, int $userId): array {
+        $stmt = $db->prepare('
+            SELECT Item.*
+            FROM Wishlist
+            INNER JOIN Item ON Wishlist.Item_Id = Item.Id
+            WHERE Wishlist.User_Id = ?
+        ');
 
-        $stmt->execute([$userId]);
-
+        $stmt->execute(array($userId));
         $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         return $items;
     }
 

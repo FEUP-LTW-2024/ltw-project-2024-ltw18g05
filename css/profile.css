@@ -73,6 +73,10 @@ body {
                 &:hover {background-color: #dadada;}
                 &:hover {color: #272727;}
             }
+            #wishlist {
+                background-color: #dadada;
+                color: #272727;
+            }
         }
     }
 
