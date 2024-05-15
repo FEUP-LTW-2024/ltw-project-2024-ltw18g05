@@ -168,22 +168,35 @@ function drawResults(array $items, array $categories, string $search_content, st
 
 <?php function drawItemPage(array $items) { ?>
 
-<?php
-$itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
+    <?php
+    $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
 
-foreach($items as $item) { 
-    if($item->id === $itemIdFromUrl) {?>
-        <section id="item">
-            <img src="<?= $item->imagePath ?>" alt="imagem">
-            <section id="description">
-                <h1><?= $item->name ?></h1>
-                <p><?= $item->description ?></p>
-                <p>Quality: <?= $item->condition ?></p>
-                <p>Price: <?= $item->price ?> €</p>
-                <button>Add to cart</button>
+    foreach($items as $item) { 
+        if($item->id === $itemIdFromUrl) {?>
+            <section id="item">
+                <img src="<?= $item->imagePath ?>" alt="imagem">
+                <section id="description">
+                    <h1><?= $item->name ?></h1>
+                    <p><?= $item->description ?></p>
+
+                    <?php if($item->size === "N/A"): ?>
+                        <ul>
+                            <li>Price: <?= $item->price ?> €</li>
+                            <li>Quality: <?= $item->condition ?></li>
+                            <li>Manufacturer: <?= $item->manufacturer ?></li>
+                        </ul>
+                    <?php else: ?>
+                        <ul>
+                            <li>Price: <?= $item->price ?> €</li>
+                            <li>Quality: <?= $item->condition ?></li>
+                            <li>Size: <?= $item->size ?></li>
+                            <li>Manufacturer: <?= $item->manufacturer ?></li>
+                        </ul>
+                    <?php endif; ?>
+                    <button>Add to cart</button>
+                </section>
             </section>
-        </section>
-<?php }
-}?>
+    <?php }
+    }?>
 <?php } ?>
 
