@@ -16,6 +16,7 @@
     $categories = Category::getAllCategories($db);
 
     $itemsForSale = Item::getItemsOfSellerUser($db,$session->getId());
+    //$session->setProfilepicture($user->get)
 ?>
 
 
@@ -40,6 +41,7 @@
                 <h1><a href="profile.php"><?= $session->getName() ?></a></h1>
                 <h2><a href="profile.php"><?= $session->getUsername() ?></a></h2>
                 <h2><a href="profile.php"><?= $session->getEmail() ?></a></h2>
+                <h2><a href="editregister.php">Edit Profile</a></h2>
             </section>
 
         </section>
