@@ -93,9 +93,9 @@ function drawResultsHeader(array $categories, string $search_content, string $co
             </select>
 
             <label for="min_price_filter">Min Price:</label>
-            <input type="number" id="min_price_filter" name="min_price_filter" value="<?= $min_price_filter ?? '' ?>" step="0.5">
+            <input type="number" id="min_price_filter" name="min_price_filter" value="<?= $min_price_filter ?? '0' ?>" step="0.5">
             <label for="max_price_filter">Max Price:</label>
-            <input type="number" id="max_price_filter" name="max_price_filter" value="<?= $max_price_filter ?? '' ?>" step="0.5">
+            <input type="number" id="max_price_filter" name="max_price_filter" value="<?= $max_price_filter ?? '99999999' ?>" step="0.5">
 
             <label for="category_filter">Category:</label>
             <select name="category_filter">
