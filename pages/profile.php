@@ -4,14 +4,18 @@
     require_once(__DIR__ . '/../database/connection.db.php');
 
     require_once(__DIR__ . '/../database/category.class.php');
+    require_once(__DIR__ . '/../database/item.class.php');
 
     require_once(dirname(__DIR__).'/database/session.class.php');
 
     require_once(__DIR__ . '/../templates/common.tpl.php');
+    require_once(__DIR__ . '/../templates/item.tpl.php');
 
     $db = getDatabaseConnection();
     $session = new Session();
     $categories = Category::getAllCategories($db);
+
+    $itemsForSale = Item::getItemsOfSellerUser($db,$session->getId());
 ?>
 
 
@@ -33,13 +37,20 @@
             <img src="/images/anonymous.png" alt="anonymous">
 
             <section id=maininfo>
-                <h1><a href="profile.php">John Human</a></h1>
-                <h2><a href="profile.php">johnhuman1234</a></h2>
-                <h2><a href="profile.php">jonhhumaniscool@gmail.com</a></h2>
+                <h1><a href="profile.php"><?= $session->getName() ?></a></h1>
+                <h2><a href="profile.php"><?= $session->getUsername() ?></a></h2>
+                <h2><a href="profile.php"><?= $session->getEmail() ?></a></h2>
             </section>
 
         </section>
 
+        <?php if (count($itemsForSale) != 0) {
+            drawItemsofSellerUser($itemsForSale);
+        } ?>
+        
+        <section id=sell_item>
+            <h1><a href="sell.php">Place New Item to Sell!</a></h1>
+        </section>
 
         <?php drawFooter();?>
         

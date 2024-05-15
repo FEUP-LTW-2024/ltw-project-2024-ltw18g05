@@ -44,6 +44,40 @@ class Item {
         return $items;
     }
 
+    static function getItemsOfSellerUser(PDO $db, int $id) : array {
+        $stmt = $db->prepare('
+            SELECT * FROM Item
+            WHERE Seller_Id = ?
+            ORDER BY Name
+            ');
+        $stmt->execute(array($id));
+
+        $items = array();
+
+        while ($row = $stmt->fetch()) {
+            // Create an Item object for each row and add it to the items array
+            $item = new Item($row['Id'], $row['Seller_Id'], $row['Category_Id'], $row['Manufacturer'], $row['Name'], $row['Size'], $row['Condition'], $row['Description'], $row['Price'], $row['Image_path'], $row['Featured']);
+            $items[] = $item;
+        }
+
+        return $items;
+    }
+
+
+    static function getIdOfCategory(PDO $db, string $nameOfCategory) {
+        $query = "SELECT Id FROM Category WHERE Name = :name";
+        $statement = $db->prepare($query);
+        $statement->bindParam(':name', $nameOfCategory, PDO::PARAM_STR);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        if ($result) {
+            return $result['Id'];
+        } else {
+            return null;
+        }
+    }
+
+
     static function getItemsOfCategory(PDO $db, int $idOfcategory) : array {
         $stmt = $db->prepare('
             SELECT * FROM Item

@@ -4,9 +4,10 @@ require_once(dirname(__DIR__).'/database/session.class.php');
 require_once(__DIR__ . '/../database/connection.db.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (isset($_POST["email"]) && isset($_POST["username"]) && isset($_POST["password1"]) && isset($_POST["password2"])) {
+    if (isset($_POST["email"]) && isset($_POST["username"]) && isset($_POST["name"]) && isset($_POST["password1"]) && isset($_POST["password2"])) {
         $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
         $username = $_POST["username"];
+        $name = $_POST["name"];
         $password1 = $_POST["password1"];
         $password2 = $_POST["password2"];
         if ($password1 !== $password2) {
@@ -17,10 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $session = new Session();
         $db = getDatabaseConnection();
 
-        $stmt = $db->prepare("INSERT INTO User (Username, Password, Email) VALUES (:username, :password, :email)");
+        $stmt = $db->prepare("INSERT INTO User (Username, Name, Password, Email) VALUES (:username, :name, :password, :email)");
         
         $stmt->bindValue(':email', $email);
         $stmt->bindValue(':username', $username);
+        $stmt->bindValue(':name', $name);
         $stmt->bindValue(':password', $password1);
         
         $stmt->execute();

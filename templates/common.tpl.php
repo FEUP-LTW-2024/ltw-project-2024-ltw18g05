@@ -23,7 +23,7 @@
     <?php else: ?>
         <div id="logout_profile">
             <a href="../actions/logout.action.php">Logout</a>
-            <a href="profile.php">Profile</a>
+            <a href="profile.php" id="name_of_user"><?= $session->getName() ?></a>
             <img src="/images/anonymous.png" alt="anonymous">
         </div>
     <?php endif; ?>

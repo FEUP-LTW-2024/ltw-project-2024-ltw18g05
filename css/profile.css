@@ -4,7 +4,7 @@ body {
     background-color: #167ade;
     margin: 0 auto;
     display: grid;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto;
     font-family: Manrope;
     a {
         color: #dadada;
@@ -72,6 +72,10 @@ body {
                 &:hover {background-color: #dadada;}
                 &:hover {color: #272727;}
             }
+            #name_of_user {
+                background-color: #dadada;
+                color: #272727;
+            }
         }
     }
 
@@ -136,6 +140,75 @@ body {
         }
     }
 
+
+    #items_for_sale {
+        margin-bottom: 3em;
+
+        > h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 1.5em;
+            a {
+                background-color: #272727;
+                padding: 0.5em;
+                border-radius: 10px;
+            }
+        }
+        #items_articles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding: 0 1em 0 1em;
+            gap: 1em;
+
+            article {
+                padding: 1em;
+                display: flex;
+                flex-direction: column;
+                border-radius: 10px;
+                justify-content: space-evenly;
+                background-color: #272727;
+                max-width: 16em;
+                max-height: 22em;
+                h1 {
+                    text-align: center;
+                    font-size: 1.3em;
+                }
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                    overflow: hidden;
+                }
+                footer {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1em;
+                    font-size: 1.3em;
+                }
+            }
+        }
+    }
+
+
+    #sell_item {
+        font-size: 1.3em;
+        text-align: center;
+        margin-bottom: 6em;
+        background-color: #272727;
+        a {
+            padding: 0.5em;
+            background-color: #dadada;
+            color: #272727;
+            border-radius: 4em;
+        }
+        &:hover {
+            background-color: #dadada;
+            a {
+                color: #dadada;
+                background-color: #272727;
+            }
+        }
+    }
 
 
     > footer {

@@ -32,19 +32,23 @@ declare(strict_types = 1);
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="input-container">
-                <label for="email">Username:</label>
+                <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
             </div>
             <div class="input-container">
-                <label for="email">Password:</label>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-container">
+                <label for="password1">Password:</label>
                 <input type="password" id="password1" name="password1" required>
             </div>
             <div class="input-container">
-                <label for="email">Confirm Password:</label>
+                <label for="password1">Confirm Password:</label>
                 <input type="password" id="password2" name="password2" required>
             </div>
             <div class="input-container">
-                <label for="email">Profile Picture:</label>
+                <label for="profile_picture">Profile Picture:</label>
                 <input type="file" id="profile_picture" name="profile_picture" required>
             </div>
             <button type="submit">Create Account</button>

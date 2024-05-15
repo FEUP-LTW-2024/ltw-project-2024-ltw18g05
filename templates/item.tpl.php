@@ -69,8 +69,6 @@
 </section>
 <?php } ?>
 
-
-
 <!--results.php draw functions-->
 
 <?php 
@@ -166,10 +164,11 @@ function drawResults(array $items, array $categories, string $search_content, st
 } 
 ?>
 
-<?php function drawItemPage(array $items) { ?>
+<!--item.php draw functions-->
 
-    <?php
-    $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
+<?php function drawItemPage(array $items) {
+
+$itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
 
     foreach($items as $item) { 
         if($item->id === $itemIdFromUrl) {?>
@@ -200,3 +199,26 @@ function drawResults(array $items, array $categories, string $search_content, st
     }?>
 <?php } ?>
 
+<!--profile.php draw functions-->
+
+<?php function drawItemsofSellerUser(array $itemsForSale) { ?>
+<section id=items_for_sale>
+    <h1><a>Items Set For Sale</a></h1>
+    <section id=items_articles>
+
+    <?php foreach($itemsForSale as $item) { ?>
+
+            <article>
+                <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
+                <img src=<?=$item->imagePath?> alt="imagePath">
+                <footer>
+                    <span class="price"><a href="item.php?id=<?=$item->id?>"><?=$item->price?>€</a></span>
+                    <span class="condition"><a href="item.php?id=<?=$item->id?>"><?=$item->condition?></a></span>
+                </footer>
+            </article>
+
+    <?php }?>
+
+    </section>
+</section>
+<?php } ?>

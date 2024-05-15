@@ -25,6 +25,14 @@
       return isset($_SESSION['username']) ? $_SESSION['username'] : null;
     }
 
+    public function getName() : ?string {
+      return isset($_SESSION['name']) ? $_SESSION['name'] : null;
+    }
+
+    public function getEmail() : ?string {
+      return isset($_SESSION['email']) ? $_SESSION['email'] : null;
+    }
+
     public function getUserProfilePictureUrl() : ?string {
       return isset($_SESSION['image_url']) ? $_SESSION['image_url'] : null;
     }
@@ -33,8 +41,16 @@
       $_SESSION['id'] = $id;
     }
 
-    public function setUsername(string $name) {
-      $_SESSION['username'] = $name;
+    public function setUsername(string $username) {
+      $_SESSION['username'] = $username;
+    }
+
+    public function setName(string $name) {
+      $_SESSION['name'] = $name;
+    }
+
+    public function setEmail(string $email) {
+      $_SESSION['email'] = $email;
     }
 
     public function addMessage(string $type, string $text) {
