@@ -119,6 +119,15 @@ body {
                 font-size: 2em;
                 max-width: fit-content;
                 place-self: center;
+                background-color: #167ade;
+                color: #dadada;
+                font-weight: 700;
+                width: 7em;
+                border-radius: 10px;
+                font-size: 1.7em;
+                padding: 0.6em;
+                &:hover {background-color: #dadada;}
+                &:hover {color: #167ade;}
             }
         }
     }
@@ -229,14 +238,14 @@ body {
                     max-width: fit-content;
                     place-self: center;
                     background-color: #167ade;
-                color: #dadada;
-                font-weight: 700;
-                width: 7em;
-                border-radius: 10px;
-                font-size: 1.7em;
-                padding: 0.6em;
-                &:hover {background-color: #dadada;}
-                &:hover {color: #167ade;}
+                    color: #dadada;
+                    font-weight: 700;
+                    width: 7em;
+                    border-radius: 10px;
+                    font-size: 1.7em;
+                    padding: 0.6em;
+                    &:hover {background-color: #dadada;}
+                    &:hover {color: #167ade;}
                 }
             }
         }
