@@ -20,6 +20,11 @@ $itemId = isset($_GET['itemId']) ? intval($_GET['itemId']) : null;
         <title>Voyager</title>
         <meta charset="UTF-8">
         <link href="/css/message.css" rel="stylesheet">
+        <script>
+            window.onload = function() {
+                window.scrollTo(0, document.body.scrollHeight);
+            };
+        </script>
     </head>
     <body>
 
