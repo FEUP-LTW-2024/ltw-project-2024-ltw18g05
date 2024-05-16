@@ -73,10 +73,6 @@ body {
                 &:hover {background-color: #dadada;}
                 &:hover {color: #272727;}
             }
-            #wishlist {
-                background-color: #dadada;
-                color: #272727;
-            }
         }
     }
 
@@ -123,7 +119,7 @@ body {
         }
         #maininfo {
             display: grid;
-            grid-template-rows: 1fr 0.8fr 0.8fr 1fr;
+            grid-template-rows: 1fr 0.8fr 0.8fr;
             margin-left: 2em;
             h1{
                 font-size: 2.5em;
@@ -137,26 +133,8 @@ body {
                 text-decoration: underline;
                 text-decoration-color: #dadada;
             }
-            #edit_profile {
-                background-color: #167ade;
-                padding: 0.3em;
-                border-radius: 1em;
-            }
         }
-        #admin_area {
-            font-size: 2em;
-                max-width: fit-content;
-                place-self: center;
-                background-color: #167ade;
-                color: #dadada;
-                font-weight: 700;
-                width: 7em;
-                border-radius: 10px;
-                font-size: 1.7em;
-                padding: 0.6em;
-                &:hover {background-color: #dadada;}
-                &:hover {color: #167ade;}
-        }
+    
     }
 
 
