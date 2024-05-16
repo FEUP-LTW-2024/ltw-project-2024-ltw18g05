@@ -148,6 +148,12 @@ body {
                     padding: 1em;
                     font-size: 1.3em;
                 }
+                #remove {
+                    font-size: 1em;
+                    background-color: red;
+                    padding: 0.5em;
+                    border-radius: 1em;
+                }
             }
         }
     }

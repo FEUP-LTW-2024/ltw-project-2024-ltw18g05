@@ -29,6 +29,27 @@
         <title>Voyager</title>
         <meta charset="UTF-8">
         <link href="/css/wishlist.css" rel="stylesheet">
+        <script>
+        function removeFromWishlist(itemId) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/actions/removeOfWishlist.action.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        console.log(response);
+                        document.getElementById('item-' + itemId).remove();
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            };
+
+            xhr.send('itemId=' + itemId);
+        }
+    </script>
     </head>
     <body>
 

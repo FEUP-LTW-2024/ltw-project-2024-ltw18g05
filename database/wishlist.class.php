@@ -37,5 +37,10 @@ class Wishlist {
         return $items;
     }
 
+    public static function removeItemFromWishlist(PDO $db, int $userId, int $itemId): bool {
+        $stmt = $db->prepare('DELETE FROM Wishlist WHERE User_Id = ? AND Item_Id = ?');
+        return $stmt->execute([$userId, $itemId]);
+    }
+
 }
 ?>

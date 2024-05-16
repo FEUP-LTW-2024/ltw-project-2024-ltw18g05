@@ -252,13 +252,14 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
 
     <?php foreach($items_of_wishlist as $item) { ?>
 
-            <article>
+            <article id="item-<?=$item['Id']?>">
                 <h1><a href="item.php?id=<?=$item['Id']?>"><?=$item['Name']?></a></h1>
                 <img src=<?=$item["Image_path"];?> alt="imagePath">
                 <footer>
                     <span class="price"><a href="item.php?id=<?=$item['Id']?>"><?=$item['Price']?>€</a></span>
                     <span class="condition"><a href="item.php?id=<?=$item['Id']?>"><?=$item['Condition']?></a></span>
                 </footer>
+                <button id="remove" onclick="removeFromWishlist(<?=$item['Id']?>)">Remove</button>
             </article>
 
     <?php }?>
