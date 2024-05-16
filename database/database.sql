@@ -64,7 +64,7 @@ CREATE TABLE Message (
     Send_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (Sender_Id) REFERENCES User(Id),
     FOREIGN KEY (Receiver_Id) REFERENCES User(Id),
-    FOREIGN KEY (Conversation_Id) REFERENCES Conversation(Id)
+    FOREIGN KEY (Conversation_Id) REFERENCES Conversation(Id) ON DELETE CASCADE
 );
 
 CREATE TABLE Conversation (
@@ -74,7 +74,7 @@ CREATE TABLE Conversation (
     Item_Id INTEGER NOT NULL,
     FOREIGN KEY (User1_Id) REFERENCES User(Id),
     FOREIGN KEY (User2_Id) REFERENCES User(Id),
-    FOREIGN KEY (Item_Id) REFERENCES Item(Id)
+    FOREIGN KEY (Item_Id) REFERENCES Item(Id) ON DELETE CASCADE
 );
 
 CREATE TABLE Wishlist (
