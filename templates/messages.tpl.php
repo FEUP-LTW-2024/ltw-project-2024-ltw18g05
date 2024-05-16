@@ -43,6 +43,7 @@
 <?php } ?>
 
 <?php function drawMessage(Message $message, Session $session) {
+    $message->openMessage();
     $sender = User::getUserById($session->getId());
     $isSender = $session->getId() == $message->senderId;
     ?>
@@ -65,6 +66,7 @@
         $mostRecentMessage = Message::getMostRecentMessage($conversation->id);
         $otherUser = User::getUserById($conversation->user1Id == $userId ? $conversation->user2Id : $conversation->user1Id);
         $item = Item::getItemById($conversation->itemId);
+        $unopenedMessagesCount = Message::getConversationUnopenedMessagesCount($conversation->id, $userId);
         ?>
         <a href="/pages/conversation.php?user1Id=<?= $conversation->user1Id ?>&user2Id=<?= $conversation->user2Id ?>&itemId=<?= $conversation->itemId ?>">
             <div class="conversation">
@@ -74,6 +76,7 @@
                     <p><?= $mostRecentMessage->message ?></p>
                     <p><?= $item->name ?></p>
                 </div>
+                <p class="conversation-notification"><?= $unopenedMessagesCount ?></p>
             </div>
         </a>
     <?php }
