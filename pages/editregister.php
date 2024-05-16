@@ -26,7 +26,7 @@ declare(strict_types = 1);
     
     <div class="register-container">
         <form action="../actions/editregister.action.php" method="post">
-            <h2>Sign up today!</h2>
+            <h2>Edit Profile</h2>
             <div class="input-container">
                 <label for="email">Email:</label>
                 <input type="email" id="email" maxlength="100" name="email">

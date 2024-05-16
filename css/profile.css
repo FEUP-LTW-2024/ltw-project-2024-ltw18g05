@@ -123,7 +123,7 @@ body {
         }
         #maininfo {
             display: grid;
-            grid-template-rows: 1fr 0.8fr 0.8fr;
+            grid-template-rows: 1fr 0.8fr 0.8fr 1fr;
             margin-left: 2em;
             h1{
                 font-size: 2.5em;
@@ -136,6 +136,11 @@ body {
                 align-self: center;
                 text-decoration: underline;
                 text-decoration-color: #dadada;
+            }
+            #edit_profile {
+                background-color: #167ade;
+                padding: 0.3em;
+                border-radius: 1em;
             }
         }
     }

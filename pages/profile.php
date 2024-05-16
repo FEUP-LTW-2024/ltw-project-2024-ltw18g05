@@ -42,7 +42,7 @@
                 <h1><a href="profile.php"><?= $user->name ?></a></h1>
                 <h2><a href="profile.php"><?= $user->username ?></a></h2>
                 <h2><a href="profile.php"><?= $user->email ?></a></h2>
-                <h2><a href="editregister.php">Edit Profile</a></h2>
+                <h2><a id="edit_profile" href="editregister.php">Edit Profile</a></h2>
             </section>
 
         </section>
