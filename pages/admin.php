@@ -5,7 +5,6 @@
 
     require_once(__DIR__ . '/../database/category.class.php');
     require_once(__DIR__ . '/../database/item.class.php');
-    require_once(dirname(__DIR__).'/database/user.class.php');
 
     require_once(dirname(__DIR__).'/database/session.class.php');
 
@@ -17,7 +16,6 @@
     $categories = Category::getAllCategories($db);
 
     $itemsForSale = Item::getItemsOfSellerUser($db,$session->getId());
-    if ($session->isLoggedIn()) {$user = User::getUserFromId($db,$session->getId());}
 ?>
 
 
@@ -27,36 +25,29 @@
     <head>
         <title>Voyager</title>
         <meta charset="UTF-8">
-        <link href="/css/profile.css" rel="stylesheet">
+        <link href="/css/admin.css" rel="stylesheet">
     </head>
     <body>
 
-        <?php drawHeader($session, $user);?>
+        <?php drawHeader($session);?>
         <?php drawNav($categories);?>
 
         <section id="profileimage_maininfo">
 
-            <img src="/images/profilepictures/<?= $user->profilepicture ?>.png" alt="anonymous">
+            <img src="/images/profilepictures/<?= $session->getProfilePicture() ?>.png" alt="anonymous">
 
             <section id=maininfo>
-                <h1><a href="profile.php"><?= $user->name ?></a></h1>
-                <h2><a href="profile.php"><?= $user->username ?></a></h2>
-                <h2><a href="profile.php"><?= $user->email ?></a></h2>
-                <h2><a href="editregister.php">Edit Profile</a></h2>
+                <h1><a href="profile.php"><?= $session->getName() ?></a></h1>
+                <h2><a href="profile.php"><?= $session->getUsername() ?></a></h2>
+                <h2><a href="profile.php"><?= $session->getEmail() ?></a></h2>
             </section>
-            <?php if($user->isAdmin) { ?>
-                <section id=admin_area> Admin Area</section>
-            <?php }  ?>
+
         </section>
 
         <?php if (count($itemsForSale) != 0) {
             drawItemsofSellerUser($itemsForSale);
         } ?>
         
-        <section id=sell_item>
-            <h1><a href="sell.php">Place New Item to Sell!</a></h1>
-        </section>
-
         <?php drawFooter();?>
         
     </body>
