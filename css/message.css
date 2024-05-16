@@ -361,25 +361,27 @@ body {
     margin: 20px;
     flex-grow: 1;
     overflow: auto;
+    margin-bottom: 200px;
 }
 
 #messageForm {
     position: absolute;
-    bottom: 0;
     width: 75%;
     margin-left: 20px;
     margin-right: 20px;
-    margin-bottom: 90px; /* Adjust this value based on the height of your footer */
     background-color: #f8f9fa; /* Light grey background */
     border: 1px solid #ced4da; /* Grey border */
     border-radius: 5px; /* Rounded corners */
     padding: 10px; /* Space between the content and the border */
-    right: 0;
     height: 75px; /* Adjust this value to your desired height */
     display: grid;
     grid-template-columns: 10fr 1fr; /* Divide the form into two columns, with the button taking up 1 part and the textarea 4 parts */
     grid-gap: 10px; /* Space between the grid items */
     font-size: 32px;
+    position: fixed; /* Position the form relative to the viewport */
+    bottom: 75px; /* Position the form 50px above the bottom of the viewport */
+    right: 10px; /* Position the form 20px from the right of the viewport */
+    z-index: 1; /* Stack the form below other elements with higher z-index values */
 }
 
 #messageForm textarea {
