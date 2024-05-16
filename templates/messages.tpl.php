@@ -32,10 +32,11 @@
         }
         ?>
     </div>
-    <form id="messageForm" action="/api/sendMessage.php" method="post">
+    <form id="messageForm" action="/../actions/sendMessage.action.php" method="post">
         <input type="hidden" name="user1Id" value="<?php echo $user1Id; ?>">
         <input type="hidden" name="user2Id" value="<?php echo $user2Id; ?>">
         <input type="hidden" name="itemId" value="<?php echo $itemId; ?>">
+        <input type="hidden" name="conversationId" value="<?php echo $conversation->id; ?>">
         <textarea name="message" placeholder="Type your message here"></textarea>
         <button type="submit">Send</button>
     </form>
