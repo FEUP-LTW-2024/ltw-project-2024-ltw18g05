@@ -42,9 +42,14 @@ Class Conversation {
 
     public static function getConversations($userId) {
         $db = getDatabaseConnection();
-        $stmt = $db->prepare('SELECT * FROM conversation WHERE user1Id = :userId OR user2Id = :userId');
+        $stmt = $db->prepare('SELECT * FROM Conversation WHERE user1_Id = :userId OR user2_Id = :userId');
         $stmt->execute(['userId' => $userId]);
-        $conversations = $stmt->fetchAll();
+        $conversationsData = $stmt->fetchAll();
+
+        $conversations = [];
+        foreach ($conversationsData as $conversationData) {
+            $conversations[] = new Conversation($conversationData['Id'], $conversationData['User1_Id'], $conversationData['User2_Id'], $conversationData['Item_Id']);
+        }
         return $conversations;
     }
 

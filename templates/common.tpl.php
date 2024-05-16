@@ -22,8 +22,9 @@
         </div>
     <?php else: ?>
         <div id="logout_profile">
-            <a href="../actions/logout.action.php">Logout</a>
+            <a href="messages.php" id="messages">Messages</a>
             <a href="wishlist.php" id="wishlist">Wishlist</a>
+            <a href="../actions/logout.action.php">Logout</a>
             <a href="/pages/profile.php" > <img src="/images/profilepictures/<?= $user->profilepicture ?>.png" alt="anonymous"></a>
         </div>
     <?php endif; ?>

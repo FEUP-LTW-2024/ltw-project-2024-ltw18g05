@@ -19,7 +19,7 @@
     <a href="../pages/item.php?id=<?= $itemId ?>" class="item-link">
         <img class="item-image" src="<?= $item->imagePath ?>" alt="Item Image">
     </a>
-    <div id="messages">
+    <div id="message-list">
         <?php
         $conversation = Conversation::getConversation($user1Id, $user2Id, $itemId);
         if (!$conversation) {
@@ -55,3 +55,27 @@
             </div>
     </div>
 <?php } ?>
+
+<?php function drawConversations($userId) {
+    $conversations = Conversation::getConversations($userId);
+    foreach ($conversations as $conversation) {
+        $messageCount = Message::getMessageCount($conversation->id);
+        if ($messageCount == 0) {
+            continue;
+        }
+        $mostRecentMessage = Message::getMostRecentMessage($conversation->id);
+        $otherUser = User::getUserById($conversation->user1Id == $userId ? $conversation->user2Id : $conversation->user1Id);
+        $item = Item::getItemById($conversation->itemId);
+        ?>
+        <a href="/pages/conversation.php?user1Id=<?= $conversation->user1Id ?>&user2Id=<?= $conversation->user2Id ?>&itemId=<?= $conversation->itemId ?>">
+            <div class="conversation">
+                <img class="profile-picture" src="/images/profilepictures/<?= $otherUser->profilepicture ?>.png" alt="Profile Picture">
+                <div class="conversation-content">
+                    <h2><?= $otherUser->username ?></h2>
+                    <p><?= $mostRecentMessage->message ?></p>
+                    <p><?= $item->name ?></p>
+                </div>
+            </div>
+        </a>
+    <?php }
+} ?>
