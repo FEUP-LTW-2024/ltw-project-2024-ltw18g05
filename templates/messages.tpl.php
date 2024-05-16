@@ -48,7 +48,7 @@
     $isSender = $session->getId() == $message->senderId;
     ?>
     <div class="message <?php echo $isSender ? 'sent' : 'received'; ?>">
-        <img class="profile-picture" src="/images/profilepictures/<?= $isSender ? $sender->profilepicture : $receiver->profilepicture; ?>.png" alt="Profile Picture">
+        <img class="profile-picture" src="/images/profilepictures/<?= $sender->profilepicture ?>.png" alt="Profile Picture">
             <div class="message-content">
                 <p><?php echo $message->message; ?></p>
                 <span><?php echo $message->timestamp; ?></span>

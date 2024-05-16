@@ -336,6 +336,12 @@ footer {
     max-width: 10em;
     height: auto;
     margin: 20px;
+    display: block;
+    width: 100% ;
+    max-height: 100%;
+    background-color: black;
+    padding: 0.5em;
+    border-radius: 2em;
 }
 
 .profile-picture {
@@ -376,7 +382,7 @@ body {
     height: 75px; /* Adjust this value to your desired height */
     display: grid;
     grid-template-columns: 10fr 1fr; /* Divide the form into two columns, with the button taking up 1 part and the textarea 4 parts */
-    grid-gap: 10px; /* Space between the grid items */
+    grid-gap: 0px; /* Space between the grid items */
     font-size: 32px;
     position: fixed; /* Position the form relative to the viewport */
     bottom: 75px; /* Position the form 50px above the bottom of the viewport */
