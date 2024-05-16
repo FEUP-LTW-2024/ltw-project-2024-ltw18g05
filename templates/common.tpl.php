@@ -1,5 +1,5 @@
 <!-- Header HTML code-->
-<?php function drawHeader($session) { ?>
+<?php function drawHeader($session, $user) { ?>
 <header>
     <div id="title_slogan">
         <h1><a href="index.php">Voyager</a></h1>
@@ -24,7 +24,7 @@
         <div id="logout_profile">
             <a href="../actions/logout.action.php">Logout</a>
             <a href="wishlist.php" id="wishlist">Wishlist</a>
-            <a href="/pages/profile.php" > <img src="/images/profilepictures/<?= $session->getProfilepicture() ?>.png" alt="anonymous"></a>
+            <a href="/pages/profile.php" > <img src="/images/profilepictures/<?= $user->profilepicture ?>.png" alt="anonymous"></a>
         </div>
     <?php endif; ?>
 </header>

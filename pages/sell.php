@@ -4,11 +4,13 @@ declare(strict_types = 1);
     require_once(dirname(__DIR__).'/database/session.class.php');
     require_once(__DIR__ . '/../database/connection.db.php');
     require_once(__DIR__ . '/../database/category.class.php');
+    require_once(dirname(__DIR__).'/database/user.class.php');
 
     $session = new Session();
 
     $db = getDatabaseConnection();
     $categories = Category::getAllCategories($db);
+    if ($session->isLoggedIn()) {$user = User::getUserFromId($db,$session->getId());}
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +22,7 @@ declare(strict_types = 1);
 </head>
 <body>
     
-    <?php drawHeader($session);?>
+    <?php drawHeader($session, $user);?>
 
     <div class="register-container">
         <form action="../actions/sell.action.php" method="post">

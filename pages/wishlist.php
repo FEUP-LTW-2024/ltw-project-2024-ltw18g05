@@ -11,12 +11,14 @@
 
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/item.tpl.php');
+    require_once(dirname(__DIR__).'/database/user.class.php');
 
     $db = getDatabaseConnection();
     $session = new Session();
     $categories = Category::getAllCategories($db);
 
     $items_of_wishlist = Wishlist::getItemsOfWishlistOfUser($db,$session->getId());
+    if ($session->isLoggedIn()) {$user = User::getUserFromId($db,$session->getId());}
 ?>
 
 
@@ -30,7 +32,7 @@
     </head>
     <body>
 
-        <?php drawHeader($session);?>
+        <?php drawHeader($session, $user);?>
         <?php drawNav($categories);?>
 
         <?php drawItemsofWishlist($items_of_wishlist); ?>

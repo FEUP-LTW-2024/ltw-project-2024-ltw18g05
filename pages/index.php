@@ -4,6 +4,7 @@
     require_once(__DIR__ . '/../database/connection.db.php');
 
     require_once(dirname(__DIR__).'/database/session.class.php');
+    require_once(dirname(__DIR__).'/database/user.class.php');
 
     require_once(__DIR__ . '/../database/item.class.php');
     require_once(__DIR__ . '/../database/category.class.php');
@@ -15,6 +16,7 @@
     $session = new Session();
     $items = Item::getAllItems($db);
     $categories = Category::getAllCategories($db);
+    if ($session->isLoggedIn()) {$user = User::getUserFromId($db,$session->getId());}
 ?>
 
 
@@ -28,7 +30,7 @@
     </head>
     <body>
 
-        <?php drawHeader($session);?>
+        <?php drawHeader($session, $user);?>
         <?php drawNav($categories);?>
 
         <?php drawFeatured($items);?>

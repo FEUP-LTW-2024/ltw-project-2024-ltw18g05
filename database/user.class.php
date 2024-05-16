@@ -74,5 +74,23 @@ class User {
       } else return null;
   }
 
+    static function getUserFromId(PDO $db, int $id) : ?User {
+        $stmt = $db->prepare('SELECT * FROM User WHERE Id = ?');
+        $stmt->execute([$id]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user) {
+            return new User(
+                $user['Id'],
+                $user['Username'],
+                $user['Name'],
+                $user['Password'],
+                $user['Email'],
+                $user['Is_Admin'],
+                $user['Profile_Picture']
+            );
+        } else { return null;}
+    }
+
 }
 ?>

@@ -6,6 +6,7 @@
 
     require_once(__DIR__ . '/../database/item.class.php');
     require_once(__DIR__ . '/../database/category.class.php');
+    require_once(dirname(__DIR__).'/database/user.class.php');
 
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/item.tpl.php'); 
@@ -14,6 +15,7 @@
     $session = new Session();
     $items = Item::getAllItems($db);
     $categories = Category::getAllCategories($db);
+    if ($session->isLoggedIn()) {$user = User::getUserFromId($db,$session->getId());}
 
     $search_content = $_GET['search_content'] ?? '';
     $condition_filter = $_GET['condition_filter'] ?? '';
@@ -33,7 +35,7 @@
     </head>
     <body>
 
-        <?php drawHeader($session);?>
+        <?php drawHeader($session, $user);?>
         <?php drawNav($categories);?>
 
         <section id=results>

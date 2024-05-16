@@ -2,12 +2,16 @@
   class Session {
     private array $messages;
 
+    //-----------Construct----------------------------------------------------------------------------
+
     public function __construct() {
       session_start();
 
       $this->messages = isset($_SESSION['messages']) ? $_SESSION['messages'] : array();
       unset($_SESSION['messages']);
     }
+
+    //-----------Login & Logout-----------------------------------------------------------------------
 
     public function isLoggedIn() : bool {
       return isset($_SESSION['id']);    
@@ -17,11 +21,13 @@
       session_destroy();
     }
 
+    //-----------Gets---------------------------------------------------------------------------------
+
     public function getId() : ?int {
       return isset($_SESSION['id']) ? $_SESSION['id'] : null;    
     }
 
-    public function getUsername() : ?string {
+    /*public function getUsername() : ?string {
       return isset($_SESSION['username']) ? $_SESSION['username'] : null;
     }
 
@@ -35,13 +41,15 @@
 
     public function getProfilePicture() : ?string {
       return isset($_SESSION['profilepicture']) ? $_SESSION['profilepicture'] : null;
-    }
+    }*/  
+
+    //-----------Sets-----------------------------------------------------------------------------------
 
     public function setId(int $id) {
       $_SESSION['id'] = $id;
     }
 
-    public function setUsername(string $username) {
+    /*public function setUsername(string $username) {
       $_SESSION['username'] = $username;
     }
 
@@ -55,7 +63,9 @@
 
     public function setProfilepicture(string $profilepicture) {
       $_SESSION['profilepicture'] = $profilepicture;
-    }
+    }*/
+
+    //-----------Messages----------------------------------------------------------------------------------
 
     public function addMessage(string $type, string $text) {
       $_SESSION['messages'][] = array('type' => $type, 'text' => $text);

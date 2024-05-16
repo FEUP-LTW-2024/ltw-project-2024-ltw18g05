@@ -12,6 +12,8 @@ $session = new Session();
 $user1Id = isset($_GET['user1Id']) ? intval($_GET['user1Id']) : null;
 $user2Id = isset($_GET['user2Id']) ? intval($_GET['user2Id']) : null;
 $itemId = isset($_GET['itemId']) ? intval($_GET['itemId']) : null;
+
+if ($session->isLoggedIn()) {$user = User::getUserFromId($db,$session->getId());}
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +30,7 @@ $itemId = isset($_GET['itemId']) ? intval($_GET['itemId']) : null;
     </head>
     <body>
 
-        <?php drawHeader($session);?>
+        <?php drawHeader($session, $user);?>
 
         <section id=conversation>
             <?php drawConversation($user1Id, $user2Id, $itemId, $session);?>

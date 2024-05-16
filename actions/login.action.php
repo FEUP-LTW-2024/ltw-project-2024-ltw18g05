@@ -9,12 +9,12 @@
   $user = User::getUserWithPassword($db, $_POST['email'], $_POST['password']);
   
   if ($user) {
-
+        
     $session->setId($user->id);
-    $session->setUsername($user->username);
+    /*$session->setUsername($user->username);
     $session->setName($user->name);
     $session->setEmail($user->email);
-    $session->setProfilepicture($user->profilepicture);    
+    $session->setProfilepicture($user->profilepicture);*/    
     $session->addMessage('success', 'You have logged in!');
     header('Location: /../pages/index.php');
     exit;
