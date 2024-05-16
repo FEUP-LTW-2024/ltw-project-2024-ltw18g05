@@ -33,6 +33,24 @@ class User {
     
         return $users;
     }
+
+    static function getUserById(int $id) : ?User {
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM User WHERE Id = ?');
+        $stmt->execute(array($id));
+    
+        if ($user = $stmt->fetch()) {
+            return new User(
+                $user['Id'],
+                $user['Username'],
+                $user['Name'],
+                $user['Password'],
+                $user['Email'],
+                $user['Is_Admin'],
+                $user['Profile_Picture']
+            );
+        } else return null;
+    }
     
     static function getUserWithPassword(PDO $db, string $email, string $password) : ?User {
       $stmt = $db->prepare('

@@ -137,6 +137,12 @@ body {
                 &:hover {background-color: #dadada;}
                 &:hover {color: #167ade;}
             }
+            .button-container {
+                display: flex;
+                align-self: center;
+                place-self: center;
+                gap: 100px; /* Adjust as needed */
+            }
         }
     }
 
@@ -265,5 +271,6 @@ body {
             padding: 0.5em;
             font-weight: 700;
         }
-    }   
+    }  
+ 
 }

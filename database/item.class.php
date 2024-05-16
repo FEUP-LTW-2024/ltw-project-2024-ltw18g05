@@ -97,6 +97,27 @@ class Item {
         return $items;
     }
     
+    static function getItemById(int $id) : ?Item {
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM Item WHERE Id = ?');
+        $stmt->execute(array($id));
+
+        if ($item = $stmt->fetch()) {
+            return new Item(
+                $item['Id'],
+                $item['Seller_Id'],
+                $item['Category_Id'],
+                $item['Manufacturer'],
+                $item['Name'],
+                $item['Size'],
+                $item['Condition'],
+                $item['Description'],
+                $item['Price'],
+                $item['Image_path'],
+                $item['Featured']
+            );
+        } else return null;
+    }
 
 }
 ?>

@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS Item;
 DROP TABLE IF EXISTS Category;
 DROP TABLE IF EXISTS Transaction_;
 DROP TABLE IF EXISTS Message;
+DROP TABLE IF EXISTS Conversation;
 DROP TABLE IF EXISTS Wishlist;
 
 ---------------------------------------
@@ -53,16 +54,26 @@ CREATE TABLE Transaction_ (
     FOREIGN KEY (Item_Id) REFERENCES Item(Id)
 );
 
--- Messages table to store messages between users (optional feature)
+-- Messages table to store messages between users
 CREATE TABLE Message (
     Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     Sender_Id INTEGER NOT NULL,
     Receiver_Id INTEGER NOT NULL,
-    Item_Id INTEGER NOT NULL,
+    Conversation_Id INTEGER,
     Message_text TEXT NOT NULL,
     Send_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (Sender_Id) REFERENCES User(Id),
     FOREIGN KEY (Receiver_Id) REFERENCES User(Id),
+    FOREIGN KEY (Conversation_Id) REFERENCES Conversation(Id)
+);
+
+CREATE TABLE Conversation (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    User1_Id INTEGER NOT NULL,
+    User2_Id INTEGER NOT NULL,
+    Item_Id INTEGER NOT NULL,
+    FOREIGN KEY (User1_Id) REFERENCES User(Id),
+    FOREIGN KEY (User2_Id) REFERENCES User(Id),
     FOREIGN KEY (Item_Id) REFERENCES Item(Id)
 );
 
@@ -120,12 +131,18 @@ INSERT INTO Transaction_ (Buyer_Id, Item_Id) VALUES
     (6, 5);
 
 -- Insert sample messages
-INSERT INTO Message (Sender_Id, Receiver_Id, Item_Id, Message_text) VALUES 
+INSERT INTO Message (Sender_Id, Receiver_Id, Conversation_Id, Message_text) VALUES 
     (2, 1, 1, 'Is the iPhone still available?'),
     (1, 2, 1, 'Yes, it is.'),
     (3, 2, 2, 'Are the shoes true to size?'),
     (2, 3, 2, 'Yes, they are.'),
     (4, 3, 3, 'Is the book hardcover?');
+
+-- Insert sample conversations
+INSERT INTO Conversation (User1_Id, User2_Id, Item_Id) VALUES 
+    (2, 1, 1),
+    (3, 2, 2),
+    (4, 3, 3);
 
 INSERT INTO Wishlist (User_Id, Item_Id) VALUES 
     (2, 1),  

@@ -1,0 +1,413 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/* Global styles */
+body {
+    background-color: #167ade;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+    font-family: Manrope;
+}
+
+body a {
+    color: #dadada;
+    text-decoration: none;
+}
+
+body header {
+    display: grid;
+    grid-template-columns: 1fr 3fr 0.8fr;
+    background-color: #272727;
+    color: #dadada;
+    padding: 1em 2em;
+}
+
+#title_slogan {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+#title_slogan h1 {
+    margin: 0;
+    font-size: 4em;
+}
+
+#title_slogan h2 {
+    margin: 0;
+}
+
+#hidden_search {
+    display: none;
+}
+
+#search {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    padding: 2em;
+}
+
+#search input {
+    display: block;
+    width: 85%;
+    align-self: center;
+    border-radius: 10px;
+    font-size: 1.3em;
+    padding: 1em;
+}
+
+#search button {
+    background-color: #167ade;
+    color: #dadada;
+    font-weight: 700;
+    display: block;
+    width: 5em;
+    align-self: center;
+    border-radius: 10px;
+    font-size: 1.7em;
+    padding: 0.6em;
+}
+
+#search button:hover {
+    background-color: #dadada;
+    color: #167ade;
+}
+
+#login_signup_image,
+#logout_profile {
+    display: flex;
+    justify-content: right;
+    gap: 1em;
+}
+
+#login_signup_image img,
+#logout_profile img {
+    align-self: center;
+    width: 4em;
+    border-radius: 2em;
+}
+
+#login_signup_image a,
+#logout_profile a {
+    align-self: center;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 0.2em;
+}
+
+#login_signup_image #wishlist {
+    background-color: #dadada;
+    color: #272727;
+}
+
+#nav_categories {
+    margin-bottom: 1em;
+}
+
+#nav_categories #hamburger {
+    display: none;
+}
+
+#nav_categories ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 1em 0 1em;
+    list-style-type: none;
+}
+
+#nav_categories ul li {
+    display: block;
+    flex: 1;
+    padding: 1em 0 1em 0;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#nav_categories ul li a {
+    color: #272727;
+    text-decoration: none;
+}
+
+#nav_categories ul li:hover {
+    background-color: #272727;
+}
+
+#nav_categories ul li:hover a {
+    color: #dadada;
+}
+
+#featured {
+    margin-bottom: 3em;
+}
+
+#featured h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+}
+
+#featured h1 a {
+    background-color: #272727;
+    padding: 0.5em;
+    border-radius: 10px;
+}
+
+#featured #featured_articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1em;
+    padding: 0 1em 0 1em;
+}
+
+#featured article {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    background-color: #272727;
+    max-width: 32em;
+    max-height: 40em;
+}
+
+#featured article h1 {
+    text-align: center;
+    font-size: 1.8em;
+}
+
+#featured article img {
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+#featured article footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    font-size: 1.8em;
+}
+
+#items {
+    margin-bottom: 3em;
+}
+
+#items h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+}
+
+#items h1 a {
+    background-color: #272727;
+    padding: 0.5em;
+    border-radius: 10px;
+}
+
+#items #items_articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0 1em 0 1em;
+    gap: 1em;
+}
+
+#items article {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    background-color: #272727;
+    max-width: 16em;
+    max-height: 22em;
+}
+
+#items article h1 {
+    text-align: center;
+    font-size: 1.3em;
+}
+
+#items article img {
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+#items article footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    font-size: 1.3em;
+}
+
+footer {
+    background-color: #272727;
+    color: #dadada;
+    padding: 0.5em;
+    font-weight: 700;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+
+/* Media queries */
+@media (max-width: 65em) {
+    body header {
+        grid-template-columns: auto auto auto;
+    }
+
+    #hidden_search {
+        display: flex;
+        justify-content: center;
+        gap: 0.5em;
+    }
+
+    #hidden_search #search_caller {
+        display: none;
+    }
+
+    #search {
+        display: none;
+    }
+
+    #nav_categories #hamburger {
+        display: flex;
+        padding: 1em;
+        background-color: #272727;
+    }
+
+    #nav_categories ul {
+        flex-direction: column;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height .5s;
+    }
+
+    #nav_categories ul li {
+        border-top: 0;
+        list-style-type: none;
+        background-color: #272727;
+    }
+
+    
+}
+
+/* Style for conversation messages */
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    max-width: 70%;
+}
+
+/* Style for sender's messages */
+.sent {
+    background-color: black;
+    color: white;
+    float: right;
+    align-self: flex-end;
+}
+
+/* Style for receiver's messages */
+.received {
+    background-color: white;
+    color: black;
+    float: left;
+    align-self: flex-start;
+}
+
+/* Clear floating elements */
+.message:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.item-image {
+    max-width: 10em;
+    height: auto;
+    margin: 20px;
+}
+
+.profile-picture {
+    width: 30px; /* Adjust the width to your desired size */
+    height: 30px; /* Adjust the height to your desired size */
+    border-radius: 50%; /* Make the image circular */
+    margin-right: 10px; /* Add some spacing between the picture and the message */
+}
+
+.message-content {
+    flex-grow: 1; /* Allow the message content to grow to fill available space */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#messages {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    flex-grow: 1;
+    overflow: auto;
+}
+
+#messageForm {
+    position: absolute;
+    bottom: 0;
+    width: 75%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 90px; /* Adjust this value based on the height of your footer */
+    background-color: #f8f9fa; /* Light grey background */
+    border: 1px solid #ced4da; /* Grey border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Space between the content and the border */
+    right: 0;
+    height: 75px; /* Adjust this value to your desired height */
+    display: grid;
+    grid-template-columns: 10fr 1fr; /* Divide the form into two columns, with the button taking up 1 part and the textarea 4 parts */
+    grid-gap: 10px; /* Space between the grid items */
+    font-size: 32px;
+}
+
+#messageForm textarea {
+    height: 100%; /* Make the textarea take up the full height of the form */
+    width: 80%; /* Make the textarea take up 80% of the form's width */
+    padding: 5px; /* Space between the text and the textarea's border */
+    border-radius: 5px; /* Rounded corners */
+    align-self: center;
+    grid-column: 1; /* Make the textarea span 4 columns */
+    font-size: 24px;
+}
+
+#messageForm button[type="submit"] {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* Remove the default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 10px; /* Vertical and horizontal padding */
+    cursor: pointer; /* Change the cursor when hovering over the button */
+    align-self: right;
+    grid-column: 2; /* Make the button span 1 column */
+    font-size: 24px;
+}
+
+#messageForm button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue background when hovering */
+}
+
+h1 {
+    margin-left: 20px;
+}
