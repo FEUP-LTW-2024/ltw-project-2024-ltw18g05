@@ -211,12 +211,14 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
                             </div>
                         <?php } else { ?>
                             <p>You are the seller of this item</p>
-                    <?php } ?>                    
+                        <?php } ?>
+                    <?php } ?>
+                
                 </section>
             </section>
     <?php }
     }?>
-<?php } } ?>
+<?php } ?>
 
 
 <!--profile.php draw functions-->

@@ -143,7 +143,7 @@ body {
                 display: flex;
                 align-self: center;
                 place-self: center;
-                gap: 100px; /* Adjust as needed */
+                gap: 100px;
             }
         }
     }
@@ -154,123 +154,14 @@ body {
         color: #dadada;
         padding: 0.5em;
         font-weight: 700;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
     }
 }
 
 
-@media (max-width: 65em) {
-    body {
-        background-color: #167ade;
-        margin: 0 auto;
-        height: 100%;
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        font-family: Manrope;
-        a {
-            color: #dadada;
-            text-decoration: none;
-        }
-    
-        header {
-            grid-template-columns: auto;
-            grid-template-rows: auto auto auto;
 
-            #title_slogan {
-                grid-row: 1;
-                justify-self: center;
-                h2 {display: none;}
-            }
-            #search {
-                grid-row: 2;
-                grid-row-start: 2;
-                #big_button {display: none;}
-                #small_button {
-                    display: block;
-                    width: 2.5em;
-                }
-            }
-            #login_signup_image, #logout_profile {
-                grid-row: 3;
-                justify-self: center;
-                a {
-                    content: "&#x1F50D";
-                }
-            }
-            
-        }
-
-        #item {
-            display: grid;
-            grid-template-rows: auto auto;
-            grid-template-columns: 1fr;
-            padding: 1em;
-            row-gap: 1em;
-            position: relative;
-            max-width: 100%;
-            img {
-                max-width: 95%;
-                max-height: 100%;
-                background-color: #272727;
-                padding: 0.5em;
-                border-radius: 2em;
-                justify-self: center;
-            }
-            #description {
-                text-align: center;
-                background-color: #272727;
-                color: #dadada;
-                border-radius: 2em 2em 2em 2em;
-                margin: 0 1em;
-                display: grid;  
-                max-width: 100%;
-                grid-template-rows: 15% auto auto  10%;
-                padding: 0em 1em 2em 2em;
-                
-                > h1 {
-                    margin-top: 0.5em;
-                    font-size: 3em;
-                }
-                p {
-                    padding-bottom: 0;
-                    font-size: 2em;
-                    text-align: left;
-                    align-self: center;
-                    font-weight: bold; 
-                }
-                > ul {
-                    padding-bottom: 0;
-                    font-size: 2em;
-                    text-align: left;
-                    align-self: center;
-                    font-weight: bold;
-                }
-                button {
-                    font-size: 2em;
-                    max-width: fit-content;
-                    place-self: center;
-                    background-color: #167ade;
-                    color: #dadada;
-                    font-weight: 700;
-                    width: 7em;
-                    border-radius: 10px;
-                    font-size: 1.7em;
-                    padding: 0.6em;
-                    &:hover {background-color: #dadada;}
-                    &:hover {color: #167ade;}
-                }
-            }
-        }
-    
-        
-        > footer {
-            background-color: #272727;
-            color: #dadada;
-            padding: 0.5em;
-            font-weight: 700;
-        }
-    }  
- 
-}
 
 .notification-badge {
     background-color: red;
