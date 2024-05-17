@@ -25,7 +25,7 @@ declare(strict_types = 1);
     <?php drawHeader($session, $user);?>
 
     <div class="register-container">
-        <form action="../actions/sell.action.php" method="post">
+        <form action="../actions/sell.action.php" method="post" enctype="multipart/form-data">
             <h2>Fill up the information of the item to sell.</h2>
 
             <div class="input-container">
@@ -73,6 +73,11 @@ declare(strict_types = 1);
             <div class="input-container">
                 <label for="price">Price:</label>
                 <input type="number" id="price" name="price" min="0" value="0" step="0.5" required>
+            </div>
+
+            <div class="input-container">
+                <label for="profile_picture">Product Image:</label>
+                <input type="file" name="profile_picture">
             </div>
 
             <button type="submit">Publish Item</button>
