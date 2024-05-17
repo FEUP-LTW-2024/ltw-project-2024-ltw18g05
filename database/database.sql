@@ -24,8 +24,8 @@ CREATE TABLE User (
 -- Items table to store information about listed items
 CREATE TABLE Item (
     Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    Seller_Id INTEGER NOT NULL on DELETE CASCADE ,
-    Category_Id INTEGER NOT NULL on DELETE CASCADE,
+    Seller_Id INTEGER NOT NULL,
+    Category_Id INTEGER NOT NULL,
     Manufacturer TEXT NOT NULL,
     Name TEXT NOT NULL,
     Size TEXT,
@@ -34,8 +34,8 @@ CREATE TABLE Item (
     Price REAL NOT NULL,
     Image_path TEXT DEFAULT '/images/defaults/default_Item.jpg', -- Comma-separated paths to images
     Featured BOOLEAN NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (Seller_id) REFERENCES User(Id),
-    FOREIGN KEY (Category_id) REFERENCES Category(Id)
+    FOREIGN KEY (Seller_id) REFERENCES User(Id) on DELETE CASCADE,
+    FOREIGN KEY (Category_id) REFERENCES Category(Id) on DELETE CASCADE
 );
 
 -- Categories table to store item categories

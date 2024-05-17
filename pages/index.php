@@ -16,7 +16,11 @@
     $session = new Session();
     $items = Item::getAllItems($db);
     $categories = Category::getAllCategories($db);
-    if ($session->isLoggedIn()) {$user = User::getUserFromId($db,$session->getId());}
+    if ($session->isLoggedIn()) {
+        $user = User::getUserFromId($db,$session->getId());}
+    else {
+        $user = null;
+    }
 ?>
 
 
