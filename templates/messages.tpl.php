@@ -19,7 +19,7 @@
     <a href="../pages/item.php?id=<?= $itemId ?>" class="item-link">
         <img class="item-image" src="<?= $item->imagePath ?>" alt="Item Image">
     </a>
-    <div id="messages">
+    <div id="message-list">
         <?php
         $conversation = Conversation::getConversation($user1Id, $user2Id, $itemId);
         if (!$conversation) {
@@ -33,8 +33,8 @@
         ?>
     </div>
     <form id="messageForm" action="/../actions/sendMessage.action.php" method="post">
-        <input type="hidden" name="user1Id" value="<?php echo $user1Id; ?>">
-        <input type="hidden" name="user2Id" value="<?php echo $user2Id; ?>">
+        <input type="hidden" name="user1Id" value="<?php echo $session->getID(); ?>">
+        <input type="hidden" name="user2Id" value="<?php echo $otherUser->id; ?>">
         <input type="hidden" name="itemId" value="<?php echo $itemId; ?>">
         <input type="hidden" name="conversationId" value="<?php echo $conversation->id; ?>">
         <textarea name="message" placeholder="Type your message here"></textarea>
@@ -43,8 +43,8 @@
 <?php } ?>
 
 <?php function drawMessage(Message $message, Session $session) {
-    $sender = User::getUserById($message->senderId);
-    $receiver = User::getUserById($message->receiverId);
+    $message->openMessage();
+    $sender = User::getUserById($session->getId());
     $isSender = $session->getId() == $message->senderId;
     ?>
     <div class="message <?php echo $isSender ? 'sent' : 'received'; ?>">
@@ -55,3 +55,29 @@
             </div>
     </div>
 <?php } ?>
+
+<?php function drawConversations($userId) {
+    $conversations = Conversation::getConversations($userId);
+    foreach ($conversations as $conversation) {
+        $messageCount = Message::getMessageCount($conversation->id);
+        if ($messageCount == 0) {
+            continue;
+        }
+        $mostRecentMessage = Message::getMostRecentMessage($conversation->id);
+        $otherUser = User::getUserById($conversation->user1Id == $userId ? $conversation->user2Id : $conversation->user1Id);
+        $item = Item::getItemById($conversation->itemId);
+        $unopenedMessagesCount = Message::getConversationUnopenedMessagesCount($conversation->id, $userId);
+        ?>
+        <a href="/pages/conversation.php?user1Id=<?= $conversation->user1Id ?>&user2Id=<?= $conversation->user2Id ?>&itemId=<?= $conversation->itemId ?>">
+            <div class="conversation">
+                <img class="profile-picture" src="/images/profilepictures/<?= $otherUser->profilepicture ?>.png" alt="Profile Picture">
+                <div class="conversation-content">
+                    <h2><?= $otherUser->username ?></h2>
+                    <p><?= $mostRecentMessage->message ?></p>
+                    <p><?= $item->name ?></p>
+                </div>
+                <p class="conversation-notification"><?= $unopenedMessagesCount ?></p>
+            </div>
+        </a>
+    <?php }
+} ?>

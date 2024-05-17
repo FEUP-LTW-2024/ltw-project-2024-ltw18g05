@@ -62,6 +62,7 @@ CREATE TABLE Message (
     Conversation_Id INTEGER,
     Message_text TEXT NOT NULL,
     Send_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Opened BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (Sender_Id) REFERENCES User(Id),
     FOREIGN KEY (Receiver_Id) REFERENCES User(Id),
     FOREIGN KEY (Conversation_Id) REFERENCES Conversation(Id) ON DELETE CASCADE

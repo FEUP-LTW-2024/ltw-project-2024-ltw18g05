@@ -1,3 +1,11 @@
+<?php 
+  declare(strict_types = 1); 
+  require_once(__DIR__ . '/../database/conversation.class.php');
+  require_once(__DIR__ . '/../database/message.class.php');
+  require_once(__DIR__ . '/../database/user.class.php');
+  require_once(__DIR__ . '/../database/item.class.php');
+?>
+
 <!-- Header HTML code-->
 <?php function drawHeader($session, $user) { ?>
 <header>
@@ -20,10 +28,13 @@
             <a href="register.php">Sign Up</a>
             <img src="/images/anonymous.png" alt="anonymous">
         </div>
-    <?php else: ?>
+    <?php else: 
+         $unopenedMessagesCount = Message::getUnopenedMessagesCount($session->getId());
+         ?>
         <div id="logout_profile">
-            <a href="../actions/logout.action.php">Logout</a>
+        <a href="messages.php" id="messages">Messages<?= $unopenedMessagesCount > 0 ? '<span class="notification-badge">' . $unopenedMessagesCount . '</span>' : '' ?></a>
             <a href="wishlist.php" id="wishlist">Wishlist</a>
+            <a href="../actions/logout.action.php">Logout</a>
             <a href="/pages/profile.php" > <img src="/images/profilepictures/<?= $user->profilepicture ?>.png" alt="anonymous"></a>
         </div>
     <?php endif; ?>

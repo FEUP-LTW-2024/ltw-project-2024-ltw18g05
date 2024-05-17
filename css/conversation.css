@@ -76,7 +76,7 @@ body header {
 }
 
 #login_signup_image,
-#logout_profile {
+#logout_profile, #messages {
     display: flex;
     justify-content: right;
     gap: 1em;
@@ -98,7 +98,7 @@ body header {
     padding: 0.2em;
 }
 
-#login_signup_image #wishlist {
+#login_signup_image #wishlist  #messages{
     background-color: #dadada;
     color: #272727;
 }
@@ -361,7 +361,7 @@ body {
     min-height: 100vh;
 }
 
-#messages {
+#message-list {
     display: flex;
     flex-direction: column;
     margin: 20px;
@@ -418,4 +418,13 @@ body {
 
 h1 {
     margin-left: 20px;
+}
+
+.notification-badge {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-size: 12px;
+    margin-left: 5px;
 }
