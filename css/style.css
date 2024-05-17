@@ -54,6 +54,7 @@ body {
                 &:hover {background-color: #dadada;}
                 &:hover {color: #167ade;}
             }
+            #small_button {display: none;}
         }
         #login_signup_image, #logout_profile, #messages {
             display: flex;
@@ -227,37 +228,31 @@ body {
     body {
         
         header {
-            grid-template-columns: auto auto auto;
+            grid-template-columns: auto;
+            grid-template-rows: auto auto auto;
 
-            #hidden_search {
-                display: flex;
-                justify-content: center;
-                gap: 0.5em;
-
-                #search_caller {
-                    display: none;
-                    &:checked {
-                        ~ .search_caller::before {content: "\2715";}
-                        ~ h2 {display: none;}
-                    }
+            #title_slogan {
+                grid-row: 1;
+                justify-self: center;
+                h2 {display: none;}
+            }
+            #search {
+                grid-row: 2;
+                grid-row-start: 2;
+                #big_button {display: none;}
+                #small_button {
+                    display: block;
+                    width: 2.5em;
                 }
-
-                .search_caller {
-                    align-self: center;
-                    &:before {
-                        content: "\1F50D";
-                        font-size: 3.5em;
-                    }
-                }
-
-                > h2 {
-                    align-self: center;
-                    font-size: 1.5em;
+            }
+            #login_signup_image, #logout_profile {
+                grid-row: 3;
+                justify-self: center;
+                a {
+                    content: "&#x1F50D";
                 }
             }
             
-            #search {display: none;}
-
         }
 
 

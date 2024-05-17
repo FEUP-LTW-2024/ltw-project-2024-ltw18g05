@@ -13,14 +13,10 @@
         <h1><a href="index.php">Voyager</a></h1>
         <h2><a href="index.php">Buy, Sell, Explore</a></h2>
     </div>
-    <div id="hidden_search">
-        <input type="checkbox" id="search_caller"> 
-        <label class="search_caller" for="search_caller"></label>
-        <h2><a>Search here!</a></h2>
-    </div>
     <form id=search action="results.php" method="get">
         <input type="search" id="search" name="search_content" placeholder="Explore Voyager...">
-        <button type="submit" value="Send">Search</button>
+        <button id=big_button type="submit" value="Send">Search</button>
+        <button id=small_button type="submit" value="Send">&#x1F50D;</button>
     </form>
     <?php if (!$session->isLoggedIn()): ?>
         <div id="login_signup_image">

@@ -34,16 +34,18 @@
         <?php drawHeader($session, $user);?>
         <?php drawNav($categories);?>
 
-        <section id="profileimage_maininfo">
+        <section id="profileimage_maininfo_adminarea">
 
-            <img src="/images/profilepictures/<?= $user->profilepicture ?>.png" alt="anonymous">
-
-            <section id=maininfo>
-                <h1><a href="profile.php"><?= $user->name ?></a></h1>
-                <h2><a href="profile.php"><?= $user->username ?></a></h2>
-                <h2><a href="profile.php"><?= $user->email ?></a></h2>
-                <h2><a id="edit_profile" href="editregister.php">Edit Profile</a></h2>
+            <section id=profileimage_maininfo>
+                <img src="/images/profilepictures/<?= $user->profilepicture ?>.png" alt="anonymous">
+                <section id=maininfo>
+                    <h1><a href="profile.php"><?= $user->name ?></a></h1>
+                    <h2><a href="profile.php"><?= $user->username ?></a></h2>
+                    <h2><a href="profile.php"><?= $user->email ?></a></h2>
+                    <h2><a id="edit_profile" href="editregister.php">Edit Profile</a></h2>
+                </section>
             </section>
+
             <?php if($user->isAdmin) { ?>
                 <section id=admin_area> <a href="admin.php">Admin Area</a></section>
             <?php }  ?>

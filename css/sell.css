@@ -55,6 +55,7 @@ header {
             &:hover {background-color: #dadada;}
             &:hover {color: #167ade;}
         }
+        #small_button {display: none;}
     }
     #login_signup_image, #logout_profile {
         display: flex;
@@ -147,4 +148,74 @@ footer {
     padding: 3px 6px;
     font-size: 12px;
     margin-left: 5px;
+}
+
+@media (max-width: 65em) {
+
+    body {
+        
+        header {
+            grid-template-columns: auto;
+            grid-template-rows: auto auto auto;
+
+            #title_slogan {
+                grid-row: 1;
+                justify-self: center;
+                h2 {display: none;}
+            }
+            #search {
+                grid-row: 2;
+                grid-row-start: 2;
+                #big_button {display: none;}
+                #small_button {
+                    display: block;
+                    width: 2.5em;
+                }
+            }
+            #login_signup_image, #logout_profile {
+                grid-row: 3;
+                justify-self: center;
+                a {
+                    content: "&#x1F50D";
+                }
+            }
+            
+        }
+
+
+        #nav_categories{
+
+            #hamburger {
+                &:checked {
+                    ~ ul {max-height: 25em;}
+                    ~ .hamburger::before {content: "\2715";}
+                }
+            }
+            .hamburger {
+                display: flex;
+                padding: 1em;
+                background-color: #272727;
+                &:before {
+                    content: "\2630";
+                    color: white;
+                    font-size: 1.5em;
+                }
+            }
+            ul {
+                flex-direction: column;
+                overflow: hidden;
+                max-height: 0;
+                transition: max-height .5s;
+                li {
+                    border-top: 0;
+                    list-style-type: none;
+                    background-color: #272727;
+                    a {color: #dadada;}
+                    &:hover {background-color: #dadada;}
+                    &:hover a{color: #272727;}    
+                }
+            }
+        }
+
+    }
 }
