@@ -144,9 +144,10 @@ body {
             }
         }
         #admin_area {
-            font-size: 2em;
-                max-width: fit-content;
-                place-self: center;
+            max-width: fit-content;
+            place-self: center;
+            a {
+                font-size: 2em;
                 background-color: #167ade;
                 color: #dadada;
                 font-weight: 700;
@@ -156,6 +157,7 @@ body {
                 padding: 0.6em;
                 &:hover {background-color: #dadada;}
                 &:hover {color: #167ade;}
+            }
         }
     }
 

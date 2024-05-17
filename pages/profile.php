@@ -45,7 +45,7 @@
                 <h2><a id="edit_profile" href="editregister.php">Edit Profile</a></h2>
             </section>
             <?php if($user->isAdmin) { ?>
-                <section id=admin_area> Admin Area</section>
+                <section id=admin_area> <a href="admin.php">Admin Area</a></section>
             <?php }  ?>
         </section>
 

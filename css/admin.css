@@ -75,137 +75,27 @@ body {
             }
         }
     }
-
-
-    #nav_categories {
-
-        #hamburger {display: none;} /*temporary*/
-
-        ul {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 0 1em 0 1em;
-            list-style-type: none;
-            li {
-                display: block;
-                flex: 1;
-                padding: 1em 0 1em 0;
-                border-radius: 10px;
-                font-size: 22px;
-                font-weight: 700;
-                text-align: center;
-                a {
-                    color: #272727;
-                    text-decoration: none;
-                }
-                &:hover {background-color: #272727;}
-                &:hover a{color: #dadada;}
-            }
-        }
-    }
-
-
-    #profileimage_maininfo {
-        display: grid;
-        grid-template-columns: 1fr 4fr 1fr;
-        padding: 2em;
-        background-color: #272727;
-        margin-bottom: 3em;
-        img {
-            justify-self: center;
-            height: 100%;
-            object-fit: cover;
-            overflow: hidden;
-        }
-        #maininfo {
-            display: grid;
-            grid-template-rows: 1fr 0.8fr 0.8fr;
-            margin-left: 2em;
-            h1{
-                font-size: 2.5em;
-                margin: 0;
-                align-self: center;
-            }
-            h2 {
-                font-size: 1.5em;
-                margin: 0;
-                align-self: center;
-                text-decoration: underline;
-                text-decoration-color: #dadada;
-            }
-        }
     
-    }
-
-
-    #items_for_sale {
-        margin-bottom: 3em;
-
-        > h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 1.5em;
-            a {
-                background-color: #272727;
-                padding: 0.5em;
-                border-radius: 10px;
-            }
-        }
-        #items_articles {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            padding: 0 1em 0 1em;
-            gap: 1em;
-
-            article {
-                padding: 1em;
-                display: flex;
-                flex-direction: column;
-                border-radius: 10px;
-                justify-content: space-evenly;
-                background-color: #272727;
-                max-width: 16em;
-                max-height: 22em;
-                h1 {
-                    text-align: center;
-                    font-size: 1.3em;
-                }
-                img {
-                    width: 100%;
-                    object-fit: cover;
-                    overflow: hidden;
-                }
-                footer {
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 1em;
-                    font-size: 1.3em;
-                }
-            }
-        }
-    }
-
-
-    #sell_item {
-        font-size: 1.3em;
+    ul {
+        font-size: 2em;
+        align-self: center;
+        justify-self: center;
         text-align: center;
-        margin-bottom: 6em;
-        background-color: #272727;
-        a {
-            padding: 0.5em;
-            background-color: #dadada;
-            color: #272727;
-            border-radius: 4em;
-        }
-        &:hover {
-            background-color: #dadada;
-            a {
-                color: #dadada;
-                background-color: #272727;
-            }
+        color: #dadada;
+        background-color: #272727;  
+        padding: 1em;
+        border-radius: 2em;
+        li {
+            font-size: 1em;
+            border-bottom: 5px solid #dadada;
+            list-style: none;
         }
     }
+
+
+
+
+
 
 
     > footer {

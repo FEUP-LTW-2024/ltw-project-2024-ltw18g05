@@ -24,8 +24,8 @@ CREATE TABLE User (
 -- Items table to store information about listed items
 CREATE TABLE Item (
     Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    Seller_Id INTEGER NOT NULL,
-    Category_Id INTEGER NOT NULL,
+    Seller_Id INTEGER NOT NULL on DELETE CASCADE ,
+    Category_Id INTEGER NOT NULL on DELETE CASCADE,
     Manufacturer TEXT NOT NULL,
     Name TEXT NOT NULL,
     Size TEXT,
@@ -92,6 +92,7 @@ CREATE TABLE Wishlist (
 -- Insert sample users
 INSERT INTO User (Username, Name, Password, Email, Is_admin, Profile_Picture) VALUES 
     ('admin', 'NameOfAdmin', 'admin123', 'admin@example.com', 1, 'black'),
+    ('admin2', 'ADMI', '123', 'admin2@example.com', 1, 'red'),
     ('user1', 'User One', 'password1', 'user1@example.com', 0, 'white'),
     ('user2', 'User Two', 'password2', 'user2@example.com', 0, 'white'),
     ('user3', 'User Three', 'password3', 'user3@example.com', 0, 'white'),

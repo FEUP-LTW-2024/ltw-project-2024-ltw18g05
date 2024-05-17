@@ -2,12 +2,10 @@
     declare(strict_types = 1);
 
     require_once(__DIR__ . '/../database/connection.db.php');
-
     require_once(__DIR__ . '/../database/category.class.php');
     require_once(__DIR__ . '/../database/item.class.php');
-
+    require_once(dirname(__DIR__).'/database/user.class.php');
     require_once(dirname(__DIR__).'/database/session.class.php');
-
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/item.tpl.php');
 
@@ -16,6 +14,7 @@
     $categories = Category::getAllCategories($db);
 
     $itemsForSale = Item::getItemsOfSellerUser($db,$session->getId());
+    if ($session->isLoggedIn()) {$user = User::getUserFromId($db,$session->getId());}
 ?>
 
 
@@ -28,27 +27,14 @@
         <link href="/css/admin.css" rel="stylesheet">
     </head>
     <body>
+        <?php drawHeader($session, $user);?>
+        <ul>
+            <span style="font-size: 1.5em;">Admin Option Thing</span>
+            <li><a href="createCategory.php">Add new Category</a></li>
+            <li>Manage Users</li>
+        </ul>
 
-        <?php drawHeader($session);?>
-        <?php drawNav($categories);?>
-
-        <section id="profileimage_maininfo">
-
-            <img src="/images/profilepictures/<?= $session->getProfilePicture() ?>.png" alt="anonymous">
-
-            <section id=maininfo>
-                <h1><a href="profile.php"><?= $session->getName() ?></a></h1>
-                <h2><a href="profile.php"><?= $session->getUsername() ?></a></h2>
-                <h2><a href="profile.php"><?= $session->getEmail() ?></a></h2>
-            </section>
-
-        </section>
-
-        <?php if (count($itemsForSale) != 0) {
-            drawItemsofSellerUser($itemsForSale);
-        } ?>
         
         <?php drawFooter();?>
-        
     </body>
 </html>
