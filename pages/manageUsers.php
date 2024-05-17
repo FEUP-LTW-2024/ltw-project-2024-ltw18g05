@@ -36,15 +36,27 @@
             <img src="/images/profilepictures/<?=$person->profilepicture ?>.png" alt="">
             <h1><?= $person->name ?></h1>
             <h2><?= $person->email ?></h2>
-            <?php if($person->isAdmin) : ?>
-                <h2>Admin</h2>
-            <?php else: ?>
-            <button>Promote to Admin</button>
-            <button>Ban</button>
-            <?php endif; ?>
+            <?php if($person->id != $user->id) {
+                if($person->isAdmin) { ?>
+                    <form method="post" action="/actions/demote.action.php">
+                        <input type="hidden" name="user_id" value="<?= $person->id ?>">
+                        <button type="submit" name="action" value="demote">Demote Admin</button>
+                    </form>
+                <?php } else { ?>
+                    <form method="post" action="/actions/promote.action.php">
+                        <input type="hidden" name="user_id" value="<?= $person->id ?>">
+                        <button type="submit" name="action" value="promote">Promote to Admin</button>
+                    </form>
+                    <form method="post" action="/actions/ban.action.php">
+                        <input type="hidden" name="user_id" value="<?= $person->id ?>">
+                        <button type="submit" name="action" value="ban">Ban</button>
+                    </form>
+                <?php }
+                } else {?>
+                    <h1>You're Him!</h1>
+                <?php } ?>
             </section>
         <?php }?>
         <?php drawFooter();?>
-        
     </body>
 </html>
