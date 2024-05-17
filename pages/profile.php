@@ -28,6 +28,35 @@
         <title>Voyager</title>
         <meta charset="UTF-8">
         <link href="/css/profile.css" rel="stylesheet">
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('#remove').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const itemId = this.dataset.itemId;
+                        fetch('/actions/removeItem.action.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: `item_id=${itemId}`
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                const article = this.closest('article');
+                                article.parentNode.removeChild(article);
+                            } else {
+                                alert('Failed to remove item: ' + data.message);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Failed to remove item due to a network error');
+                        });
+                    });
+                });
+            });
+    </script>
     </head>
     <body>
 

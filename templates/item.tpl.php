@@ -238,6 +238,7 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
                     <span class="price"><a href="item.php?id=<?=$item->id?>"><?=$item->price?>€</a></span>
                     <span class="condition"><a href="item.php?id=<?=$item->id?>"><?=$item->condition?></a></span>
                 </footer>
+                <button id="remove" data-item-id="<?=$item->id?>">Remove</button>
             </article>
 
     <?php }?>

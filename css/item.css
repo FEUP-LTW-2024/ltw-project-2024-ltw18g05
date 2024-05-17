@@ -89,6 +89,7 @@ body {
         padding-right: 3em;
         column-gap: 1em;
         position: relative;
+        margin-bottom: 5em;
         img {
             display: block;
             width: 100% ;
@@ -203,7 +204,6 @@ body {
         }
 
         #item {
-            margin-bottom: 5em;
             display: grid;
             grid-template-rows: auto auto;
             grid-template-columns: 1fr;
@@ -263,14 +263,6 @@ body {
                     &:hover {color: #167ade;}
                 }
             }
-        }
-    
-        
-        > footer {
-            background-color: #272727;
-            color: #dadada;
-            padding: 0.5em;
-            font-weight: 700;
         }
     }  
  

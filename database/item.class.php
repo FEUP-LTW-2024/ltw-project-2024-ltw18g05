@@ -119,5 +119,10 @@ class Item {
         } else return null;
     }
 
+    public static function removeItem(PDO $db, $itemId, $userId): bool {
+        $stmt = $db->prepare('DELETE FROM Item WHERE Id = ? AND Seller_Id = ?');
+        return $stmt->execute([$itemId, $userId]);
+    }
+
 }
 ?>
