@@ -36,6 +36,8 @@ CREATE TABLE Item (
     Price REAL NOT NULL,
     Image_path TEXT DEFAULT '/images/defaults/default_Item.jpg', -- Comma-separated paths to images
     Featured BOOLEAN NOT NULL DEFAULT FALSE,
+    Is_Sold BOOLEAN NOT NULL DEFAULT FALSE,
+    Buyer_Id INTEGER DEFAULT NULL,
     FOREIGN KEY (Seller_id) REFERENCES User(Id) on DELETE CASCADE,
     FOREIGN KEY (Category_id) REFERENCES Category(Id) on DELETE CASCADE
 );
