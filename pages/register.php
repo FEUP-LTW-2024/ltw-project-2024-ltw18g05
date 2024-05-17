@@ -44,8 +44,16 @@ declare(strict_types = 1);
                 <input type="password" id="password1" name="password1" required>
             </div>
             <div class="input-container">
-                <label for="password1">Confirm Password:</label>
+                <label for="password2">Confirm Password:</label>
                 <input type="password" id="password2" name="password2" required>
+            </div>
+            <div class="input-container">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="input-container">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" maxlength="15" name="phone" required>
             </div>
             <div class="input-container">
                 <label for="profilepicture">Profile Picture:</label>

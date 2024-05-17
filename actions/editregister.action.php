@@ -12,6 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $password1 = ($_POST["password1"] === '') ? null : $_POST["password1"];
         $password2 = ($_POST["password2"] === '') ? null : $_POST["password2"];
         $profilepicture = ($_POST["profilepicture"] === '') ? null : $_POST["profilepicture"];
+        $address = ($_POST["address"] === '') ? null : $_POST["address"];
+        $phone = ($_POST["phone"] === '') ? null : $_POST["phone"];
+
 
         $session = new Session();
         $db = getDatabaseConnection();
@@ -51,6 +54,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($profilepicture !== null) {
             $sql .= " Profile_Picture = :profilepicture,";
             $params[':profilepicture'] = $profilepicture;
+        }
+
+        if ($address !== null) {
+            $sql .= " Address = :address,";
+            $params[':address'] = $address;
+        }
+
+        if ($phone !== null) {
+            $sql .= " Phone = :phone,";
+            $params[':phone'] = $phone;
         }
 
         // Remove the trailing comma and space from SQL statement
