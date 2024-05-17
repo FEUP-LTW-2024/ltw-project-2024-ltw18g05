@@ -198,22 +198,25 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
                         </ul>
                     <?php endif; ?>
                     <?php if ($session->isLoggedIn()) { ?>
-                        <div class="button-container">
-                            <form action="/actions/wishlist.action.php" method="POST">
-                                <input type="hidden" name="itemId" value="<?= $item->id ?>"></input>
-                                <input type="hidden" name="userId" value="<?= $session->getId() ?>"></input>
-                                <button>Add to Wishlist</button>
-                            </form>
-                            <a href="../pages/conversation.php?user1Id=<?= $session->getId() ?>&user2Id=<?= $item->sellerId ?>&itemId=<?= $item->id ?>">
-                                <button>Message</button>
-                            </a>
-                        </div>
+                        <?php if ($item->sellerId !== $session->getId()) { ?>
+                            <div class="button-container">
+                                <form action="/actions/wishlist.action.php" method="POST">
+                                    <input type="hidden" name="itemId" value="<?= $item->id ?>"></input>
+                                    <input type="hidden" name="userId" value="<?= $session->getId() ?>"></input>
+                                    <button>Add to Wishlist</button>
+                                </form>
+                                <a href="../pages/conversation.php?user1Id=<?= $session->getId() ?>&user2Id=<?= $item->sellerId ?>&itemId=<?= $item->id ?>">
+                                    <button>Message</button>
+                                </a>
+                            </div>
+                        <?php } else { ?>
+                            <p>You are the seller of this item</p>
                     <?php } ?>                    
                 </section>
             </section>
     <?php }
     }?>
-<?php } ?>
+<?php } } ?>
 
 
 <!--profile.php draw functions-->

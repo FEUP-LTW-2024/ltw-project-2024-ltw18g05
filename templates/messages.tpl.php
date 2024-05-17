@@ -43,7 +43,9 @@
 <?php } ?>
 
 <?php function drawMessage(Message $message, Session $session) {
-    $message->openMessage();
+    if ($message->receiverId == $session->getId()) {
+        $message->openMessage();
+    }
     $sender = User::getUserById($session->getId());
     $isSender = $session->getId() == $message->senderId;
     ?>
@@ -76,7 +78,9 @@
                     <p><?= $mostRecentMessage->message ?></p>
                     <p><?= $item->name ?></p>
                 </div>
-                <p class="conversation-notification"><?= $unopenedMessagesCount ?></p>
+                <?php if ($unopenedMessagesCount > 0) { ?>
+                    <p class="conversation-notification"><?= $unopenedMessagesCount ?></p>
+                <?php } ?>
             </div>
         </a>
     <?php }
