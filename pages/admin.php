@@ -32,6 +32,7 @@
             <span style="font-size: 1.5em;">Admin Option Thing</span>
             <li><a href="createCategory.php">Add new Category</a></li>
             <li><a href="manageUsers.php">Manage Users</a></li>
+            <li><a href="manageItems.php">Manage Items</a></li>
         </ul>
 
         
