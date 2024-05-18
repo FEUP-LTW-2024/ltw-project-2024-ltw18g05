@@ -79,8 +79,13 @@ body {
             }
         }
     }
-
-    #category {
+    #list {
+        margin-bottom: 5em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #item {
         color: #dadada;
         background-color: #272727;
         border-radius: 2em;
@@ -92,7 +97,21 @@ body {
         grid-template-columns: auto auto auto auto auto;
         align-items: center;
         max-width: fit-content;
+        img {
+            align-self: center;
+            border-radius: 50%;
+            width: 5em;
+            height: 5em;
+            object-fit: cover;
+            overflow: hidden;
+        }
         h1 {
+            align-self: center;
+            font-size: 2em;
+            padding-right: 2em;
+            padding-left: 2em;
+        }
+        h2 {
             align-self: center;
             font-size: 2em;
             padding-right: 2em;
@@ -101,7 +120,23 @@ body {
         button {
             font-size: 1.5em;
             margin-right: 1em;
+            max-width: fit-content;
+            background-color: #167ade;
+            color: #dadada;
+            font-weight: 700;
+            width: 7em;
+            border-radius: 10px;
+            padding: 0.6em;
+            margin-left: 1em;
+            margin-right: 1em;
+            &:hover {background-color: #dadada;}
+            &:hover {color: #167ade;}
+            
         }
+    }
+
+    #bad {
+        background-color: #eb4163 !important;
     }
 
     > footer {

@@ -26,13 +26,14 @@
     <head>
         <title>Voyager</title>
         <meta charset="UTF-8">
-        <link href="/css/manageUsers.css" rel="stylesheet">
+        <link href="/css/manage.css" rel="stylesheet">
     </head>
     <body>
 
         <?php drawHeader($session, $user);?>
+        <section id="list">
         <?php foreach ($allUsers as $person) { ?>
-            <section id="user">
+            <section id="item">
             <img src="/images/profilepictures/<?=$person->profilepicture ?>.png" alt="">
             <h1><?= $person->name ?></h1>
             <h2><?= $person->email ?></h2>
@@ -40,16 +41,16 @@
                 if($person->isAdmin) { ?>
                     <form method="post" action="/actions/demote.action.php">
                         <input type="hidden" name="user_id" value="<?= $person->id ?>">
-                        <button type="submit" name="action" value="demote">Demote Admin</button>
+                        <button type="submit" name="action" value="demote">Demote</button>
                     </form>
                 <?php } else { ?>
                     <form method="post" action="/actions/promote.action.php">
                         <input type="hidden" name="user_id" value="<?= $person->id ?>">
-                        <button type="submit" name="action" value="promote">Promote to Admin</button>
+                        <button type="submit" name="action" value="promote">Promote</button>
                     </form>
                     <form method="post" action="/actions/ban.action.php">
                         <input type="hidden" name="user_id" value="<?= $person->id ?>">
-                        <button type="submit" name="action" value="ban">Ban</button>
+                        <button type="submit" name="action" value="ban" id="bad">Ban</button>
                     </form>
                 <?php }
                 } else {?>
@@ -57,6 +58,7 @@
                 <?php } ?>
             </section>
         <?php }?>
+        </section>
         <?php drawFooter();?>
     </body>
 </html>

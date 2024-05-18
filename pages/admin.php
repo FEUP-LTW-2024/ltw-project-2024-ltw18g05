@@ -29,7 +29,7 @@
     <body>
         <?php drawHeader($session, $user);?>
         <ul>
-            <span style="font-size: 1.5em;">Admin Option Thing</span>
+            <span style="font-size: 1.5em;">Admin Option Panel</span>
             <li><a href="createCategory.php">Add new Category</a></li>
             <li><a href="manageCategories.php">Remove Categories</a></li>
             <li><a href="manageUsers.php">Manage Users</a></li>

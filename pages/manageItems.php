@@ -26,16 +26,15 @@
     <head>
         <title>Voyager</title>
         <meta charset="UTF-8">
-        <link href="/css/manageItems.css" rel="stylesheet">
+        <link href="/css/manage.css" rel="stylesheet">
     </head>
     <body>
-
         <?php drawHeader($session, $user);?>
+        <section id="list">
         <?php foreach ($allItems as $item) { ?>
             <section id="item">
-                <img src="/images/items/<?=$item->imagePath?>" alt="">
+                <img src="<?=$item->imagePath?>" alt="">
                 <h1><?= $item->name ?></h1>
-                <h2><?= $item->sell ?></h2>
                 <?php if($item->featured) { ?>
                     <form method="post" action="/actions/unfeature.action.php">
                         <input type="hidden" name="item_id" value="<?= $item->id ?>">
@@ -44,15 +43,16 @@
                 <?php } else { ?>
                     <form method="post" action="/actions/feature.action.php">
                         <input type="hidden" name="item_id" value="<?= $item->id ?>">
-                        <button type="submit" name="action" value="feature">Feature Item</button>
+                        <button type="submit" name="action" value="feature">Feature</button>
                     </form>
                     <form method="post" action="/actions/removeItemAdmin.action.php">
                         <input type="hidden" name="item_id" value="<?= $item->id ?>">
-                        <button type="submit" name="action" value="remove">Remove Item</button>
+                        <button type="submit" name="action" value="remove" id="bad">Remove</button>
                     </form>
                 <?php } ?>
             </section>
         <?php }?>
+        </section>
         <?php drawFooter();?>
     </body>
 </html>

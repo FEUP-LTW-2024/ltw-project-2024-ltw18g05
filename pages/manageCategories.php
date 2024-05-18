@@ -25,19 +25,21 @@
     <head>
         <title>Voyager</title>
         <meta charset="UTF-8">
-        <link href="/css/manageCategories.css" rel="stylesheet">
+        <link href="/css/manage.css" rel="stylesheet">
     </head>
     <body>
         <?php drawHeader($session, $user);?>
-        <?php foreach ($categories as $category) { ?>
-            <section id="category">
-                <h1><?= $category->name ?></h1>
-                <form method="post" action="/actions/removeCategory.action.php">
-                    <input type="hidden" name="category_id" value="<?= $category->id ?>">
-                    <button type="submit" name="action" value="remove">Remove Category</button>
-                </form>
-            </section>
-        <?php }?>
+        <section id="list">
+            <?php foreach ($categories as $category) { ?>
+                <section id="item">
+                    <h1><?= $category->name ?></h1>
+                    <form method="post" action="/actions/removeCategory.action.php">
+                        <input type="hidden" name="category_id" value="<?= $category->id ?>">
+                        <button type="submit" name="action" value="remove" id="bad">Remove</button>
+                    </form>
+                </section>
+            <?php }?>
+        </section>
         <?php drawFooter();?>
     </body>
 </html>
