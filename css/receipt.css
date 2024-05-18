@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+body {
+    font-family: Manrope;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        tr {
+            td {
+                padding: 10px;
+                border: 1px solid black;
+            }
+            img {height: 9em;}
+        }
+    }
+}

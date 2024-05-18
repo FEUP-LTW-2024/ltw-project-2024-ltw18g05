@@ -11,6 +11,7 @@ $db = getDatabaseConnection();
 $session = new Session();
 $items = Item::getAllItems($db);
 $categories = Category::getAllCategories($db);
+$time = current($db->query("SELECT CURRENT_TIMESTAMP")->fetch());
 if ($session->isLoggedIn()) {$user = User::getUserFromId($db,$session->getId());}
 ?>
 
@@ -33,7 +34,7 @@ if(isset($_GET['id'])) {
     </head>
     <body>
         <?php drawHeader($session, $user);?>
-        <?php drawItemPage($items, $session);?>
+        <?php drawItemPage($items, $session, $time);?>
         <?php drawFooter();?>
     </body>
 </html>

@@ -171,7 +171,7 @@ function drawResults(array $items, array $categories, string $search_content, st
 <!--item.php draw functions-->
 
 
-<?php function drawItemPage(array $items, $session) {
+<?php function drawItemPage(array $items, $session, $time) {
 
 $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
 
@@ -208,6 +208,11 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
                                 <a href="../pages/conversation.php?user1Id=<?= $session->getId() ?>&user2Id=<?= $item->sellerId ?>&itemId=<?= $item->id ?>">
                                     <button>Message</button>
                                 </a>
+                                <form action="/pages/receipt.php" method="POST">
+                                    <input type="hidden" name="itemId" value="<?= $item->id ?>"></input>
+                                    <input type="hidden" name="time" value="<?= $time ?>"></input>
+                                    <button>Buy</button>
+                                </form>
                             </div>
                         <?php } else { ?>
                             <p>You are the seller of this item</p>
