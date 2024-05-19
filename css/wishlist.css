@@ -149,6 +149,11 @@ body {
                     justify-content: space-between;
                     padding: 1em;
                     font-size: 1.3em;
+                    #sold {
+                        padding: 0.3em;
+                        background-color: red;
+                        border-radius: 1em;
+                    }
                 }
                 #remove {
                     font-size: 1em;

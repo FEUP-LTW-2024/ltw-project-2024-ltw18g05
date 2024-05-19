@@ -8,8 +8,10 @@ class User {
     public string $email;
     public bool $isAdmin;
     public string $profilepicture;
+    public string $address;
+    public string $phone;
 
-    public function __construct($id, $username, $name, $password, $email, $isAdmin = false, $profilepicture = 'white') {
+    public function __construct($id, $username, $name, $password, $email, $isAdmin = false, $profilepicture = 'white', $address, $phone) {
         $this->id = $id;
         $this->username = $username;
         $this->name = $name;
@@ -17,6 +19,8 @@ class User {
         $this->email = $email;
         $this->isAdmin = $isAdmin;
         $this->profilepicture = $profilepicture;
+        $this->address = $address;
+        $this->phone = $phone;
     }
 
     static function getAllUsers(PDO $db) : array {
@@ -27,7 +31,7 @@ class User {
     
         while ($row = $stmt->fetch()) {
             // Create a User object for each row and add it to the users array
-            $user = new User($row['Id'], $row['Username'], $row['Name'], $row['Password'], $row['Email'], $row['Is_Admin'], $row['Profile_Picture']);
+            $user = new User($row['Id'], $row['Username'], $row['Name'], $row['Password'], $row['Email'], $row['Is_Admin'], $row['Profile_Picture'], $row['Address'], $row['Phone']);
             $users[] = $user;
         }
     
@@ -47,7 +51,9 @@ class User {
                 $user['Password'],
                 $user['Email'],
                 $user['Is_Admin'],
-                $user['Profile_Picture']
+                $user['Profile_Picture'],
+                $user['Address'],
+                $user['Phone']
             );
         } else return null;
     }
@@ -63,13 +69,15 @@ class User {
 
       if ($user = $stmt->fetch()) {
           return new User(
-              $user['Id'],
-              $user['Username'],
-              $user['Name'],
-              $user['Password'],
-              $user['Email'],
-              $user['Is_Admin'],
-              $user['Profile_Picture']
+            $user['Id'],
+            $user['Username'],
+            $user['Name'],
+            $user['Password'],
+            $user['Email'],
+            $user['Is_Admin'],
+            $user['Profile_Picture'],
+            $user['Address'],
+            $user['Phone']
           );
       } else return null;
   }
@@ -87,7 +95,9 @@ class User {
                 $user['Password'],
                 $user['Email'],
                 $user['Is_Admin'],
-                $user['Profile_Picture']
+                $user['Profile_Picture'],
+                $user['Address'],
+                $user['Phone']
             );
         } else { return null;}
     }

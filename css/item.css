@@ -206,6 +206,11 @@ body {
                 color: #ffffff !important;
                 font-size: 1.2em;
             }
+            #sold {
+                padding: 0.3em;
+                background-color: red;
+                border-radius: 1em ;
+            }
         }
 
     }

@@ -12,7 +12,7 @@ declare(strict_types = 1);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register - Voyager</title>
+    <title> Edit Profile - Voyager</title>
     <meta charset="UTF-8">
     <link href="/css/register.css" rel="stylesheet">
 </head>
