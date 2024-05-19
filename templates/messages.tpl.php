@@ -43,12 +43,15 @@
 <?php } ?>
 
 <?php function drawMessage(Message $message, Session $session) {
-    if ($message->receiverId == $session->getId()) {
-        $message->openMessage();
-    }
+    $message->openMessage();
     $sender = User::getUserById($session->getId());
     $isSender = $session->getId() == $message->senderId;
-    ?>Additional Itemsage->timestamp; ?></span>
+    ?>
+    <div class="message <?php echo $isSender ? 'sent' : 'received'; ?>">
+        <img class="profile-picture" src="/images/profilepictures/<?= $sender->profilepicture ?>.png" alt="Profile Picture">
+            <div class="message-content">
+                <p><?php echo $message->message; ?></p>
+                <span><?php echo $message->timestamp; ?></span>
             </div>
     </div>
 <?php } ?>
