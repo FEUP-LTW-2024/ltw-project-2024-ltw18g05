@@ -16,6 +16,7 @@
     $items = Item::getAllItems($db);
     $categories = Category::getAllCategories($db);
     if ($session->isLoggedIn()) {$user = User::getUserFromId($db,$session->getId());}
+    else {$user = null;}
 
     $search_content = $_GET['search_content'] ?? '';
     $condition_filter = $_GET['condition_filter'] ?? '';

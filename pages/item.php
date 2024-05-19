@@ -13,6 +13,7 @@ $items = Item::getAllItems($db);
 $categories = Category::getAllCategories($db);
 $time = current($db->query("SELECT CURRENT_TIMESTAMP")->fetch());
 if ($session->isLoggedIn()) {$user = User::getUserFromId($db,$session->getId());}
+else {$user = null;}
 ?>
 
 
