@@ -36,7 +36,7 @@
     <body>
         <table>
             <tr>
-                <td><h1>SHIPPING INFORMATION - Voyager I.C.G.</h1></td><td id="barcode"><h1>VoyagerInternational<?= $itemBought->id ?><?= $itemBought->sellerId ?><?= $itemBought->buyerId ?></h1></td>
+                <td><h1>SHIPPING INFORMATION - Voyager I.C.G.</h1></td><td id="barcode"><p>*VOYAGERINTERNATIONAL<?= $itemBought->id ?><?= $itemBought->sellerId ?><?= $itemBought->buyerId ?>*</p></td>
             </tr>
             <tr>
                 <td><h1>SENDER</h1></td><td><h1>RECIPIENT</h1></td>

@@ -15,7 +15,7 @@ body {
             }
             #barcode {
                 font-family: 'Libre Barcode 128 Text';
-                font-size: 2em;
+                font-size: 4em;
             }
             img {height: 9em;}
         }
