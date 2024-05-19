@@ -183,7 +183,7 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
                 <img src="<?= $item->imagePath ?>" alt="imagem">
                 <section id="description">
                     <h1><span class="highlight"><?= $item->name ?></span> </h1>
-                    <div id="usrdesc">sold by <span class="highlight"><?= $user->name ?></span></div>
+                    <div id="usrdesc">Sold by <span class="highlight"><?= $user->username ?></span></div>
                     <img src="/images/profilepictures/<?= $user->profilepicture?>.png" alt="">
                     <p id="desc"><?= $item->description ?></p>
 

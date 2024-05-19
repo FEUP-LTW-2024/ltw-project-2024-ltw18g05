@@ -109,7 +109,7 @@ header {
     margin-bottom: 0.5em;
 }
 
-.input-container input {
+.input-container input, .input-container select {
     width: 100%;
     padding: 0.5em;
     border-radius: 0.5em;
