@@ -27,7 +27,7 @@
     <section id=featured_articles>
 
         <?php foreach($items as $item) { 
-                if($item->featured) {?>
+                if($item->featured && (!$item->isSold)) {?>
 
             <article>
                 <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
@@ -52,7 +52,7 @@
     <section id=items_articles>
 
     <?php foreach($items as $item) { 
-                if(!$item->featured) {?>
+                if(!$item->featured && (!$item->isSold)) {?>
 
             <article>
                 <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
@@ -148,7 +148,7 @@ function drawResults(array $items, array $categories, string $search_content, st
 
             $matches_category_filter = $category_filter === '' || $categoryName_lower === strtolower($category_filter);
 
-            if ($matches_search_content && $matches_condition_filter && $within_price_range && $matches_category_filter) {
+            if ($matches_search_content && $matches_condition_filter && $within_price_range && $matches_category_filter && (!$item->isSold)) {
                 ?>
                 <article>
                     <img src="<?= $item->imagePath ?>" alt="default">
@@ -197,25 +197,45 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
                             <li>Manufacturer: <?= $item->manufacturer ?></li>
                         </ul>
                     <?php endif; ?>
+
+                    
                     <?php if ($session->isLoggedIn()) { ?>
                         <?php if ($item->sellerId !== $session->getId()) { ?>
-                            <div class="button-container">
-                                <form action="/actions/wishlist.action.php" method="POST">
-                                    <input type="hidden" name="itemId" value="<?= $item->id ?>"></input>
-                                    <input type="hidden" name="userId" value="<?= $session->getId() ?>"></input>
-                                    <button>Add to Wishlist</button>
-                                </form>
-                                <a href="../pages/conversation.php?user1Id=<?= $session->getId() ?>&user2Id=<?= $item->sellerId ?>&itemId=<?= $item->id ?>">
-                                    <button>Message</button>
-                                </a>
-                                <form action="/pages/receipt.php" method="POST">
-                                    <input type="hidden" name="itemId" value="<?= $item->id ?>"></input>
-                                    <input type="hidden" name="time" value="<?= $time ?>"></input>
-                                    <button>Buy</button>
-                                </form>
-                            </div>
+
+                            <?php if (!$item->isSold) { ?>
+                                    <div class="button-container">
+                                        <form action="/actions/wishlist.action.php" method="POST">
+                                            <input type="hidden" name="itemId" value="<?= $item->id ?>"></input>
+                                            <input type="hidden" name="userId" value="<?= $session->getId() ?>"></input>
+                                            <button>Add to Wishlist</button>
+                                        </form>
+                                        <a href="../pages/conversation.php?user1Id=<?= $session->getId() ?>&user2Id=<?= $item->sellerId ?>&itemId=<?= $item->id ?>">
+                                            <button>Message</button>
+                                        </a>
+                                        <form action="/pages/receipt.php" method="POST">
+                                            <input type="hidden" name="itemId" value="<?= $item->id ?>"></input>
+                                            <input type="hidden" name="time" value="<?= $time ?>"></input>
+                                            <button>Buy</button>
+                                        </form>
+                                    </div>
+                            <?php } else {?>
+                                    <div class="button-container"><h2><a id="sold">THIS ITEM HAS BEEN SOLD</a></h2></div>
+                            <?php } ?>
+
                         <?php } else { ?>
-                            <p>You are the seller of this item</p>
+
+                            <?php if (!$item->isSold) { ?>
+                                    <p>You are the seller of this item</p>
+                            <?php } else {?>
+                                    <div class="button-container">
+                                        <h2><a id="sold">THIS ITEM HAS BEEN SOLD</a></h2>
+                                        <form action="/pages/shippingForm.php" method="POST">
+                                            <input type="hidden" name="itemId" value="<?= $item->id ?>"></input>
+                                            <button id="sold" >Shipping Form</button>
+                                        </form>
+                                    </div>
+                            <?php } ?>
+
                         <?php } ?>
                     <?php } ?>
                 
@@ -235,7 +255,7 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
     <section id=items_articles>
 
     <?php foreach($itemsForSale as $item) { ?>
-
+        <?php if (!$item->isSold) { ?>
             <article>
                 <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
                 <img src=<?=$item->imagePath?> alt="imagePath">
@@ -245,7 +265,16 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
                 </footer>
                 <button id="remove" data-item-id="<?=$item->id?>">Remove</button>
             </article>
-
+        <?php } else {?>
+            <article>
+                <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
+                <img src=<?=$item->imagePath?> alt="imagePath">
+                <footer>
+                    <span id="sold"><a href="item.php?id=<?=$item->id?>">SOLD</a></span>
+                </footer>
+                <button id="remove" data-item-id="<?=$item->id?>">Remove</button>
+            </article>
+        <?php } ?>
     <?php }?>
 
     </section>
@@ -262,7 +291,7 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
     <section id=items_articles>
 
     <?php foreach($items_of_wishlist as $item) { ?>
-
+        <?php if (!$item['Is_Sold']) { ?>
             <article id="item-<?=$item['Id']?>">
                 <h1><a href="item.php?id=<?=$item['Id']?>"><?=$item['Name']?></a></h1>
                 <img src=<?=$item["Image_path"];?> alt="imagePath">
@@ -272,7 +301,16 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
                 </footer>
                 <button id="remove" onclick="removeFromWishlist(<?=$item['Id']?>)">Remove</button>
             </article>
-
+        <?php } else {?>
+            <article id="item-<?=$item['Id']?>">
+                <h1><a href="item.php?id=<?=$item['Id']?>"><?=$item['Name']?></a></h1>
+                <img src=<?=$item["Image_path"];?> alt="imagePath">
+                <footer>
+                    <span id="sold"><a href="item.php?id=<?=$item['Id']?>">SOLD</a></span>
+                </footer>
+                <button id="remove" onclick="removeFromWishlist(<?=$item['Id']?>)">Remove</button>
+            </article>
+        <?php } ?>
     <?php }?>
 
     </section>

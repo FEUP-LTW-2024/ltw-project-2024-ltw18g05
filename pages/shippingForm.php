@@ -20,9 +20,9 @@
     else {$user = null;}
 
     $itemId = $_POST['itemId'] ?? '';
-    $time = $_POST['time'] ?? '';
     $itemBought = Item::getItemById($itemId);
     $seller = User::getUserById($itemBought->sellerId);
+    $buyer = User::getUserById($itemBought->buyerId);
 
     Item::markItemAsSold($db, $itemBought->id, $session->getId());
 ?>
@@ -30,33 +30,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>PAYMENT RECEIPT - Voyager</title>
+        <title>SHIPPING FORM - Voyager</title>
         <meta charset="UTF-8">
         <link href="/css/receipt.css" rel="stylesheet">
     </head>
     <body>
         <table>
             <tr>
-                <td><h1>Voyager</h1></td>
+                <td colspan="2"><h1>SHIPPING INFORMATION - Voyager I.C.G.</h1></td>
             </tr>
             <tr>
-                <td><h1>PURCHASE INFORMATION</h1></td>
-                <td><h1>ITEM INFORMATION</h1></td>
+                <td><h1>SENDER</h1></td><td><h1>RECIPIENT</h1></td>
             </tr>
             <tr>
-                <td><h2>Time of Purchase: <?= $time ?> </h2><td><h2>Name: <?= $itemBought->name ?> </h2></td>
+                <td><h2>Name: <?= $seller->name ?> </h2></td></td><td><h2>Name: <?= $buyer->name ?> </h2></td></td>
             </tr>
             <tr>
-                <td><h2>Seller's name: <?= $seller->name ?> </h2></td></td><td><h2>Price: <?= $itemBought->price ?>€ </h2></td>
+                <td><h2>Address: <?= $seller->address ?> </h2></td></td><td><h2>Address: <?= $buyer->address ?> </h2></td></td>
             </tr>
             <tr>
-                <td><h2>Seller's contact: <?= $seller->phone ?> </h2><td><h2>Condition: <?= $itemBought->condition ?> </h2></td>
+                <td><h2>Contact: <?= $seller->phone ?> </h2><td><h2>Contact: <?= $buyer->phone ?> </h2>
             </tr>
             <tr>
-                <td></td><td><h2>Manufacturer: <?= $itemBought->manufacturer ?> </h2></td>
-            </tr>
-            <tr>
-                <td></td><td><h2>Size: <?= $itemBought->size ?> </h2></td>
+                <td colspan="2"><h2>Shipping partners:</h2><img src="/images/others/CTT.png" alt="CTT"><img src="/images/others/LTW.png" alt="LTW"><img src="/images/others/AirCargo.png" alt="aircargo"></td>
             </tr>
         </table>
     </body>

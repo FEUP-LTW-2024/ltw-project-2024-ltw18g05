@@ -145,6 +145,11 @@ body {
                 align-self: center;
                 place-self: center;
                 gap: 100px;
+                #sold {
+                    padding: 0.3em;
+                    background-color: red;
+                    border-radius: 1em ;
+                }
             }
         }
     }
