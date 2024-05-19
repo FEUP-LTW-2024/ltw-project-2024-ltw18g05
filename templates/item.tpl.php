@@ -245,6 +245,7 @@ function drawResults(array $items, array $categories, string $search_content, st
                                             <button>Message</button>
                                         </a>
                                         <form action="/pages/receipt.php" method="POST">
+                                            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                                             <input type="hidden" name="itemId" value="<?= $item->id ?>"></input>
                                             <input type="hidden" name="time" value="<?= $time ?>"></input>
                                             <button>Buy</button>
