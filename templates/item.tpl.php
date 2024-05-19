@@ -1,6 +1,7 @@
 <?php 
   declare(strict_types = 1); 
-  require_once(__DIR__ . '/../database/item.class.php')
+  require_once(__DIR__ . '/../database/item.class.php');
+  require_once(__DIR__ . '/../database/user.class.php')
 ?>
 
 
@@ -177,24 +178,27 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
 
     foreach($items as $item) { 
         if($item->id === $itemIdFromUrl) {?>
+            <?php $user = User::getUserById($item->sellerId); ?>
             <section id="item">
                 <img src="<?= $item->imagePath ?>" alt="imagem">
                 <section id="description">
-                    <h1><?= $item->name ?></h1>
-                    <p><?= $item->description ?></p>
+                    <h1><span class="highlight"><?= $item->name ?></span> </h1>
+                    <div id="usrdesc">sold by <span class="highlight"><?= $user->name ?></span></div>
+                    <img src="/images/profilepictures/<?= $user->profilepicture?>.png" alt="">
+                    <p id="desc"><?= $item->description ?></p>
 
                     <?php if($item->size === "N/A"): ?>
                         <ul>
-                            <li>Price: <?= $item->price ?> €</li>
-                            <li>Quality: <?= $item->condition ?></li>
-                            <li>Manufacturer: <?= $item->manufacturer ?></li>
+                            <li><span class="highlight">Price:</span> <?= $item->price ?> €</li>
+                            <li><span class="highlight">Condition:</span> <?= $item->condition ?></li>
+                            <li><span class="highlight">Manufacturer:</span> <?= $item->manufacturer ?></li>
                         </ul>
                     <?php else: ?>
                         <ul>
-                            <li>Price: <?= $item->price ?> €</li>
-                            <li>Quality: <?= $item->condition ?></li>
-                            <li>Size: <?= $item->size ?></li>
-                            <li>Manufacturer: <?= $item->manufacturer ?></li>
+                            <li><span class="highlight">Price:</span><?= $item->price ?> €</li>
+                            <li><span class="highlight">Condition:</span> <?= $item->condition ?></li>
+                            <li><span class="highlight">Size:</span> <?= $item->size ?></li>
+                            <li><span class="highlight">Manufacturer:</span> <?= $item->manufacturer ?></li>
                         </ul>
                     <?php endif; ?>
                     <?php if ($session->isLoggedIn()) { ?>
@@ -210,7 +214,7 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
                                 </a>
                             </div>
                         <?php } else { ?>
-                            <p>You are the seller of this item</p>
+                            <p id="info">You are the seller of this item.</p>
                         <?php } ?>
                     <?php } ?>
                 
