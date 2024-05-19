@@ -111,104 +111,6 @@ body {
     }
 
 
-    #featured {
-        margin-bottom: 3em;
-        > h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 1.5em;
-            a {
-                background-color: #272727;
-                padding: 0.5em;
-                border-radius: 10px;
-            }
-        }
-        #featured_articles {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            gap: 1em;
-            padding: 0 1em 0 1em;
-
-            article {
-                padding: 1em;
-                display: flex;
-                flex-direction: column;
-                border-radius: 10px;
-                justify-content: space-evenly;
-                background-color: #272727;
-                max-width: 32em;
-                max-height: 40em;
-                h1 {
-                    text-align: center;
-                    font-size: 1.8em;
-                }
-                img {
-                    width: 100%;
-                    object-fit: cover;
-                    overflow: hidden;
-                }
-                footer {
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 1em;
-                    font-size: 1.8em;
-                }
-            }
-        }
-    }
-
-
-
-    #items {
-        margin-bottom: 3em;
-
-        > h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 1.5em;
-            a {
-                background-color: #272727;
-                padding: 0.5em;
-                border-radius: 10px;
-            }
-        }
-        #items_articles {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            padding: 0 1em 0 1em;
-            gap: 1em;
-
-            article {
-                padding: 1em;
-                display: flex;
-                flex-direction: column;
-                border-radius: 10px;
-                justify-content: space-evenly;
-                background-color: #272727;
-                max-width: 16em;
-                max-height: 22em;
-                h1 {
-                    text-align: center;
-                    font-size: 1.3em;
-                }
-                img {
-                    width: 100%;
-                    object-fit: cover;
-                    overflow: hidden;
-                }
-                footer {
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 1em;
-                    font-size: 1.3em;
-                }
-            }
-        }
-    }
-
-
     > footer {
         background-color: #272727;
         color: #dadada;
@@ -220,6 +122,12 @@ body {
         margin-top: auto;
     }
 
+}
+
+#noMessages {
+    text-align: center;
+    font-size: 2em;
+    color: #272727;
 }
 
 #conversations {
