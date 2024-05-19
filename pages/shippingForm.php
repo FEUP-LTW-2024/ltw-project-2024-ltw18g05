@@ -24,7 +24,6 @@
     $seller = User::getUserById($itemBought->sellerId);
     $buyer = User::getUserById($itemBought->buyerId);
 
-    Item::markItemAsSold($db, $itemBought->id, $session->getId());
 ?>
 
 <!DOCTYPE html>
@@ -32,12 +31,12 @@
     <head>
         <title>SHIPPING FORM - Voyager</title>
         <meta charset="UTF-8">
-        <link href="/css/receipt.css" rel="stylesheet">
+        <link href="/css/receiptShipping.css" rel="stylesheet">
     </head>
     <body>
         <table>
             <tr>
-                <td colspan="2"><h1>SHIPPING INFORMATION - Voyager I.C.G.</h1></td>
+                <td><h1>SHIPPING INFORMATION - Voyager I.C.G.</h1></td><td id="barcode"><h1>VoyagerInternational<?= $itemBought->id ?><?= $itemBought->sellerId ?><?= $itemBought->buyerId ?></h1></td>
             </tr>
             <tr>
                 <td><h1>SENDER</h1></td><td><h1>RECIPIENT</h1></td>
