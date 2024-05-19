@@ -32,7 +32,6 @@ if ($session->isLoggedIn()) {$user = User::getUserFromId($db,$session->getId());
     <body>
 
         <?php drawHeader($session, $user);?>
-        <?php drawNav($categories);?>
 
         <section id=conversation>
             <?php drawConversation($user1Id, $user2Id, $itemId, $session);?>
