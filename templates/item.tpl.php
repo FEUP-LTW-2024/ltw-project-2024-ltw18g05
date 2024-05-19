@@ -23,53 +23,72 @@
 
 
 <?php function drawFeatured(array $items) { ?>
-<section id=featured>
-    <h1><a>Featured Items</a></h1>
-    <section id=featured_articles>
+    <section id="featured">
+        <h1><a>Featured Items</a></h1>
+        <section id="featured_articles">
+
+            <?php foreach($items as $item) { 
+                    if($item->featured && (!$item->isSold)) {?>
+                <article>
+                    <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
+                    <img id="itemImage<?=$item->id?>" src="<?=$item->imagePath?>" alt="<?=$item->name?>">
+                    <footer>
+                        <span class="price"><a href="item.php?id=<?=$item->id?>"><?=$item->price?>€</a></span>
+                        <span class="condition"><a href="item.php?id=<?=$item->id?>"><?=$item->condition?></a></span>
+                    </footer>
+                </article>
+
+            <?php }
+                }?>
+
+        </section>
+    </section>
+
+    <script>
+        document.querySelectorAll('#featured_articles img').forEach(function(img) {
+            img.addEventListener('click', function() {
+                const itemId = this.id.replace('itemImage', '');
+                window.location.href = 'item.php?id=' + itemId;
+            });
+        });
+    </script>
+<?php } ?>
+
+
+
+<?php function drawItems(array $items) { ?>
+    <section id="items">
+        <h1><a>Additional Items</a></h1>
+        <section id="items_articles">
 
         <?php foreach($items as $item) { 
-                if($item->featured && (!$item->isSold)) {?>
+                    if(!$item->featured && (!$item->isSold)) {?>
 
-            <article>
-                <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
-                <img src=<?=$item->imagePath?> alt="imagePath">
-                <footer>
-                    <span class="price"><a href="item.php?id=<?=$item->id?>"><?=$item->price?>€</a></span>
-                    <span class="condition"><a href="item.php?id=<?=$item->id?>"><?=$item->condition?></a></span>
-                </footer>
-            </article>
+                <article>
+                    <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
+                    <img id="itemImage<?=$item->id?>" src="<?=$item->imagePath?>" alt="<?=$item->name?>">
+                    <footer>
+                        <span class="price"><a href="item.php?id=<?=$item->id?>"><?=$item->price?>€</a></span>
+                        <span class="condition"><a href="item.php?id=<?=$item->id?>"><?=$item->condition?></a></span>
+                    </footer>
+                </article>
 
         <?php }
             }?>
 
+        </section>
     </section>
-</section>
+
+    <script>
+        document.querySelectorAll('#items_articles img').forEach(function(img) {
+            img.addEventListener('click', function() {
+                const itemId = this.id.replace('itemImage', '');
+                window.location.href = 'item.php?id=' + itemId;
+            });
+        });
+    </script>
 <?php } ?>
 
-
-<?php function drawItems(array $items) { ?>
-<section id=items>
-    <h1><a>Additional Items</a></h1>
-    <section id=items_articles>
-
-    <?php foreach($items as $item) { 
-                if(!$item->featured && (!$item->isSold)) {?>
-
-            <article>
-                <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
-                <img src=<?=$item->imagePath?> alt="imagePath">
-                <footer>
-                    <span class="price"><a href="item.php?id=<?=$item->id?>"><?=$item->price?>€</a></span>
-                    <span class="condition"><a href="item.php?id=<?=$item->id?>"><?=$item->condition?></a></span>
-                </footer>
-            </article>
-
-    <?php }
-        }?>
-
-    </section>
-</section>
-<?php } ?>
 
 
 <!--results.php draw functions-->
@@ -152,7 +171,7 @@ function drawResults(array $items, array $categories, string $search_content, st
             if ($matches_search_content && $matches_condition_filter && $within_price_range && $matches_category_filter && (!$item->isSold)) {
                 ?>
                 <article>
-                    <img src="<?= $item->imagePath ?>" alt="default">
+                    <img id="itemImage<?=$item->id?>" src="<?= $item->imagePath ?>" alt="<?=$item->name?>">
                     <h1><a href="item.php?id=<?=$item->id?>"><?= $item->name ?></a></h1>
                     <footer>
                         <span class="price"><a href="item.php?id=<?=$item->id?>"><?= $item->price ?>€</a></span>
@@ -164,9 +183,18 @@ function drawResults(array $items, array $categories, string $search_content, st
         }
         ?>
     </section>
-<?php 
-} 
+
+    <script>
+        document.querySelectorAll('#results_articles img').forEach(function(img) {
+            img.addEventListener('click', function() {
+                const itemId = this.id.replace('itemImage', '');
+                window.location.href = 'item.php?id=' + itemId;
+            });
+        });
+    </script>
+<?php }
 ?>
+
 
 
 <!--item.php draw functions-->
@@ -174,7 +202,7 @@ function drawResults(array $items, array $categories, string $search_content, st
 
 <?php function drawItemPage(array $items, $session, $time) {
 
-$itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
+    $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
 
     foreach($items as $item) { 
         if($item->id === $itemIdFromUrl) {?>
@@ -252,70 +280,90 @@ $itemIdFromUrl = isset($_GET['id']) ? intval($_GET['id']) : null;
 
 
 <?php function drawItemsofSellerUser(array $itemsForSale) { ?>
-<section id=items_for_sale>
-    <h1><a>Items Set For Sale</a></h1>
-    <section id=items_articles>
+    <section id="items_for_sale">
+        <h1><a>Items Set For Sale</a></h1>
+        <section id="items_articles">
 
-    <?php foreach($itemsForSale as $item) { ?>
-        <?php if (!$item->isSold) { ?>
-            <article>
-                <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
-                <img src=<?=$item->imagePath?> alt="imagePath">
-                <footer>
-                    <span class="price"><a href="item.php?id=<?=$item->id?>"><?=$item->price?>€</a></span>
-                    <span class="condition"><a href="item.php?id=<?=$item->id?>"><?=$item->condition?></a></span>
-                </footer>
-                <button id="remove" data-item-id="<?=$item->id?>">Remove</button>
-            </article>
-        <?php } else {?>
-            <article>
-                <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
-                <img src=<?=$item->imagePath?> alt="imagePath">
-                <footer>
-                    <span id="sold"><a href="item.php?id=<?=$item->id?>">SOLD</a></span>
-                </footer>
-                <button id="remove" data-item-id="<?=$item->id?>">Remove</button>
-            </article>
+        <?php foreach($itemsForSale as $item) { ?>
+            <?php if (!$item->isSold) { ?>
+                <article>
+                    <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
+                    <img id="itemImage<?=$item->id?>" src="<?=$item->imagePath?>" alt="<?=$item->name?>">
+                    <footer>
+                        <span class="price"><a href="item.php?id=<?=$item->id?>"><?=$item->price?>€</a></span>
+                        <span class="condition"><a href="item.php?id=<?=$item->id?>"><?=$item->condition?></a></span>
+                    </footer>
+                    <button id="remove" data-item-id="<?=$item->id?>">Remove</button>
+                </article>
+            <?php } else { ?>
+                <article>
+                    <h1><a href="item.php?id=<?=$item->id?>"><?=$item->name?></a></h1>
+                    <img id="itemImage<?=$item->id?>" src="<?=$item->imagePath?>" alt="<?=$item->name?>">
+                    <footer>
+                        <span id="sold"><a href="item.php?id=<?=$item->id?>">SOLD</a></span>
+                    </footer>
+                    <button id="remove" data-item-id="<?=$item->id?>">Remove</button>
+                </article>
+            <?php } ?>
         <?php } ?>
-    <?php }?>
 
+        </section>
     </section>
-</section>
+
+    <script>
+        document.querySelectorAll('#items_articles img').forEach(function(img) {
+            img.addEventListener('click', function() {
+                const itemId = this.id.replace('itemImage', '');
+                window.location.href = 'item.php?id=' + itemId;
+            });
+        });
+    </script>
 <?php } ?>
+
 
 
 <!--wishlist.php draw functions-->
 
 
 <?php function drawItemsofWishlist(array $items_of_wishlist) { ?>
-<section id=items_of_wishlist>
-    <h1><a>WISHLIST ❤️</a></h1>
-    <section id=items_articles>
+    <section id="items_of_wishlist">
+        <h1><a>WISHLIST ❤️</a></h1>
+        <section id="items_articles">
 
-    <?php foreach($items_of_wishlist as $item) { ?>
-        <?php if (!$item['Is_Sold']) { ?>
-            <article id="item-<?=$item['Id']?>">
-                <h1><a href="item.php?id=<?=$item['Id']?>"><?=$item['Name']?></a></h1>
-                <img src=<?=$item["Image_path"];?> alt="imagePath">
-                <footer>
-                    <span class="price"><a href="item.php?id=<?=$item['Id']?>"><?=$item['Price']?>€</a></span>
-                    <span class="condition"><a href="item.php?id=<?=$item['Id']?>"><?=$item['Condition']?></a></span>
-                </footer>
-                <button id="remove" onclick="removeFromWishlist(<?=$item['Id']?>)">Remove</button>
-            </article>
-        <?php } else {?>
-            <article id="item-<?=$item['Id']?>">
-                <h1><a href="item.php?id=<?=$item['Id']?>"><?=$item['Name']?></a></h1>
-                <img src=<?=$item["Image_path"];?> alt="imagePath">
-                <footer>
-                    <span id="sold"><a href="item.php?id=<?=$item['Id']?>">SOLD</a></span>
-                </footer>
-                <button id="remove" onclick="removeFromWishlist(<?=$item['Id']?>)">Remove</button>
-            </article>
+        <?php foreach($items_of_wishlist as $item) { ?>
+            <?php if (!$item['Is_Sold']) { ?>
+                <article id="item-<?=$item['Id']?>">
+                    <h1><a href="item.php?id=<?=$item['Id']?>"><?=$item['Name']?></a></h1>
+                    <img id="itemImage<?=$item['Id']?>" src="<?=$item['Image_path']?>" alt="<?=$item['Name']?>">
+                    <footer>
+                        <span class="price"><a href="item.php?id=<?=$item['Id']?>"><?=$item['Price']?>€</a></span>
+                        <span class="condition"><a href="item.php?id=<?=$item['Id']?>"><?=$item['Condition']?></a></span>
+                    </footer>
+                    <button id="remove" onclick="removeFromWishlist(<?=$item['Id']?>)">Remove</button>
+                </article>
+            <?php } else { ?>
+                <article id="item-<?=$item['Id']?>">
+                    <h1><a href="item.php?id=<?=$item['Id']?>"><?=$item['Name']?></a></h1>
+                    <img id="itemImage<?=$item['Id']?>" src="<?=$item['Image_path']?>" alt="<?=$item['Name']?>">
+                    <footer>
+                        <span id="sold"><a href="item.php?id=<?=$item['Id']?>">SOLD</a></span>
+                    </footer>
+                    <button id="remove" onclick="removeFromWishlist(<?=$item['Id']?>)">Remove</button>
+                </article>
+            <?php } ?>
         <?php } ?>
-    <?php }?>
 
+        </section>
     </section>
-</section>
+
+    <script>
+        document.querySelectorAll('#items_articles img').forEach(function(img) {
+            img.addEventListener('click', function() {
+                const itemId = this.id.replace('itemImage', '');
+                window.location.href = 'item.php?id=' + itemId;
+            });
+        });
+    </script>
 <?php } ?>
+
 
