@@ -22,15 +22,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $db = getDatabaseConnection();
 
         $stmt = $db->prepare("INSERT INTO User (Username, Name, Password, Email, Profile_Picture, Address, Phone) VALUES (:username, :name, :password, :email, :profilepicture, :address, :phone)");
+
+        $options = ['cost' => 12];
         
         $stmt->bindValue(':email', $email);
         $stmt->bindValue(':username', $username);
         $stmt->bindValue(':name', $name);
-        $stmt->bindValue(':password', $password1);
+        $stmt->bindValue(':password', password_hash($password1, PASSWORD_DEFAULT, $options));
         $stmt->bindValue(':profilepicture', $profilepicture);
         $stmt->bindValue(':address', $address);
         $stmt->bindValue(':phone', $phone);
-
         
         $stmt->execute();
         $stmt->closeCursor();

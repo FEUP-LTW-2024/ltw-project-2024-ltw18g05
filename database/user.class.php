@@ -62,12 +62,14 @@ class User {
       $stmt = $db->prepare('
           SELECT *
           FROM User 
-          WHERE lower(Email) = ? AND Password = ?
+          WHERE lower(Email) = ?
       ');
 
-      $stmt->execute(array(strtolower($email), $password));
+      $stmt->execute(array(strtolower($email)));
 
-      if ($user = $stmt->fetch()) {
+      $user = $stmt->fetch();
+
+      if ($user && password_verify($password, $user['Password'])) {
           return new User(
             $user['Id'],
             $user['Username'],

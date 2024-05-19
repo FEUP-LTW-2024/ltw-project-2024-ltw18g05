@@ -67,8 +67,8 @@ CREATE TABLE Message (
     Message_text TEXT NOT NULL,
     Send_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Opened BOOLEAN NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (Sender_Id) REFERENCES User(Id),
-    FOREIGN KEY (Receiver_Id) REFERENCES User(Id),
+    FOREIGN KEY (Sender_Id) REFERENCES User(Id) ON DELETE CASCADE,
+    FOREIGN KEY (Receiver_Id) REFERENCES User(Id) ON DELETE CASCADE,
     FOREIGN KEY (Conversation_Id) REFERENCES Conversation(Id) ON DELETE CASCADE
 );
 
@@ -77,8 +77,8 @@ CREATE TABLE Conversation (
     User1_Id INTEGER NOT NULL,
     User2_Id INTEGER NOT NULL,
     Item_Id INTEGER NOT NULL,
-    FOREIGN KEY (User1_Id) REFERENCES User(Id),
-    FOREIGN KEY (User2_Id) REFERENCES User(Id),
+    FOREIGN KEY (User1_Id) REFERENCES User(Id) ON DELETE CASCADE,
+    FOREIGN KEY (User2_Id) REFERENCES User(Id) ON DELETE CASCADE,
     FOREIGN KEY (Item_Id) REFERENCES Item(Id) ON DELETE CASCADE
 );
 
@@ -96,11 +96,11 @@ CREATE TABLE Wishlist (
 
 -- Insert sample users
 INSERT INTO User (Username, Name, Password, Email, Is_admin, Profile_Picture, Address, Phone) VALUES 
-    ('admin', 'NameOfAdmin', 'admin123', 'admin@example.com', 1, 'black', 'Admin Address', '123456789'),
-    ('admin2', 'ADMI', '123', 'admin2@example.com', 1, 'red', 'Admin2 Address', '987654321'),
-    ('user1', 'User One', 'password1', 'user1@example.com', 0, 'white', 'User1 Address', '111111111'),
-    ('user2', 'User Two', 'password2', 'user2@example.com', 0, 'white', 'User2 Address', '222222222'),
-    ('user3', 'User Three', 'password3', 'user3@example.com', 0, 'white', 'User3 Address', '333333333'),
+    ('admin', 'NameOfAdmin', '$2a$12$e/79zbaaMrx5n.c2/m5cH.vnQ0IFHV1UPhFIenaV2i3p1YIBT8El2', 'admin@example.com', 1, 'black', 'Admin Address', '123456789'),
+    ('admin2', 'ADMI', '$2a$12$2Zp/GR/9XHxGNEUNMBEkyu8KaLmedJ/YNEHtOFE47/iOK8.8fHVO6', 'admin2@example.com', 1, 'red', 'Admin2 Address', '987654321'),
+    ('user1', 'User One', '$2a$12$gKkLzQDFqmVHZvlhjDC0SuVfOiSw0uvccv6nHSPIGHG2h.Mk3eLEi', 'user1@example.com', 0, 'white', 'User1 Address', '111111111'),
+    ('user2', 'User Two', '$2a$12$FwSZgHSnB7iXnq7z12hcweGJV/KNuY5WlFZk6cGaSl.JLskZIS5/.', 'user2@example.com', 0, 'white', 'User2 Address', '222222222'),
+    ('user3', 'User Three', '$2a$12$UsL2IpOSJSi19EhuAOSyGuiqiHu4KMGd7xGOqQKCGHEPJZvsUHwE6', 'user3@example.com', 0, 'white', 'User3 Address', '333333333'),
     ('SunnySurfer21', 'Sunny Surfer', 's3cureP@ss', 'sunny_surfer21@gmail.com', 0, 'orange', 'SunnySurfer21 Address', '444444444'),
     ('ArtisticAdventurer', 'Artistic Adventurer', 'P@intM3aN0ther', 'artistic_adv@example.com', 0, 'blue', 'ArtisticAdventurer Address', '555555555'),
     ('CulinaryConnoisseur', 'Culinary Connoisseur', 'T@steExp3rt', 'culinary_connoisseur@example.com', 0, 'red', 'CulinaryConnoisseur Address', '666666666'),
